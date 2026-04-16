@@ -1,0 +1,59 @@
+/* layout-med-spa-serv.css */
+section>.content>.img-wrapper {
+    float: right;
+}
+
+section>.content>iframe {
+    float: left;
+}
+
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#botoxAndFillers>.img-wrapper {
+    float: left !important;
+}
+
+#hairRestoration>.img-wrapper {
+    float: right;
+}
+
+#microNeedling>.img-wrapper {
+    float: left;
+}
+
+#facialRestoration>.img-wrapper {
+    float: right;
+}
+
+#vaginalRejuvenation>.img-wrapper {
+    float: left;
+}
+
+.section.colored .more-info-links {
+    display: flex;
+    gap: 1%;
+    justify-content: flex-end;
+}
+
+.section .more-info-links {
+    display: none;
+}
+
+.more-info-links>button {
+    flex-basis: 20%;
+}
+.section > button.section-title {
+    display: flex;
+}
+.title-text {
+    white-space: nowrap;
+}
+.section > button.section-title > .title-text{
+    /* display:inline-flex; */
+    /* flex-wrap: nowrap; */
+    /* border: 10px solid magenta !important; */
+}

@@ -1,0 +1,29 @@
+/* backgrounds.css */
+:root {
+    --bg-clr: rgb(183, 181, 167);
+    --bg-clr: #ddd;
+}
+
+#mdvipImgLink {
+    background-color: tomato;
+}
+body,
+.page-wrapper{
+    background-color: var(--bg-clr);
+}
+ section,
+ article {
+    background-color: rgb(0,0,0,0) !important;
+}
+.animation-container {
+    background-color: rgba(0,0,0,0);
+}
+.animation-container #canvas{
+    background-color: rgba(0,0,0,0);
+}
+.mobile-header-nav {
+    background-color: var(--bg-clr);
+}
+.more-info-links > button{
+    /* background-color: whitesmoke; */
+}

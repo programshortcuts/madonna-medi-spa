@@ -1,0 +1,53 @@
+/* main.css */
+
+
+/* animations/ */
+@import url('visuals/animations.css');
+@import url('visuals/carousel.css');
+@import url('imgs.css');
+@import url('videos.css');
+@import url('responsive.css');
+/* utilities */
+@import url('utilities/borders.css');
+@import url('utilities/display.css');
+@import url('utilities/effects.css');
+@import url('utilities/layout.css');
+@import url('utilities/position.css');
+@import url('utilities/sizing.css');
+@import url('utilities/spacing.css');
+@import url('utilities/text.css');
+@import url('utilities/colors.css');
+@import url('utilities/backgrounds.css');
+@import url('utilities/background-colors.css');
+
+/* home-styles */
+@import url('../pages/products/css/products-styles.css');
+@import url('../pages/home/css/spacing-home.css');
+/* med-spa-serv-styles */
+@import url('../pages/medical-spa-services/css/layout-med-spa-serv.css');
+/* @import url('../pages/medical-sbpa-services/css/spacing-med-spa-serv.css'); */
+@import url('../pages/medical-spa-services/css/sizing-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/text-med-spa-serv.css');
+/* products-styles */
+@import url('../pages/products/css/animations/items-scroll.css');
+@import url('../pages/products/css/borders-products.css');
+@import url('../pages/products/css/products-styles.css');
+@import url('../pages/products/css/colors-products.css');
+@import url('../pages/products/css/layout-products.css');
+@import url('../pages/products/css/sizing-products.css');
+@import url('../pages/products/css/spacing-products.css');
+@import url('../pages/products/css/text-products.css');
+
+/* contact-styles */
+@import url('../pages/contact/css/contact-styles.css');
+@import url('../pages/contact/css/contact-form.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.error-message {
+    color: red;
+}

@@ -1,0 +1,54 @@
+/* responsive.css */
+@media screen and (min-width:933px) {
+    .mobile-header-nav ul li a {
+            padding-top: 1% !;
+        }
+    .mobile-header-nav {
+            top: 3% !important;
+        }
+    .section {
+        padding: 1% !important; 
+        /* background-repeat: repeat; */
+        /* background-position-x: -20% !important; */
+        /* background-position-y: 50%;  */
+    }
+}
+@media screen and (min-width:500px) {
+    .page-header {
+        border-bottom: none !important;
+        z-index: 1;
+        /* border: 2px solid magenta !important; */
+        background-color: inherit;
+        justify-content: space-between;
+        position: sticky;
+        top:0;
+    }
+    .page-container {
+        /* position: relative; */
+    }
+    .page-container-title {
+        position: block;
+        /* left: 2%; */
+        /* font-size: 1.2rem; */
+        /* z-index: 999 */
+    }
+    .mobile-header-nav ul{
+    }
+    .mobile-header-nav ul li {
+        /* background-color: yellow  !important; */
+        border: none !important;
+    }
+    .mobile-header-nav ul li a{
+        padding-top: 5%;
+    }
+    .mobile-header-nav {
+        top: 12%;
+        position: sticky;
+        z-index: 4;
+        background-color: rgba(0, 0, 0, 0) !important;
+        border-top: none !important;
+    }
+    
+    
+    
+}

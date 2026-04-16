@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/app.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="
+default-src 'self';
+script-src 'self' ;
+style-src 'self' https://unpkg.com;
+font-src 'self' https://unpkg.com data:;
+img-src 'self' data:;
+frame-src https://www.youtube.com;
+object-src 'none';
+base-uri 'none';
+form-action 'self' https://formspree.io;
+">
+<!-- form-action 'self'; -->
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="page-header">
+            <div class="page-title-container">
+                <h1>
+                    <a class="page-title" href="index.html">Madonna Medical Spa</a>
+                    <span class="tel-num">(585) 698-2212</span>
+                </h1>
+            </div>
+            <div class="page-header-logos">
+                <img src="media/imgs/madonna-medi-spa-logo.webp" alt="">
+            </div>
+        </div>
+        <nav class="mobile-header-nav">
+            <ul>
+                <li><a href="pages/home/home.html" rel="noopener noreferrer">
+                        Home</a></li>
+                <li><a href="pages/medical-spa-services/medical-spa-services.html" rel="noopener noreferrer">
+                        Medical Spa Services</a></li>
+                <li><a href="pages/products/products.html" rel="noopener noreferrer">
+                        Products</a></li>
+                <li id="contactMenuLi"><a href="pages/contact/contact.html" rel="noopener noreferrer">
+                        Contact</a>
+                    <div class="social-media-container">
+                        <div class="facebook-container">
+                            <a id="facebookLogo" rel="noopener noreferrer"
+                                href="https://www.facebook.com/madonnamedicalspa/">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877f2">
+                                    <path
+                                        d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.7-1.6 1.5V12H17l-.5 3h-2.5v7A10 10 0 0 0 22 12" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="instagram-container">
+                            <a id="instagramLogo" rel="noopener noreferrer"
+                                href="https://www.instagram.com/madonnamedicalspa/">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path fill="#E4405F"
+                                        d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5z" />
+                                    <path fill="#E4405F"
+                                        d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" />
+                                    <circle cx="17.2" cy="6.8" r="1.2" fill="#E4405F" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-landing-page">
+        </div>
+        <footer>
+            <h3>footer</h3>
+            <ul>
+                <li>put this list at bottom of scroll</li>
+            </ul>
+            <div class="social-media-container">
+                <span class="x-graphic" aria-hidden="true"><i
+                        class="x-icon x-graphic-child x-graphic-icon x-graphic-primary" aria-hidden="true"
+                        data-x-icon-b=""></i></span>
+                <span class="x-graphic" aria-hidden="true"><i
+                        class="x-icon x-graphic-child x-graphic-icon x-graphic-primary" aria-hidden="true"
+                        data-x-icon-b=""></i></span>
+            </div>
+        </footer>
+        <i tabindex="0" id="navBarBtn" class="bx bx-menu"></i>
+
+    </div>
+</body>
+</html>

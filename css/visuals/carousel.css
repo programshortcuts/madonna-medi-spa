@@ -1,0 +1,60 @@
+/* carousel.css */
+.reviews-carousel {
+    /* float: right; */
+    margin: 0 8%;
+    /* margin: 40px auto; */
+    max-width: 400px;
+    text-align: center;
+}
+.reviews-carousel::after{
+    content: "";
+    display: block;
+    clear: both;
+
+}
+
+.reviews-carousel h2 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.swiper-container {
+    overflow: hidden;
+    /* padding: 15px; */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fefefe;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 15px; */
+    font-style: italic;
+    color: #555;
+}
+.review-author {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #222;
+}
+.stars {
+    color: #f5c518;
+    /* gold color for stars */
+    font-size: .8rem;
+}
+/* Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333;
+}
+/* Pagination dots */
+.swiper-pagination-bullet {
+    background: #333;
+}

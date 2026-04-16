@@ -1,0 +1,17 @@
+/* effects.css */
+a:active,
+a:focus{
+    box-shadow: 0 0  1px 1px  black;
+    outline: none;
+    border: 1px solid black;
+}             
+section.colored#botoxAndFillers,
+section#botoxAndFillers:hover {
+    filter: grayscale(20%);
+}
+.img-wrapper > img:hover,
+section.colored .img-wrapper > img{
+    filter: grayscale(0) !important;
+}
+
+

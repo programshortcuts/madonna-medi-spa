@@ -1,0 +1,47 @@
+/* sizing.css */
+.page-header{
+    width: 100vw;
+}
+.page-header-logos {
+    height: fit-content;   
+}
+.page-header-logos img {
+    max-height: 100px;
+    height: 100px;
+}
+
+.page-wrapper {
+    height: 100vh;
+}
+#mdvipImgLink {
+    height: 10vh;
+    width: 25vh;
+}
+#botoxAndFillers {
+    min-height: 12vh;
+}
+#navBarBtn {
+    font-size: 2rem;
+}
+.fa-facebook {
+    font-size: 3rem;
+    color: #1877f2;
+}
+/* home styles */
+.home-page-container {
+    height: 100vh;
+}
+.mobile-header-nav {
+    width: 100%;
+    height: 10vh;
+}
+.mobile-header-nav ul li {
+    /* width: 100%;
+    height: 50%; */
+    width: fit-content;
+    height: fit-content;
+}
+.mobile-header-nav ul li a {
+    width: 100%;
+    height: 100%;
+}

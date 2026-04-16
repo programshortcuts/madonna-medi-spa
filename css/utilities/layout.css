@@ -1,0 +1,65 @@
+/* layout.css */
+.page-header {
+    display: flex;
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+}
+.page-wrapper {
+    overflow: hidden;
+    overflow-y: scroll;
+
+}
+
+.main-landing-page {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.hide {
+    display: none;
+}
+
+.title-page {
+    display: block;
+    text-wrap: none;
+    white-space: none;
+}
+.tel-num {
+    display: inline-block;
+}
+.page-header>.animation-container>#canvas {}
+/* contact styles */
+.social-media-email-container {
+    display: flex;
+    height: fit-content;
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+}
+.contact-container>* {
+    flex-basis: 42%;
+}
+/* home styles */
+.home-page-header>.address-num-container img {
+    float: right;
+}
+
+.mobile-header-nav {
+    /* display: flex; */
+}
+.mobile-header-nav ul {
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: flex-end; */
+    flex-grow: 1;
+}
+.mobile-header-nav ul > li{
+    flex-basis: 20%;
+    flex-grow: 1;
+    align-items: flex-end;
+}
+.mobile-header-nav ul > li > a{
+    display: inline-flex;
+    align-items: flex-end;
+    
+}
