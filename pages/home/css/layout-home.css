@@ -47,6 +47,10 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+.service-column {
+    display: flex;
+    flex-wrap: wrap;
+}
 .service-column > .service-col-title{
     display: block;
 }
