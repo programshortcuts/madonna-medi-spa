@@ -1,0 +1,50 @@
+/* service-swiper-background.css */
+
+.service{ 
+    min-height: 50vh;
+}
+#bioIdenticalServiceHome{
+    background: url('../../imgs/ai-imgs/bio-hormone-header-wide.png')
+    /* center/cover no-repeat !important; */
+    /* fit no-repeat !important; */
+;
+    /* background: url(imgs/ai-imgs/bio-hormone-header-wide.png')  */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 82% !important;
+    background-position-y: -10% !important;
+    filter:grayscale(.95);
+    filter: brightness(.8);
+    /* background-size: 90% !important; */
+    /* background-origin: 50%; */
+}
+#botoxFillerServiceHome{
+    background: url('../../imgs/botox-filler.webp') 
+    no-repeat !important;
+    background-position-x: 60%;
+}
+#peptidesServiceHome{
+    background: url('../../imgs/ai-imgs/peptide-header-wide.png') 
+    center/cover no-repeat !important;
+    background-position-y: 20% !important;
+    
+}
+#glp-1ServiceHome{
+    background: url('../../imgs/ai-imgs/glp-1-serv-header.png') 
+    no-repeat !important;
+    /* background-size: 200px 200px; */
+    background-position-x: -50% !important;
+    background-position-y: 50% !important;
+    background-size: 98% !important;
+}
+#infraRedServiceHome{
+    background: url('../../imgs/ai-imgs/infrared-therapy.png') center/cover no-repeat !important;
+    background-position-x: 70% !important;
+}
+#ivInfusionsServiceHome{
+    background: url('../../imgs/ai-imgs/ivInfusion-header-wide.png') center/cover no-repeat !important;
+    background-position-x: 56% !important;
+}
+.service>.content {
+    background: transparent !important;
+}

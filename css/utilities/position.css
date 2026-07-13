@@ -1,56 +1,5 @@
 /* position.css */
-.home-page-container {
+.main-landing-page {
     position: relative;
     z-index: 1;
-}
-.page-wrapper{
-    position: relative;
-}
-
-
-.page-container {
-    position: relative;
-}
-
-.home-page-container .animation-container {
-    position: absolute;
-    z-index: 0;
-    left: 40%;
-    top: 40%;
-    bottom: 0;
-}
-
-.contact-page-container .animation-container {
-    position: absolute;
-    z-index: 0;
-    left: 50%;
-    top: 50%;
-}
-
-
-
-#navBarBtn {
-    position: absolute;
-    bottom: 8%;
-    z-index: 2;
-    right: 91%;
-
-}
-
-.home-page-header {
-    z-index: 1;
-    /* position: absolute  ; */
-    /* position: absolute; */
-}
-.mobile-header-nav {
-    position: fixed;
-    z-index: 2;
-    bottom: 0;
-}
-.page-container-title{
-    position: absolute;
-    bottom: -3%;
-    left: 2%;
-    font-size: 1.2rem;
-    z-index: 999
 }

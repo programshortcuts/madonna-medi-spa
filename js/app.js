@@ -1,12 +1,37 @@
 // app.js
-import { injectPage } from "./core/inject-content.js";
+import { initFocusScroll } from "./nav/focus-scroll.js";
+import { initChangeStyles } from "./ui/change-styles.js";
+import { initInjectContentListeners } from "./core/inject-content.js";
+import { initToggleNav } from "./ui/toggle-nav.js";
+import { initKeydboardNav } from "./nav/keyboard-nav.js";
+import { initDropDown } from "./ui/drop-down.js";
+// import { initFilterSortItems } from "./ui/filter-sort-items.js";
+// import { initMedicalSpaAnimation } from "./visuals/animation.js";
 
-addEventListener("DOMContentLoaded", initMain);
+let animationCleanup = null;
 
-function initMain() {
-    injectPage("medical-spa-services");
+addEventListener('DOMContentLoaded', initMain)
+function initMain(){
 
-    document.addEventListener("keydown", (e) => {
-        injectPage(e.key.toLowerCase());
+    const pageWrapper = document.querySelector('.page-wrapper')
+    initToggleNav()
+    initKeydboardNav({
+        pageWrapper
     });
+    initFocusScroll()
+    initInjectContentListeners()
+    document.querySelectorAll("*").forEach(el => {
+        
+            [...el.attributes].forEach(attr => {
+                if (attr.name.startsWith("on")) {
+                    console.log("INLINE EVENT:", el, attr);
+                }
+            });
+        });    
 }
+function setupGlobalListeners(){
+    initDropDown()
+    // initFilterSortItems()
+    // initChangeStyles()
+}
+setupGlobalListeners()

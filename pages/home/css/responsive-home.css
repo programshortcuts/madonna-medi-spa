@@ -1,0 +1,63 @@
+/* responsivce-home.css */
+
+@media screen and (min-width:723px) {
+    .home-page-header {
+        /* float: left; */
+        /* width: 45%; */
+    }
+}
+
+@media screen and (min-width:535px) {
+    .home-page-container {
+        margin: 0 2%;
+    }
+    .home-page-header {
+        float: left;
+        width: 45%;
+    }
+    
+}
+@media screen and (max-width:533px) {
+
+    .home-page-container{
+        /* padding: 5% !important; */
+    }
+    .home-page-container>article.mission-state>p {
+        /* padding: 1%; */
+        padding-top: 5%;
+        margin-top: 2%;
+        /* padding-right: 5%; */
+    }
+    
+}
+
+
+@media screen and (max-width:532px) {
+    .home-page-header {
+        padding-top: 5%;
+    }
+    .home-main-content > .main-item{
+        /* background-color: blue !important; */
+    }
+    .swiper.services-swiper {
+        height: 40vh;
+        padding-inline: 4%;
+    }
+    
+    .services-swiper .swiper-slide {
+        /* margin-top: 10%; */
+        /* transform: scale(.78) !important; */
+        transition: transform .35s ease, opacity .35s ease;
+    }
+    
+    .services-swiper .swiper-slide-active button{
+        padding-top: 10%;
+    }
+    .services-swiper .swiper-slide-active {
+        
+        /* transform: scale(1.2) !important; */
+        opacity: 1;
+        z-index: 5;
+    }
+            
+}

@@ -1,54 +1,45 @@
-/* responsive.css */
-@media screen and (min-width:933px) {
-    .mobile-header-nav ul li a {
-            padding-top: 1% !;
-        }
-    .mobile-header-nav {
-            top: 3% !important;
-        }
-    .section {
-        padding: 1% !important; 
-        /* background-repeat: repeat; */
-        /* background-position-x: -20% !important; */
-        /* background-position-y: 50%;  */
+@media screen and (max-width:920px) {
+    .page-wrapper.expand .mobile-header-nav ul li:nth-child(2) ul {
+        margin-left: -20%;
+    }
+    .page-wrapper.expand .mobile-header-nav ul li:nth-child(3) ul {
+        margin-left: 20%
+
     }
 }
-@media screen and (min-width:500px) {
-    .page-header {
-        border-bottom: none !important;
-        z-index: 1;
-        /* border: 2px solid magenta !important; */
-        background-color: inherit;
-        justify-content: space-between;
-        position: sticky;
-        top:0;
+@media screen and (min-width:520px) {
+
+    .page-container.home-page-container {
+        padding-top: 0% !important;
+
     }
-    .page-container {
-        /* position: relative; */
+    .home-page-container > .home-page-header.bg-slider > .bg-slide{
+        background-position-y: 10% !important;
     }
-    .page-container-title {
-        position: block;
-        /* left: 2%; */
-        /* font-size: 1.2rem; */
-        /* z-index: 999 */
+        .home-page-header {
+            background-position-y: -129% !important;
+            /* border: 1px solid magenta; */
+            height: 50vh !important;
+        }
+}
+@media screen and(max-width:519px) {
+    .page-container.med-spa-serv-container{
+        /* padding-top: 50% !important; */
+        margin-top: 50% !important;
     }
-    .mobile-header-nav ul{
+    #addressLinkHeader{
+        width: 103vw !important;
     }
-    .mobile-header-nav ul li {
-        /* background-color: yellow  !important; */
-        border: none !important;
+    #addressLinkHeader > a{
+        width: 100% !important;
     }
-    .mobile-header-nav ul li a{
-        padding-top: 5%;
+    .page-title-container>h1 {
+        /* margin: 0 25%; */
+        /* margin-top: 10% !important; */
+        width: 100% !important;
+
+        border: 1px solid blue !important;
+        background-color: blue;
     }
-    .mobile-header-nav {
-        top: 12%;
-        position: sticky;
-        z-index: 4;
-        background-color: rgba(0, 0, 0, 0) !important;
-        border-top: none !important;
-    }
-    
-    
     
 }

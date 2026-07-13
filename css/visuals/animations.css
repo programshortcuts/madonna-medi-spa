@@ -1,8 +1,0 @@
-/* animations.css */
-.text, .logo {
-  /* position: absolute; */
-  width: 100%;
-  text-align: center;
-  transition: opacity 2s ease;
-}
-

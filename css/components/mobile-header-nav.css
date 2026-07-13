@@ -1,0 +1,114 @@
+/* mobile-header-nav.css */
+.mobile-header-nav .start-hidden {
+    display: none;
+}
+:root {
+    --social-max-height: 3vh;
+}
+
+.page-wrapper>.mobile-header-nav {
+    width: 100%;
+    height: 10vh;
+}
+
+.social-media-container {
+    display: flex;
+    flex-direction: column;
+}
+.mobile-header-nav {
+    font-family: cursive;
+    border-radius: 2px;
+    border-top: 1px solid whitesmoke;
+    box-shadow: 0 -1px 1px 1px grey;
+    position: fixed;
+    z-index: 999;
+    /* 🔥 always fixed */
+    bottom: 0;
+    /* 🔥 anchor to bottom */
+    left: 0;
+    width: 100%;
+
+}
+.mobile-header-nav>ul {
+    /* padding-top: 2%; */
+    display: flex;
+    align-items: flex-start;
+}
+.mobile-header-nav>ul>li {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    /* opacity: 0; */
+    transform: translateX(-20px);
+}
+.mobile-header-nav>ul>li>a {
+    display: inline-flex;
+    padding-top: 3%;
+    padding-bottom: 4%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.mobile-header-nav>ul>li>ul:first-child {
+    flex-direction: column;
+    margin-left: -25%;
+    margin-right: 25%;
+}
+
+.mobile-header-nav>ul>li>ul>li {
+    width: 120%;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+li#medicalSpaServicesNavLi>ul {
+    margin-left: -5%;
+    /* margin-right: 30%; */
+}
+
+li#productsNavLi>ul {
+    margin-left: 25%;
+}
+
+li#contactNavLink {
+    flex: 1 1 0;
+    /* same behavior as others */
+    min-width: 0;
+    /* 🔥 allows shrinking */
+}
+
+li#contactNavLink>.social-media-container {
+    /* width: 100%; */
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-media-link-container {
+    flex: 1;
+    display: flex;
+}
+
+.social-media-link-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: var(--social-max-height);
+    height: fit-content;
+}
+
+.social-media-link-container svg {
+    max-height: var(--social-max-height);
+    margin-top: 4%;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+.social-media-link-container { position: relative;}
+#researchAndLitLI{
+    margin-left: 3%;
+}
+#researchAndLitLI > ul {
+    margin-left: 10%;
+}

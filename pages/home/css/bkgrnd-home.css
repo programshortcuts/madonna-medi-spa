@@ -1,0 +1,43 @@
+/* bkgrnd-home.css */
+.home-page-container button.section-title {
+    background-color: rgaa(0, 0, 0, 0);
+}
+.home-page-header {
+    /* background-image: url('../../../imgs/istock/istockphoto01.jpg'); */
+    background-repeat: no-repeat;
+    background-position-y: 20%;
+    background-position-x: 0%;
+    background-size: 80% !;
+    /* filter: grayscale(0); */
+}
+footer {
+    background-image: url('../../../imgs/chatImgCollage.png');
+    height: 10vh;
+    background-repeat: no-repeat;
+    background-position-y: 10%;
+    background-position-x: 0%;
+    filter: grayscale(50%);
+}
+#bioHormoneReplacementHomePage {
+    width: 50vw !important;
+    background-image: url('../../../imgs/ai-imgs/lady-med-spa.png');
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-position-y: 30%;
+    background-position-x: 40%;
+    /* filter: grayscale(50%); */
+    /* background-size: 89%; */
+}
+.address-contact-home{
+    background-image: url('../../../imgs/s-view.jpeg');
+    height: 20vh;
+    width: 90;
+    background-size: 50%;
+    background-position-y: 120%;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+}
+
+.services-swiper .swiper-slide button{
+    background: none;
+}

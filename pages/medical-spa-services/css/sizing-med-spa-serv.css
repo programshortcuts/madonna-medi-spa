@@ -1,20 +1,42 @@
-/* sizing-med-spa-serv.css */
-section>.content>.video-wrapper {
-    width: fit-content;
-    height: fit-content;
+/* sizing-med-spa-services.css */
+.section#bioHormoneReplacement {
+    min-height: 10vh;
 }
 
+#botoxAndFillers {
+    /* min-height: 12vh; */
+    /* Ensures the section is at least 12% of viewport height */
+}
+
+.med-spa-serv-container .section#bioHormoneReplacement {
+    min-height: 10vh;
+    /* position: relative; */
+}
+
+.med-spa-serv-container .section#bioHormoneReplacement>.section-title img {
+    max-height: 2vh;
+}
+
+.med-spa-serv-container {
+    max-height: 100vh;
+    min-width: 99vw;
+
+}
 
 .section {
     max-height: 100vh;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-.img-wrapper img {
-    max-height: 120px;
 }
 
-.section-title img {
-    width: 80px;
-    height: auto;
+.med-spa-serv-container .img-wrapper>img {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.img-wrapper.float-left{
+    height: 200px;
+}
+.img-wrapper>video {
+    height: 100%;
+    width: 100%;
+    max-height: 200px;
 }

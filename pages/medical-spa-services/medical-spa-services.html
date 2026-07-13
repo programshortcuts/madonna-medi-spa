@@ -1,24 +1,271 @@
-// pages/medicalSpaServices.json
-export const medicalSpaServices = {
-id: "medical-spa-services",
-title: "Medical Spa Services",
-sections: [
-{
-id: "bioHormoneReplacement",
-type: "accordion",
-title: "Bioidentical Hormone Replacement?",
-image: "media/imgs/biote.webp",
-content: [
-{
-type: "text",
-value: "BioTE is bioidentical hormone pellet therapy designed to restore balance..."
-},
-{
-type: "image",
-src: "media/imgs/biote-cert.jpeg",
-alt: "BioTE certification"
-}
-]
-}
-]
-};
+<!-- medical-spa-services.html -->
+<div class="page-container med-spa-serv-container  ">
+    <div class="sections-containers">
+        <section id="longetivyMedicine" class="section colored">
+            <button data-nav-target="longetivyMedicineBtn" class="section-title drop-down" aria-expanded="false"
+                aria-controls="menu-id">
+                <span class="title-text">longetivy Medicine</span>
+            </button>
+
+            <div class="content-box">
+                <div class="img-wrapper">
+                    <img src="imgs/ai-longevity-madonna-spa.png" alt="">
+                </div>
+                <p>                    
+                    &emsp;At our Madonna Medical spa, we take a proactive approach to health, wellness, and healthy aging through evidence-based longevity
+                    medicine. Our goal is not only to help patients look their best, but also to optimize how they feel, function, and age
+                    over time.
+                </p>
+            </div>
+            <div class="content downs hide">
+                <p>
+                    Our philosophy is simple: longevity is about more than extending lifespan—it's about improving healthspan. By
+                    combining
+                    advanced medical therapies with personalized treatment plans, we help patients optimize their health, maintain
+                    vitality,
+                    and age with confidence.
+                </p>
+                <p>
+                
+                    We are committed to continually evaluating emerging research and incorporating scientifically supported therapies
+                    that
+                    may help our patients live healthier, more active lives for years to come.
+                </p>
+                
+                
+                <h3>Our longevity-focused services include:</h3>
+                
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-bioHormReplace" class="more-info-btn drop-down section-title">more-info</button>
+                <button>bookings</button>
+            </div>
+        </section>
+        <section id="bioHormoneReplacement" class="section colored">
+            <button data-nav-target="bioHormoneReplacementBtn" class="section-title drop-down" aria-expanded="false"
+                aria-controls="menu-id">
+                <span class="title-text">Bio-identical Hormone Replacement</span>
+                <img src="imgs/biote.webp" alt="">
+            </button>
+            <div  class="content-box">
+                <div class="img-wrapper">
+                    <img src="/pages/medical-spa-services/media/bio-horm-replace.png"
+                        alt="Bio-identical Hormone Replacement">
+                </div>
+                <p>
+                    Hormones are the signals our bodies send
+                    to our organs. We get older, we make less hormones.
+                    With less signals, our organs slow along with our bodies.
+                </p>
+
+            </div>
+            <div class="content downs show">
+                <p >
+                    &emsp;We work with each of our patients on an ongoing basis to analyze symptoms and lab results
+                    using a specially
+                    designed dosing algorithm to develop a unique treatment plan.
+                </p>
+                <sup>or </sup>
+                <p>
+                    &emsp;We analyze our patient's lab results
+                    using a specially designed dosing algorithm to develop a unique treatment plan.
+                </p>
+                <div class="img-wrapper float-left">
+                    <video loop controls placeholder="" type="video/mp4"
+                        src="./pages/medical-spa-services/media/videos/01-ex.mp4"></video>
+                </div>
+                <p>
+                    &emsp; BioTE Medical, a leader in precision and preventive medicine has translated over 80 years
+                    of scientific
+                    insight into clinically validated medical protocols
+                    that identify and treat the earliest indicators of aging.
+                </p>
+                <p>
+                    Bio-identical hormone pellet therapy
+                    is used to restore balance, improve energy, mood,
+                    and overall wellness.
+                </p>
+                <div class="more-info">
+                    <p>
+                        put more info here ...
+                    </p>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, pariatur dolorum velit
+                        consequuntur
+                        ducimus doloribus ut iure incidunt labore a, explicabo sed nulla? Incidunt, perferendis
+                        necessitatibus. Animi officiis laborum recusandae.
+                    </p>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, pariatur dolorum velit
+                        consequuntur
+                        ducimus doloribus ut iure incidunt labore a, explicabo sed nulla? Incidunt, perferendis
+                        necessitatibus. Animi officiis laborum recusandae.
+                    </p>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, pariatur dolorum velit
+                        consequuntur
+                        ducimus doloribus ut iure incidunt labore a, explicabo sed nulla? Incidunt, perferendis
+                        necessitatibus. Animi officiis laborum recusandae.
+                    </p>
+                </div>
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-bioHormReplace" class="more-info-btn drop-down section-title">more-info</button>
+                <button>bookings</button>
+            </div>
+        </section>
+        <section data-nav-target="botox" id="botoxAndFillers" class="section drop-down">
+            <button class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
+                <span class="title-text"> botox
+                    <br> & fillers</span>
+            </button>
+            <div class="content-box">
+                <p class="">
+                    With over decades of service, We have helped
+                    thousands achieve the look they wish to have.
+                </p>
+
+
+            </div>
+            <div class="content-box downs">
+                <p>
+                    show stuff
+                </p>
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-bioHormReplace" class="more-info-btn drop-down section-title">
+                    more-info</button>
+                <button>bookings</button>
+            </div>
+        </section>
+        <section data-nav-target="infraredTherapyBtn" id="infraredTherapy" class="section">
+            <button class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
+                <span class="title-text"> Infra Red for Head and Neck</span>
+            </button>
+            <div class="content-box">
+                <div class=" img-wrapper">
+                    <img src="pages/medical-spa-services/media/infrared-therapy.png" alt="">
+                </div>
+                <p class="">
+                    We offer face a neck face and neck infrared treatment,
+                    that aids in eliminating wrinkles while stimulating collagen,
+                    Infra red has been proving that it not only benefits skin, but
+                    also has been shown to reduce inflammation, improve circulation,
+                    and promote healing in the body.
+                </p>
+            </div>
+            <div class="content downs hide">
+                <p>
+
+                    Infrared light therapy uses specific wavelengths of light to penetrate the skin and
+                    stimulate cellular function. This non-invasive treatment promotes collagen production,
+                    reduces inflammation, and enhances circulation, leading to improved skin tone,
+                    texture, and overall skin health. It can also aid in pain relief and muscle recovery.
+                </p>
+                <div class="more-info-links">
+                    <button data-nav-target="moreInfo-ivInfusionTherapy" class="more-info-btn drop-down section-title">more-info</button>
+                    <button>bookings</button>
+                </div>
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-infraredTherapy" class="more-info-btn drop-down section-title">
+                    more-info</button>
+                <button>bookings</button>
+            </div>
+        </section>
+        <section data-nav-target="ivInfusionTherapyBtn" id="ivInfusionTherapy" class="section">
+            <button class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
+                <span class="title-text"> IV Infusion Therapy</span>
+            </button>
+            <div class="content-box">
+                <div class=" img-wrapper">
+                    <img src="pages/medical-spa-services/media/ivInfusion-header-wide.png" alt="">
+                </div>
+                <p class="">
+                    Delivers essential micronutrients directly into the bloodstream, using the
+                </p>
+            </div>
+            <div class="content downs hide">
+
+                <p>
+                    Compared with oral supplements, IV therapy can deliver larger amounts of nutrients more efficiently
+                    and may produce
+                    faster results. While daily vitamins remain a convenient way to maintain general health, IV vitamin
+                    therapy offers a
+                    targeted and effective solution for restoring nutrient levels, boosting energy, supporting immune
+                    function, and
+                    promoting optimal health.
+                </p>
+                <div class="more-info-links">
+                    <button data-nav-target="moreInfo-ivInfusionTherapy" class="more-info-btn drop-down section-title">more-info</button>
+                    <button>bookings</button>
+                </div>
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-ivInfusionTherapy" class="more-info-btn drop-down section-title">
+                    more-info</button>
+                <button>bookings</button>
+            </div>
+        </section>
+        <section data-nav-target="peptidesBtn" id="peptides" class="section">
+            <button data-nav-target class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
+                <span class="title-text"> Peptides</span>
+            </button>
+            <div class="content-box">
+                <div class=" img-wrapper">
+                    <img src="pages/medical-spa-services/media/peptide-header-wide.png" alt="">
+                    <!-- <img src="../medical-spa-services/media/peptide-header-wide.png" alt=""> -->
+                </div>
+                <p>
+                    Targeted peptide therapy supports energy, metabolism, recovery, skin health, and overall wellness
+                    from the inside out.
+                </p>
+            </div>
+            <div class="content downs hide">
+                <p class="">
+                    Modern anti-aging skincare ingredients do more than target visible aging. Many also provide added
+                    benefits such as
+                    protection, nourishment, hydration, and gentle exfoliation.
+
+                    Bioactive peptides are natural or lab-created compounds made up of short chains of 3–30 amino acids.
+                    They play important
+                    roles in the body, supporting functions like cellular protection, temperature regulation, and immune
+                    response.
+                </p>
+                <div class="more-info-links">
+                    <button data-nav-target="moreInfo-peptides" class="more-info-btn drop-down section-title">more-info</button>
+                    <button>bookings</button>
+                </div>
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-peptides" class="more-info-btn drop-down section-title">
+                    more-info</button>
+                <button>bookings</button>
+            </div>
+        </section>
+        <section data-nav-target="glp1Btn" id="glp1" class="section">
+            <button data-nav-target class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
+                <span class="title-text"> glp-1</span>
+            </button>
+            <div class="content-box">
+                <div class=" img-wrapper">
+                    <!-- <img src="imgs/ai-imgs/glp-1-serv-header.png" alt=""> -->
+                </div>
+                <p>
+                    &emsp; We monitor and minister ...
+                </p>
+
+            </div>
+            <div class="content-box downs">
+                more
+            </div>
+            <div class="more-info-links">
+                <button data-nav-target="moreInfo-glp1" class="more-info-btn drop-down section-title">
+                    more-info</button>
+                <button>bookings</button>
+            </div>
+
+
+        </section>
+    </div>
+</div>

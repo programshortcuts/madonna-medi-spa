@@ -1,53 +1,105 @@
 /* main.css */
+/* contact.css */
+@import url('../pages/contact/css/bkgrnd-contact.css');
+@import url('../pages/contact/css/colors-contact.css');
+@import url('../pages/contact/css/layout-contact.css');
+@import url('../pages/contact/css/spacing-contact.css');
+@import url('../pages/contact/css/position-contact.css');
+/* visuals */
+@import url('./swiper/swiper.css');
+@import url('./swiper/reviews-swiper.css');
+@import url('./swiper/service-swiper.css');
+@import url('./swiper/service-swiper-background.css');
+/* medical-spa-services */
+@import url('../pages/medical-spa-services/css/bkgrnd-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/layout-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/position-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/sizing-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/spacing-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/txt-med-spa-serv.css');
+@import url('../pages/medical-spa-services/css/responsive-med-spa-serv.css');
+/* @import url('visuals/animations.css'); */
+/* @import url('swiper.css'); */
 
+/* components */
+@import url('components/mobile-header-nav.css');
+@import url('components/page-header.css');
+@import url('ui/toggle-nav.css');
+@import url('visuals/change-background.css');
+@import url('components/sideNavBtn.css');
 
-/* animations/ */
-@import url('visuals/animations.css');
-@import url('visuals/carousel.css');
-@import url('imgs.css');
-@import url('videos.css');
-@import url('responsive.css');
+/* ui */
+@import url('./responsive.css');
+@import url('ui/items-scroll.css');
+@import url('ui/zoom-items.css');
+@import url('ui/sort-items.css');
+
 /* utilities */
-@import url('utilities/borders.css');
-@import url('utilities/display.css');
 @import url('utilities/effects.css');
+@import url('utilities/background-colors.css');
 @import url('utilities/layout.css');
 @import url('utilities/position.css');
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
-@import url('utilities/colors.css');
-@import url('utilities/backgrounds.css');
-@import url('utilities/background-colors.css');
+/* @import url('utilities/borders.css'); */
+/* @import url('utilities/colors.css'); */
 
-/* home-styles */
-@import url('../pages/products/css/products-styles.css');
+/* home */
+@import url('../pages/home/css/bkgrnd-home.css');
+@import url('../pages/home/css/borders-home.css');
+@import url('../pages/home/css/colors-home.css');
+@import url('../pages/home/css/layout-home.css');
+@import url('../pages/home/css/position-home.css');
+@import url('../pages/home/css/sizing-home.css');
 @import url('../pages/home/css/spacing-home.css');
-/* med-spa-serv-styles */
-@import url('../pages/medical-spa-services/css/layout-med-spa-serv.css');
-/* @import url('../pages/medical-sbpa-services/css/spacing-med-spa-serv.css'); */
-@import url('../pages/medical-spa-services/css/sizing-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/text-med-spa-serv.css');
-/* products-styles */
-@import url('../pages/products/css/animations/items-scroll.css');
+@import url('../pages/home/css/txt-home.css');
+@import url('../pages/home/css/responsive-home.css');
+
+/* products */
 @import url('../pages/products/css/borders-products.css');
-@import url('../pages/products/css/products-styles.css');
+@import url('../pages/products/css/bkgrnd-products.css');
 @import url('../pages/products/css/colors-products.css');
 @import url('../pages/products/css/layout-products.css');
 @import url('../pages/products/css/sizing-products.css');
 @import url('../pages/products/css/spacing-products.css');
-@import url('../pages/products/css/text-products.css');
+@import url('../pages/products/css/txt-products.css');
 
-/* contact-styles */
-@import url('../pages/contact/css/contact-styles.css');
-@import url('../pages/contact/css/contact-form.css');
-*{
+
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
 
 .error-message {
     color: red;
+}
+
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+}
+
+/* Target standard telephone links */
+a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.tel-num:visited {
+    color: var(--font-p-clr);
+}
+
+.hide {
+    display: none !important;
 }

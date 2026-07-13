@@ -1,33 +1,12 @@
 /* spacing.css */
-.page-header > .page-title-container{
-    padding-top: 2%;
-    /* padding-left: 4%; */
-}
-.page-header-logos{
-    padding-right: 1%;
-}
-
 .main-landing-page {
-    padding-bottom: 18%;
-}
-#mdvipImgLink {
-    padding: 2%;
-}
 
-.animation-container #canvas {
-    margin-top: 5%;
 }
-
-
-#navBarBtn {
-    margin-left: 5%;
+.page-header>.page-title-container {
+    padding-left: 5%;
+    padding-top: 0 !important;
 }
-/* contact css */
-.address-num-container {
-    padding: 8%;
-}
-.mobile-header-nav>ul>li>a {
-    padding-top: 10%;
-    /* padding: 2% 0; */
-    padding-left: 10%;
+.page-title-container>.address-title {
+    margin-left: 50%;
+    margin-top: -2%;
 }

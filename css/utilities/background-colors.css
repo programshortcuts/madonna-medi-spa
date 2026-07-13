@@ -1,29 +1,22 @@
-/* backgrounds.css */
+/* background-colors.css */
 :root {
-    --bg-clr: rgb(183, 181, 167);
+    /* --bg-clr: rgb(183, 181, 167); */
+    /* --bg-clr: #ddd; */
     --bg-clr: #ddd;
+    --bg-header: #ddd;
+    /* --bg-header: #878a8b; */
 }
-
-#mdvipImgLink {
-    background-color: tomato;
-}
-body,
-.page-wrapper{
+.main-landing-page {
     background-color: var(--bg-clr);
 }
- section,
- article {
-    background-color: rgb(0,0,0,0) !important;
-}
-.animation-container {
-    background-color: rgba(0,0,0,0);
-}
-.animation-container #canvas{
-    background-color: rgba(0,0,0,0);
+.page-wrapper
+{
+    background-color: var(--bg-clr);
 }
 .mobile-header-nav {
-    background-color: var(--bg-clr);
+    background-color: var(--bg-header);
 }
-.more-info-links > button{
-    /* background-color: whitesmoke; */
+.page-header {
+    background-color: var(--bg-clr);
+    /* background-color: blue; */
 }

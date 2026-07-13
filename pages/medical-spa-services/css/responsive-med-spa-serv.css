@@ -1,0 +1,13 @@
+@media screen and (max-width:920px) {
+    /* .main-landing-page {
+        padding-top: 15% !important;
+    } */
+    
+}
+@media screen and (max-width:533px) {
+    .img-wrapper.float-left {
+        max-width: 224px;
+        /* border: 10px solid red !important; */
+
+    }
+}

@@ -1,0 +1,19 @@
+/* responsive-contact.css */
+@media screen and(min-width: 741px){
+    .contact-page-container {
+            position: relative;
+            background-color: blue !important;
+            border: 10px solid red ;
+        }
+    
+        .contact-page-container .animation-container {
+            position: relative;
+            /* left: 80%; */
+            left: 100% !important;
+            
+            bottom: 10%;
+            /* top: 40%; */
+            /* width: 50%; */
+            z-index: 1
+        }
+}
