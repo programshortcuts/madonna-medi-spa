@@ -40,7 +40,7 @@
 section#longevityMedHomePage {
     margin-top: -6% !important;
 }
-
+}
 
 #longevityMedHomePage{
     margin-top: -5%;
@@ -86,4 +86,7 @@ section#longevityMedHomePage {
 .services-swiper .swiper-slide .content {
     padding: 4% 5%;
     line-height: 1.5;
+}
+[data-nav-target="more-info-link"] {
+    margin-left: 5%;
 }

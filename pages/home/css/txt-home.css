@@ -10,7 +10,7 @@
     color: white;
     font-size: 1.35rem;
 }
-
+[data-nav-target="more-info-link"],
 .home-page-container button.section-title {
     /* font-size: 1rem !important; */
     font-family: Arial, Helvetica, sans-serif;

@@ -42,8 +42,8 @@ footer {
     background: none;
 }
 [data-nav-target="more-info-link"] {
-    appearance: none;
-    -webkit-appearance: none;
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
     background: transparent;
     background-color: transparent !important;
     

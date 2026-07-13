@@ -22,3 +22,6 @@
     border: none;
     color: inherit;
 }
+[data-nav-target="more-info-link"] {
+    color: black;
+}
