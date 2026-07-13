@@ -40,7 +40,7 @@
 section#longevityMedHomePage {
     margin-top: -6% !important;
 }
-}
+
 
 #longevityMedHomePage{
     margin-top: -5%;
@@ -89,4 +89,9 @@ section#longevityMedHomePage {
 }
 [data-nav-target="more-info-link"] {
     margin-left: 5%;
+}
+
+
+#aboutUsHomePage{
+    margin-top: 10%;
 }
