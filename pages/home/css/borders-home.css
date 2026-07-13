@@ -14,3 +14,7 @@
     border-radius: 32px;
 }
 
+
+[data-nav-target="more-info-link"]{
+    border: none;
+}
