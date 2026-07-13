@@ -37,15 +37,14 @@
 .page-container.home-page-container  .main-item >h4{
     padding-left: 2%;
 }
-#longevityMedHomePage{
-    /* margin-top: -20%; */
-    margin-left: -15%;
-    z-index: 10;
+section#longevityMedHomePage {
+    margin-top: -6% !important;
 }
-#longevityMedHomePage > .content {
-    margin-left: 10%;
-    padding: 0 5%;
 
+
+#longevityMedHomePage{
+    margin-top: -5%;
+    z-index: 10;
 }
 #longevityMedHomePage > .content > p{
     line-height: 2;
@@ -73,12 +72,7 @@
     padding-left: 2.5%;
 }
 
-section#longevityMedHomePage {
-    margin-top: -6% !important;
-}
-#longevityMedHomePage .section-title {
-    margin-left: 15%;
-}
+
 .staff-wrapper {
     gap: 2%;
 }

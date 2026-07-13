@@ -22,6 +22,7 @@
             height: 50vh !important;
         }
 }
+
 @media screen and(max-width:519px) {
     .page-container.med-spa-serv-container{
         /* padding-top: 50% !important; */
@@ -42,4 +43,18 @@
         background-color: blue;
     }
     
+}
+@media screen and(min-width:431px) {
+    #longevityMedHomePage {
+        /* margin-top: -20%; */
+        margin-left: -15%;
+        z-index: 10;
+    }
+
+    #longevityMedHomePage>.content {
+        margin-left: 10%;
+        padding: 0 5%;
+
+    }
+
 }
