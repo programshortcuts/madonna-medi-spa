@@ -37,11 +37,17 @@
 .page-container.home-page-container  .main-item >h4{
     padding-left: 2%;
 }
-#longetivyMedHomePage{
-    margin-top: -5%;
+#longevityMedHomePage{
+    /* margin-top: -20%; */
+    margin-left: -15%;
     z-index: 10;
 }
-#longetivyMedHomePage > .content > p{
+#longevityMedHomePage > .content {
+    margin-left: 10%;
+    padding: 0 5%;
+
+}
+#longevityMedHomePage > .content > p{
     line-height: 2;
 }
 .section-title[data-nav-target="ourServices"]  {
@@ -67,10 +73,10 @@
     padding-left: 2.5%;
 }
 
-section#longetivyMedHomePage {
+section#longevityMedHomePage {
     margin-top: -6% !important;
 }
-#longetivyMedHomePage .section-title {
+#longevityMedHomePage .section-title {
     margin-left: 15%;
 }
 .staff-wrapper {
