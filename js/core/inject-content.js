@@ -138,7 +138,7 @@ export async function injectPage(href) {
             'svg', 'path', 'circle', 'g'
         ],
         ALLOWED_ATTR: [
-            'autoplay','loop','controls',
+            'autoplay','loop','controls','playsinline',
             'src', 'href', 'class', 'id', 'alt', 'tabindex',
             'allow', 'allowfullscreen', 'frameborder',
             'width', 'height', 'viewBox', 'fill', 'd', 'cx', 'cy', 'r',
