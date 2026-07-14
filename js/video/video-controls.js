@@ -28,12 +28,10 @@ function bindVideoControls(step) {
 
     vid.addEventListener('ended', () => {
         resetVideoToPoster(vid);
-        syncPlayBtn(playBtn, vid);
     });
 
     vid.addEventListener('play', () => {
         pauseAllVideos(document, vid);
-        syncPlayBtn(playBtn, vid);
     });
 
     vid.addEventListener('timeupdate', () => {
@@ -46,58 +44,47 @@ function bindVideoControls(step) {
     /* =========================
        PLAY / PAUSE
     ========================= */
-    playBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+    // playBtn?.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        const wasPlaying = !vid.paused;
+    //     const wasPlaying = !vid.paused;
 
-        pauseAllVideos(document, vid);
+    //     pauseAllVideos(document, vid);
 
-        if (wasPlaying) {
-            vid.pause();
-            syncPlayBtn(playBtn, vid);
-            return;
-        }
+    //     if (wasPlaying) {
+    //         vid.pause();
+    //         return;
+    //     }
 
-        vid.play()?.catch(() => {});
-        syncPlayBtn(playBtn, vid);
-    });
+    //     vid.play()?.catch(() => {});
+    // });
     /* =========================
        FORWARD
     ========================= */
-    fwdBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+    // fwdBtn?.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        vid.currentTime = Math.min(
-            vid.duration || Infinity,
-            vid.currentTime + 5
-        );
-    });
+    //     vid.currentTime = Math.min(
+    //         vid.duration || Infinity,
+    //         vid.currentTime + 5
+    //     );
+    // });
     /* =========================
        REWIND
     ========================= */
-    rwdBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+    // rwdBtn?.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        const nextTime = Math.max(0, vid.currentTime - 0.5);
-        vid.currentTime = nextTime;
+    //     const nextTime = Math.max(0, vid.currentTime - 0.5);
+    //     vid.currentTime = nextTime;
 
-        if (nextTime <= 0.05) {
-            resetVideoToPoster(vid);
-            syncPlayBtn(playBtn, vid);
-        }
-    });
-    const pauseOtherStepVideos = (e) => {
-        if (e.target.closest('.vid-cntrl-btns, .playbtn, .fwdBtn, .rwdBtn')) return;
-        pauseAllVideos();
-    };
-
-    step.addEventListener('click', pauseOtherStepVideos);
-    step.addEventListener('pointerup', pauseOtherStepVideos);
-    step.addEventListener('touchend', pauseOtherStepVideos);
+    //     if (nextTime <= 0.05) {
+    //         resetVideoToPoster(vid);
+    //     }
+    // });
 
     /* =========================
        KEYBOARD CONTROLS (STEP ONLY)
@@ -114,7 +101,6 @@ function bindVideoControls(step) {
             console.log("PLAYING VIDEO", vid);
 
             togglePlay(vid);
-            syncPlayBtn(playBtn, vid);
             return;
         }
     });
@@ -129,10 +115,7 @@ function togglePlay(vid) {
     else vid.pause();
 }
 
-function syncPlayBtn(btn, vid) {
-    if (!btn) return;
-    btn.textContent = vid.paused ? '>' : '||';
-}
+
 
 function resetVideoToPoster(vid) {
     if (!vid) return;
@@ -156,7 +139,6 @@ function ensurePosterAtStart(vid, btn) {
     if (vid.paused && vid.currentTime <= 0.05 && !vid.ended) {
         vid.dataset.posterResetting = 'true';
         resetVideoToPoster(vid);
-        syncPlayBtn(btn, vid);
 
         setTimeout(() => {
             delete vid.dataset.posterResetting;
@@ -181,6 +163,5 @@ export function pauseAllVideos(root = document, keepVideo = null) {
         const step = vid.closest('.section');
         const btn = step?.querySelector('.playbtn');
 
-        syncPlayBtn(btn, vid);
     });
 }
