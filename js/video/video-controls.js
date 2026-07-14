@@ -24,9 +24,9 @@ export function initAllVideos(root = document) {
 
 function hideAllVideoControls() {
     document.querySelectorAll("video").forEach(video => {
-        if (!video.paused) {
-            video.controls = false;
-        }
+        video.controls = false;
+        // if (!video.paused) {
+        // }
     });
 }
 function bindVideoControls(step) {
@@ -53,7 +53,7 @@ function bindVideoControls(step) {
 
     vid.addEventListener("click", showControls);
     vid.addEventListener("pointerenter", showControls);
-    vid.addEventListener("pointermove", showControls);
+    // vid.addEventListener("pointermove", showControls);
     vid.addEventListener("play", showControls);
 
     // prevent double binding
