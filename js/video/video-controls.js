@@ -8,6 +8,17 @@ export function initAllVideos(root = document) {
 
     console.log("VIDEO INIT SECTIONS:", sections.length);
 
+    // Hide controls when interacting anywhere except videos
+    document.addEventListener("pointerdown", (e) => {
+
+        if (e.target.closest("video")) {
+            return;
+        }
+
+        hideAllVideoControls();
+
+    });
+
     sections.forEach(bindVideoControls);
 }
 
