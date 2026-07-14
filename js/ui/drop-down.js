@@ -4,6 +4,7 @@ let lastClickedDrop
 export function initDropDown() {
     const dropDowns = document.querySelectorAll('.drop-down')
     const downs = document.querySelectorAll('.downs')
+    const allMoreInfoButtons = document.querySelectorAll('.more-info-buttons')
     // const sectionTitles = document.querySelectorAll('.section-title')
     hideAllDowns()
     dropDowns.forEach(el => {
@@ -18,13 +19,10 @@ export function initDropDown() {
         el.addEventListener('click', toggleContent)
         // el.removeEventListener('keydown', toggleContent) // ✅ prevent stacking
         // el.addEventListener('keydown', toggleContent)
-    })
-    
+    })    
     function toggleContent(e) {
-        e.preventDefault()
-        
+        e.preventDefault()  
         if(e.type === 'click'){
-
             clickHandler(e)
             return
         }
@@ -53,8 +51,8 @@ export function initDropDown() {
     function clickHandler(e){    
         const catTitle = e.target.closest('.cat-title')
         const productTitle = e.target.closest('.products-title')
-        const sectionTitleDropDown = e.target.closest('.section-title.drop-down')
         const serviceSwiperDropDown = e.target.closest('.service-title.drop-down');
+        const sectionTitleDropDown = e.target.closest('.section-title.drop-down')
         // 🟣 PRODUCT DROPDOWN
         if (productTitle) {
             const productsContainers = productTitle.closest('.products')
@@ -80,28 +78,6 @@ export function initDropDown() {
     
             return
         }
-        // 🔵 SECTION DROPDOWN
-        if (sectionTitleDropDown) {
-            const section = sectionTitleDropDown.closest('.section');
-
-            if (!section) return;
-
-            const currentDown = section.querySelector('.content.downs');
-            if (!currentDown) return;
-
-            // Hide every OTHER section content
-            document.querySelectorAll('.section .content.downs').forEach(el => {
-                if (el !== currentDown) {
-                    el.classList.add('hide');
-                }
-            });
-
-            // Toggle clicked section
-            currentDown.classList.toggle('hide');
-
-            lastClickedDrop = e.target;
-            return;
-        }
         // Services Swiper Dropdown
         if (serviceSwiperDropDown) {
             const service = serviceSwiperDropDown.closest('.service')
@@ -118,6 +94,48 @@ export function initDropDown() {
             lastClickedDrop = e.target
             return
         }
+        // 🔵 SECTION DROPDOWN
+        // 🔵 SECTION DROPDOWN
+        if (sectionTitleDropDown) {
+            const section = sectionTitleDropDown.closest('.section');
+            if (!section) return;
+
+            const currentDown = section.querySelector('.content.downs');
+            if (!currentDown) return;
+
+            // Hide every OTHER section and show its More Info buttons
+            document.querySelectorAll('.section').forEach(otherSection => {
+                if (otherSection === section) return;
+
+                const otherDown = otherSection.querySelector('.content.downs');
+                const otherButtons = otherSection.querySelector('.more-info-buttons');
+
+                if (otherDown) {
+                    otherDown.classList.add('hide');
+                }
+
+                if (otherButtons) {
+                    otherButtons.classList.remove('hide');
+                }
+            });
+
+            // Toggle the clicked section
+            currentDown.classList.toggle('hide');
+
+            const moreInfoButtons = section.querySelector('.more-info-buttons');
+
+            if (moreInfoButtons) {
+                if (currentDown.classList.contains('hide')) {
+                    moreInfoButtons.classList.remove('hide');
+                } else {
+                    moreInfoButtons.classList.add('hide');
+                }
+            }
+
+            lastClickedDrop = e.target;
+            return;
+        }
+        
     }
     function keydownHandler(e){    
         
@@ -129,7 +147,7 @@ export function initDropDown() {
         // Services Swiper Dropdown
         if(sectionTitleDropDown) {
             const section = sectionTitleDropDown.closest('.section');
-
+            
             if (!section) return;
 
             const currentDown = section.querySelector('.content.downs');
@@ -149,5 +167,25 @@ export function initDropDown() {
             return;
         }
     }
+    // function moreInfoButtonsToggle(e,currentDown){
+    //     // const moreInfoButtons = e.target.closest('.more-info-buttons')
+    //     console.log(e.target)
+    //     if (e.target.classList.contains('section-title')) {
+
+    //         // allMoreInfoButtons.forEach(el => {
+    //         //     if(el.clasList.contains('hide')) el.remove('hide')
+    //         // })
+    //         return
+    //     } else if (e.target.parentElement.clasList.contains('more-info-buttons')) {
+            
+    //         console.log(moreInfoButtons)
+    //         moreInfoButtons.classList.add('hide')
+    //         if (!currentDown.classList.contains('hide')) {
+    //         } else {
+    //             moreInfoButtons.classList.remove('hide')
+    //         }
+    //     }
+
+    // }
 }
 
