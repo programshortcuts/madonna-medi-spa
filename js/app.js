@@ -1,4 +1,5 @@
 // app.js
+import { initAllVideos } from "./video/video-controls.js";
 import { initFocusScroll } from "./nav/focus-scroll.js";
 import { initChangeStyles } from "./ui/change-styles.js";
 import { initInjectContentListeners } from "./core/inject-content.js";
@@ -28,6 +29,7 @@ function initMain(){
                 }
             });
         });    
+    initAllVideos(document)
 }
 function setupGlobalListeners(){
     initDropDown()

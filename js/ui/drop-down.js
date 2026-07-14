@@ -1,5 +1,4 @@
 // drop-down.js
-import { vidControls } from "./vid-cntrls.js"
 let lastClickedDrop 
 export function initDropDown() {
     const dropDowns = document.querySelectorAll('.drop-down')

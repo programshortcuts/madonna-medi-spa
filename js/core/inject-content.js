@@ -1,3 +1,5 @@
+// inject-content.js
+import { initAllVideos } from "../video/video-controls.js";
 // 🔥 Ensure correct default page
 // export const DEFAULT_PAGE = "pages/home/home.html";
 export const DEFAULT_PAGE = "pages/medical-spa-services/medical-spa-services.html";
@@ -156,13 +158,14 @@ export async function injectPage(href) {
 
     requestAnimationFrame(() => {
         const firstSection = mainLandingPage.querySelector(".sections-containers");
-
+        
         if (firstSection) {
             firstSection.scrollIntoView({
                 block: "start",
                 behavior: "instant"
             });
         }
+        initAllVideos(mainLandingPage)
     });
 
     // -----------------------------
