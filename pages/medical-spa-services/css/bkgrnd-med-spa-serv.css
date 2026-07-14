@@ -39,3 +39,10 @@
     filter: saturate(.7);
     filter: brightness(.8);
 }
+.more-info-buttons > button {
+    appearance: none;
+    -webkit-appearance: none ;
+    border: none;
+    background-color: transparent !important;
+
+}
