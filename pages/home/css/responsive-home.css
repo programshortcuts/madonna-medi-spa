@@ -42,8 +42,7 @@
     .swiper.services-swiper {
         height: 40vh;
         padding-inline: 4%;
-    }
-    
+    }  
     .services-swiper .swiper-slide {
         /* margin-top: 10%; */
         /* transform: scale(.78) !important; */
@@ -60,4 +59,19 @@
         z-index: 5;
     }
             
+}
+
+@media screen and (min-width:431px) {
+    #longevityMedHomePage>.title-text {
+        margin-top: ;
+        
+    }
+    
+}
+@media screen and (max-width:430px) {
+    #longevityMedHomePage>.title-text {
+        margin-top: 4%;
+        
+    }
+    
 }
