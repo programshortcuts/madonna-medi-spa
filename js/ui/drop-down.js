@@ -95,33 +95,52 @@ export function initDropDown() {
             return
         }
         // 🔵 SECTION DROPDOWN
-        // 🔵 SECTION DROPDOWN
         if (sectionTitleDropDown) {
 
             const section = sectionTitleDropDown.closest('.section')
             if (!section) return
 
             const currentDown = section.querySelector('.section-details.downs')
+            const moreInfoButtons = section.querySelector('.more-info-buttons')
 
             if (!currentDown) return
 
 
-            // hide all other sections
-            document.querySelectorAll('.section-details.downs')
-                .forEach(el => {
+            // hide other open sections
+            document.querySelectorAll('.section').forEach(otherSection => {
 
-                    if (el !== currentDown) {
-                        el.classList.add('hide')
-                    }
+                if (otherSection === section) return
 
-                })
+                const otherDown = otherSection.querySelector('.section-details.downs')
+                const otherButtons = otherSection.querySelector('.more-info-buttons')
+
+                if (otherDown) {
+                    otherDown.classList.add('hide')
+                }
+
+                if (otherButtons) {
+                    otherButtons.classList.remove('hide')
+                }
+
+            })
 
 
-            // toggle this one
+            // toggle current section
             currentDown.classList.toggle('hide')
 
 
-            lastClickedDrop = e.target
+            // hide/show current section buttons
+            if (moreInfoButtons) {
+
+                if (currentDown.classList.contains('hide')) {
+                    moreInfoButtons.classList.remove('hide')
+                }
+                else {
+                    moreInfoButtons.classList.add('hide')
+                }
+
+            }
+
             return
         }
         
