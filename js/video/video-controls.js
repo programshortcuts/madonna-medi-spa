@@ -22,6 +22,13 @@ export function initAllVideos(root = document) {
     sections.forEach(bindVideoControls);
 }
 
+function hideAllVideoControls() {
+    document.querySelectorAll("video").forEach(video => {
+        if (!video.paused) {
+            video.controls = false;
+        }
+    });
+}
 function bindVideoControls(step) {
     step.tabIndex = 0;
 
