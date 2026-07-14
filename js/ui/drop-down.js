@@ -95,34 +95,32 @@ export function initDropDown() {
             return
         }
         // 🔵 SECTION DROPDOWN
-        // 🔵 SECTION DROPDOWN
         if (sectionTitleDropDown) {
             const section = sectionTitleDropDown.closest('.section');
             if (!section) return;
 
+            const contentBox = section.querySelector('.content-box');
             const currentDown = section.querySelector('.content.downs');
+            const moreInfoButtons = section.querySelector('.more-info-buttons');
+
             if (!currentDown) return;
 
-            // Hide every OTHER section and show its More Info buttons
+            // Reset every OTHER section
             document.querySelectorAll('.section').forEach(otherSection => {
                 if (otherSection === section) return;
 
+                const otherContentBox = otherSection.querySelector('.content-box');
                 const otherDown = otherSection.querySelector('.content.downs');
                 const otherButtons = otherSection.querySelector('.more-info-buttons');
 
-                if (otherDown) {
-                    otherDown.classList.add('hide');
-                }
-
-                if (otherButtons) {
-                    otherButtons.classList.remove('hide');
-                }
+                if (otherContentBox) otherContentBox.classList.remove('hide');
+                if (otherDown) otherDown.classList.add('hide');
+                if (otherButtons) otherButtons.classList.remove('hide');
             });
 
-            // Toggle the clicked section
+            // Toggle THIS section
+            if (contentBox) contentBox.classList.toggle('hide');
             currentDown.classList.toggle('hide');
-
-            const moreInfoButtons = section.querySelector('.more-info-buttons');
 
             if (moreInfoButtons) {
                 if (currentDown.classList.contains('hide')) {
