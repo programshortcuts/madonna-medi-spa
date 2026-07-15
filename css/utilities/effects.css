@@ -2,8 +2,8 @@
 #navBarBtn:active,#navBarBtn:focus{
     border: 3px solid gold !important;
 }
-.section > button.section-title:active,
-.section>button.section-title:focus{
+.service-section > button.section-title:active,
+.service-section>button.section-title:focus{
     box-shadow: 0 2px 2px 3px silver;
     /* box-shadow: 1px -1px 1px 4px lawngreen; */
     box-shadow: 1px -1px 1px 4px lightcyan;

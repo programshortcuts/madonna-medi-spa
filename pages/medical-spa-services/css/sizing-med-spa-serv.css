@@ -13,7 +13,7 @@
     /* position: relative; */
 }
 
-.med-spa-serv-container .section#bioHormoneReplacement>.section-title img {
+.med-spa-serv-container .service-section#bioHormoneReplacement > .section-title img {
     max-height: 2vh;
 }
 
@@ -23,7 +23,7 @@
 
 }
 
-.section {
+.service-section {
     max-height: 100vh;
 }
 

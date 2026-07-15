@@ -11,19 +11,19 @@
     padding-bottom: 18%;
 }
 
-.med-spa-serv-container .section {
+.med-spa-serv-container .service-section {
     padding-left: 2%;
     /* margin: 5% 0; */
     margin-bottom: 5%;
 }
 
-.med-spa-serv-container .section p:first-of-type{
+.med-spa-serv-container .service-section p:first-of-type{
     padding-top: 3%;
 }
-.med-spa-serv-container .section p:nth-child(1){
+.med-spa-serv-container .service-section p:nth-child(1){
     margin-top: -5%;
 }
-.med-spa-serv-container .section p {
+.med-spa-serv-container .service-section p {
     padding-top: 1%;
     /* padding-bottom: 1%; */
     padding-right: 1%;
@@ -35,6 +35,6 @@
 .img-wrapper.float-left {
     margin-right: 3%;
 }
-.section ul {
+.service-section ul {
     margin: 0 5%;
 }

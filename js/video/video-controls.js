@@ -4,7 +4,7 @@
 ========================= */
 
 export function initAllVideos(root = document) {
-    const sections = root.querySelectorAll('.section');
+    const sections = root.querySelectorAll('.service-section');
 
 
     // Hide controls when interacting anywhere except videos
