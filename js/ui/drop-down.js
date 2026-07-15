@@ -1,14 +1,28 @@
 // drop-down.js
 let lastClickedDrop 
+import { pauseAllVideos } from "../video/video-controls.js"
 export function initDropDown() {
-    const sections = document.querySelectorAll('.page-container.med-spa-serv-container .service-section')
+    const serviceSections = document.querySelectorAll('.page-container.med-spa-serv-container .service-section')
     const sectionsPreviews = document.querySelectorAll('.sections-preview') 
     const dropDowns = document.querySelectorAll('.drop-down')
     const downs = document.querySelectorAll('.downs')
     const allMoreInfoButtons = document.querySelectorAll('.more-info-buttons')
-    // const sectionTitles = document.querySelectorAll('.section-title')
+    const serviceSectionTitles = document.querySelectorAll('.service-section .section-title')
     hideAllDowns()
-    sections.forEach(el => {
+    
+    serviceSectionTitles.forEach(el=>{
+        el.addEventListener('keydown', e => {
+            let key = e.key.toLowerCase()
+            if(key === 'enter'){
+                const serviceSection = e.target.closest('.service-section')
+                const serviceDetails = serviceSection.querySelector('.service-details')
+                if(serviceDetails.classList.contains('hide')) return
+                pauseAllVideos()
+                
+            }
+        });
+    })
+    serviceSections.forEach(el => {
         el.addEventListener('keydown', e => {
         //     console.log('here')
             const section = e.target.closest('.service-section')
