@@ -15,8 +15,8 @@ export function initDropDown() {
             let key = e.key.toLowerCase()
             if(key === 'enter'){
                 const serviceSection = e.target.closest('.service-section')
-                const serviceDetails = serviceSection.querySelector('.service-details')
-                if(serviceDetails.classList.contains('hide')) return
+                const serviceDetails = serviceSection.querySelector('.section-details')
+                if(serviceDetails?.classList.contains('hide')) return
                 pauseAllVideos()
                 
             }
