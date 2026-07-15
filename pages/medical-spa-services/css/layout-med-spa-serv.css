@@ -28,5 +28,9 @@
     padding: 1% 0;
 }
 .women-men-nav {
-    border: 1px dashed black;
- }
+}
+.women-men-nav a {
+    display: inline-flex;
+    flex-direction: column;
+
+}
