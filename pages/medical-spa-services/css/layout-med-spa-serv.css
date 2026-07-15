@@ -1,7 +1,7 @@
 /* layout-med-spa-services.css */
-.section {
+.service-section {
     /* Limits the section to full viewport height */
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     /* Add this line */
 }
@@ -12,7 +12,7 @@
     z-index: 1;
     /* Ensure it's above the content */
 }
-.page-container.med-spa-serv-container .sections-containers .section .content  p{
+.page-container.med-spa-serv-container .sections-containers .service-section .content  p{
     display: flex;
     flex-wrap: wrap;
     /* background-color: blue; */
@@ -21,9 +21,13 @@
     display: inline-flex;
 
 }
-.male-female-nav{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    background-color: blue;
+
+#women-men-nav {
+    display: flex !important;
+    height: 100px !important;
+    width: 100% !important;
+    background: blue !important;
+    border: 12px dashed red !important;
+    position: relative !important;
+    z-index: 9999 !important;
 }

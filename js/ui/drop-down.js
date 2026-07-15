@@ -1,7 +1,7 @@
 // drop-down.js
 let lastClickedDrop 
 export function initDropDown() {
-    const sections = document.querySelectorAll('.page-container.med-spa-serv-container .section')
+    const sections = document.querySelectorAll('.page-container.med-spa-serv-container ssection')
     const sectionsPreviews = document.querySelectorAll('.sections-preview') 
     const dropDowns = document.querySelectorAll('.drop-down')
     const downs = document.querySelectorAll('.downs')
@@ -11,7 +11,7 @@ export function initDropDown() {
     sections.forEach(el => {
         el.addEventListener('keydown', e => {
         //     console.log('here')
-            const section = e.target.closest('.section')
+            const section = e.target.closest('ssection')
             console.log(section)
             if(!section)return
             let key = e.key.toLowerCase()
@@ -22,7 +22,7 @@ export function initDropDown() {
                 
             }
         
-            const sectionDetails = e.target.closest('.section').querySelector('.section-details')
+            const sectionDetails = e.target.closest('ssection').querySelector('.section-details')
         });
     })
     sectionsPreviews.forEach(el => {
@@ -30,7 +30,7 @@ export function initDropDown() {
             let key = e.key.toLowerCase()
             if(key === 'enter'){
                 console.log()
-                const sectionDetails = e.target.closest('.section').querySelector('.section-details')
+                const sectionDetails = e.target.closest('ssection').querySelector('.section-details')
                 console.log(sectionDetails)
                 
             }
@@ -127,7 +127,7 @@ export function initDropDown() {
         // 🔵 SECTION DROPDOWN
         if (sectionTitleDropDown) {
 
-            const section = sectionTitleDropDown.closest('.section')
+            const section = sectionTitleDropDown.closest('ssection')
             if (!section) return
 
             const currentDown = section.querySelector('.section-details.downs')
@@ -137,7 +137,7 @@ export function initDropDown() {
 
 
             // hide other open sections
-            document.querySelectorAll('.section').forEach(otherSection => {
+            document.querySelectorAll('ssection').forEach(otherSection => {
 
                 if (otherSection === section) return
 
