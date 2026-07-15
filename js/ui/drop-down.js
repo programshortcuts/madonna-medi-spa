@@ -48,6 +48,7 @@ export function initDropDown() {
         })
     }
     function clickHandler(e){    
+        console.log(e.target)
         const catTitle = e.target.closest('.cat-title')
         const productTitle = e.target.closest('.products-title')
         const serviceSwiperDropDown = e.target.closest('.service-title.drop-down');

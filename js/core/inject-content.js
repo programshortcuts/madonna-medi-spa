@@ -1,8 +1,8 @@
 // inject-content.js
 import { initAllVideos } from "../video/video-controls.js";
 // 🔥 Ensure correct default page
-export const DEFAULT_PAGE = "pages/home/home.html";
-// export const DEFAULT_PAGE = "pages/medical-spa-services/medical-spa-services.html";
+// export const DEFAULT_PAGE = "pages/home/home.html";
+export const DEFAULT_PAGE = "pages/medical-spa-services/medical-spa-services.html";
 // export const DEFAULT_PAGE = "pages/products/products.html";
 // export const DEFAULT_PAGE = "pages/contact/contact.html";
 // export const DEFAULT_PAGE = "pages/bookings/bookings.html";

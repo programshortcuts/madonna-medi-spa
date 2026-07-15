@@ -6,7 +6,6 @@
 export function initAllVideos(root = document) {
     const sections = root.querySelectorAll('.section');
 
-    console.log("VIDEO INIT SECTIONS:", sections.length);
 
     // Hide controls when interacting anywhere except videos
     document.addEventListener("pointerdown", (e) => {
@@ -80,7 +79,6 @@ function bindVideoControls(step) {
        KEYBOARD CONTROLS (STEP ONLY)
     ========================= */
     step.addEventListener('keydown', (e) => {
-        console.log("SECTION KEYDOWN", e.target, e.key);
 
         if (
             e.target.closest('.vid-cntrl-btns, .playbtn, .fwdBtn, .rwdBtn')
