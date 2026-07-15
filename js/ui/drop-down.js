@@ -46,6 +46,9 @@ export function initDropDown() {
                 console.log()
                 const sectionDetails = e.target.closest('.service-section').querySelector('.section-details')
                 console.log(sectionDetails)
+                if(sectionDetails.classList.contains('hide')){
+                    sectionDetails.classList.remove('hide')
+                }
                 
             }
         });
