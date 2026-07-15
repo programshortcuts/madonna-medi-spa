@@ -24,3 +24,16 @@
     float: left !important;
 }
 
+
+.img-wrapper{
+    position: relative;
+}
+.over-text{
+    color: tomato;
+    display: block;
+    border: 3px solid red;
+    position: absolute;
+    top: 20%;
+    font-size: 1.5rem;
+    z-index: 99999 !important
+}
