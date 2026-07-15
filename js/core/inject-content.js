@@ -133,7 +133,7 @@ export async function injectPage(href) {
             'pre', 'code',
             'img',
             'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-            'a', 'section', 'article', 'header', 'footer',
+            'a','nav', 'section', 'article', 'header', 'footer',
             'iframe', 'button', 'canvas',
             'svg', 'path', 'circle', 'g'
         ],

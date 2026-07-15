@@ -22,12 +22,11 @@
 
 }
 
-#women-men-nav {
-    display: flex !important;
-    height: 100px !important;
-    width: 100% !important;
-    background: blue !important;
-    border: 12px dashed red !important;
-    position: relative !important;
-    z-index: 9999 !important;
+.women-men-nav {
+    display: flex ;
+    justify-content: space-around;
+    padding: 1% 0;
 }
+.women-men-nav {
+    border: 1px dashed black;
+ }
