@@ -25,9 +25,7 @@
     padding-bottom: 2%;
     padding-right: 4%;
 }
-.reviews-container>p {
-     padding-top: 5% !important;
- } 
+
 .page-container.home-page-container  .main-item > .content > p{
     line-height: 1.55;
 }
@@ -90,8 +88,14 @@ section#longevityMedHomePage {
 [data-nav-target="more-info-link"] {
     margin-left: 5%;
 }
-
-
 #aboutUsHomePage{
     margin-top: 10%;
+}
+.reviews-container>p {
+    padding-top: 5% !important;
+    margin-bottom: -5%;
+    border: 1px dashed black;
+}
+#longevityMedHomePage{
+    
 }

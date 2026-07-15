@@ -46,6 +46,7 @@
     .services-swiper .swiper-slide {
         /* margin-top: 10%; */
         /* transform: scale(.78) !important; */
+        max-height: 50px;
         transition: transform .35s ease, opacity .35s ease;
     }
     
