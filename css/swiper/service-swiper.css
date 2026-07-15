@@ -1,4 +1,5 @@
 /* service-swiper.css */
+
 .service-column>.service-col-title {
     text-decoration: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -17,6 +18,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .swiper.services-swiper {
+    margin-top: 5%;
     width: 100%;
     /* height: 40vh !important; */
     overflow: visible;
@@ -90,12 +92,13 @@
         height: fit-content;
     }
     .services-swiper > .swiper-wrapper {
-        
+        height: fit-content;
     }
     .services-swiper > .swiper-wrapper > .swiper-slide {
-        width: 50% !important;
-        height: 100%;
-        max-height: 20vh !important;
+        width: 220px !important;
+        height: 200px !important;
+        /* border: 10px solid orange; */
+        /* max-height: 20vh !important; */
         /* margin-top: 10%; */
         /* transform: scale(.78) !important; */
         /* transition: transform .35s ease, opacity .35s ease; */
