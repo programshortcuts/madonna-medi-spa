@@ -1,11 +1,41 @@
 // drop-down.js
 let lastClickedDrop 
 export function initDropDown() {
+    const sections = document.querySelectorAll('.page-container.med-spa-serv-container .section')
+    const sectionsPreviews = document.querySelectorAll('.sections-preview') 
     const dropDowns = document.querySelectorAll('.drop-down')
     const downs = document.querySelectorAll('.downs')
     const allMoreInfoButtons = document.querySelectorAll('.more-info-buttons')
     // const sectionTitles = document.querySelectorAll('.section-title')
     hideAllDowns()
+    sections.forEach(el => {
+        el.addEventListener('keydown', e => {
+        //     console.log('here')
+            const section = e.target.closest('.section')
+            console.log(section)
+            if(!section)return
+            let key = e.key.toLowerCase()
+            if(key === 'enter'){
+                // e.preventDefault()
+                const title = e.target.querySelector('.section-title')
+                title?.focus()
+                
+            }
+        
+            const sectionDetails = e.target.closest('.section').querySelector('.section-details')
+        });
+    })
+    sectionsPreviews.forEach(el => {
+        el.addEventListener('keydown', e => {
+            let key = e.key.toLowerCase()
+            if(key === 'enter'){
+                console.log()
+                const sectionDetails = e.target.closest('.section').querySelector('.section-details')
+                console.log(sectionDetails)
+                
+            }
+        });
+    })
     dropDowns.forEach(el => {
         // SUPER IMPORTANT 
         if(el.classList.contains('service-title')){
