@@ -15,15 +15,21 @@
     }
     .home-page-container > .home-page-header.bg-slider > .bg-slide{
         background-position-y: 10% !important;
+}
+    .home-page-header {
+        background-position-y: -129% !important;
+        /* border: 1px solid magenta; */
+        height: 50vh !important;
     }
-        .home-page-header {
-            background-position-y: -129% !important;
-            /* border: 1px solid magenta; */
-            height: 50vh !important;
-        }
 }
 
-@media screen and(max-width:519px) {
+@media screen and (max-width:541px) {
+    .page-title-container>h1 {
+        /* margin: 0 25%; */
+        /* margin-top: 10% !important; */
+        width: 100% !important;
+        /* margin-left: -1%; */
+    }
     .page-container.med-spa-serv-container{
         /* padding-top: 50% !important; */
         margin-top: 50% !important;
@@ -34,17 +40,10 @@
     #addressLinkHeader > a{
         width: 100% !important;
     }
-    .page-title-container>h1 {
-        /* margin: 0 25%; */
-        /* margin-top: 10% !important; */
-        width: 100% !important;
-
-        border: 1px solid blue !important;
-        background-color: blue;
-    }
+        
     
 }
-@media screen and(min-width:431px) {
+@media screen and (min-width:431px) {
     #longevityMedHomePage {
         /* margin-top: -20%; */
         margin-left: -15%;
@@ -56,5 +55,6 @@
         padding: 0 5%;
 
     }
+    
 
 }
