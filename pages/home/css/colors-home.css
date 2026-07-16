@@ -19,7 +19,6 @@
 }
 .service-col-title{
     background: none !important;
-    border: none;
     color: inherit;
 }
 [data-nav-target="more-info-link"] {

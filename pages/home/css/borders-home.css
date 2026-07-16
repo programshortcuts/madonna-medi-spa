@@ -13,8 +13,17 @@
     /* display: block; */
     border-radius: 32px;
 }
-
-
+.home-page-container .section {
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+.reviews-container>p {
+    /* border: 1px dashed black; */
+}
+.service-col-title {
+    border: none;
+}
+.home-page-container button.section-title,
 [data-nav-target="more-info-link"]{
     border: none;
 }
