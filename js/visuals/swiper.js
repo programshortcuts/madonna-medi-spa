@@ -132,10 +132,10 @@ export function initServicesSwiper() {
             // Don't navigate if the click was on a button or interactive element
             if (e.target.closest('button, a, [data-no-click]')) return;
 
-            // slide.scrollIntoView({
-            //     behavior: 'smooth',
-            //     block: 'center',
-            // });
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
             clickedServiceSlide = e.target
         }
     });
