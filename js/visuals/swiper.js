@@ -32,6 +32,9 @@ export function initServicesSwiper() {
     const slides = el.querySelectorAll('.swiper-slide')
     slides.forEach(slide => {
         slide.addEventListener('click', e => {
+            e.preventDefault()
+            e.stopPropagation()
+            console.log(e.target)
             e.target.scrollIntoView({
                 behavior: 'auto',
                 block: 'center',
@@ -41,6 +44,7 @@ export function initServicesSwiper() {
         slide.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
             if(key === 'enter'){
+                e.preventDefault()
                 e.target.scrollIntoView({behavior:'auto', 
                                         block: 'center',
                                         
@@ -104,7 +108,7 @@ export function initServicesSwiper() {
     // Allow clicking on slides to navigate left/right
     el.addEventListener('click', (e) => {
         const slide = e.target.closest('.swiper-slide');
-
+        
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
 
         // Don't navigate if the click was on a button or interactive element
@@ -121,16 +125,12 @@ export function initServicesSwiper() {
         } else if (clickedIndex > activeIndex) {
             servicesSwiper.slideNext();
         }
-        el.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'nearest',
-            inline: 'center' });
+        // el.scrollIntoView({ 
+        //     behavior: 'smooth', 
+        //     block: 'center'
+        //      });
     });
-    el.addEventListener('focusin', (e) => {
-        if (e.target.closest('.swiper-slide')) {
-            // pauseSwiperTemporarily();
-        }
-    });
+   
 
     el.addEventListener('keydown', (e) => {
         servicesSwiper.autoplay.stop(); 
@@ -149,11 +149,10 @@ export function initServicesSwiper() {
             // Don't navigate if the click was on a button or interactive element
             if (e.target.closest('button, a, [data-no-click]')) return;
 
-            slide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'nearest'
-            });
+            // slide.scrollIntoView({
+            //     behavior: 'smooth',
+            //     block: 'center',
+            // });
             clickedServiceSlide = e.target
         }
     });
