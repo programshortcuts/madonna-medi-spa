@@ -85,6 +85,10 @@ export function initServicesSwiper() {
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
         const slide = e.target.closest('.swiper-slide');
+        const content = slide.querySelector('.content')
+        if (content.classList.contains('hide')) {
+            content.classList.remove('hide')
+        }
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
         slide.scrollIntoView({
             behavior: 'smooth',
