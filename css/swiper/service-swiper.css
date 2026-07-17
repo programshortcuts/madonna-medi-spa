@@ -20,7 +20,6 @@
 .swiper.services-swiper {
     margin-top: 5%;
     width: 100%;
-    /* height: 40vh !important; */
     overflow: visible;
     /* KEY FIX */
     touch-action: pan-y;

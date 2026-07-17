@@ -7,7 +7,7 @@
 
     }
 }
-@media screen and (min-width:520px) {
+@media screen and (min-width:542px) {
 
     .page-container.home-page-container {
         padding-top: 0% !important;
@@ -21,29 +21,24 @@
         /* border: 1px solid magenta; */
         height: 50vh !important;
     }
+    #longevityMedHomePage .title-text {
+        margin-top: 6.4% !important;
+        padding-left: 6% !important;
+    }
 }
 
 @media screen and (max-width:541px) {
     .page-title-container>h1 {
-        /* margin: 0 25%; */
-        /* margin-top: 10% !important; */
-        /* line-height: 1.2; */
-        /* font-size: .9rem; */
-        /* width: 100% !important; */
-        /* flex-basis: 100%; */
-        /* flex-grow: 1; */
-        /* border: 1px solid blue */
+        margin-top: 1%;   
     }
-    
+    #longevityMedHomePage .title-text {
+        margin-top: 7% !important;
+    }
     #addressLinkHeader{
         width: 103vw !important;
     }
     #addressLinkHeader > a{
         width: 100% !important;
+        line-height: 1.2;
     }
-        
-
-    
-    
-
 }

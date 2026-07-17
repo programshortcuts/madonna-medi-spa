@@ -34,7 +34,10 @@ export function initServicesSwiper() {
         slide.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
-            console.log(e.target)
+            console.log('click')
+            if (e.target.classList.contains('service-title')) {
+                return
+            }
             e.target.scrollIntoView({
                 behavior: 'auto',
                 block: 'center',
@@ -44,10 +47,13 @@ export function initServicesSwiper() {
         slide.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
             if(key === 'enter'){
-                e.preventDefault()
+                // e.preventDefault()
+                if(e.target.classList.contains('service-title')){
+                    
+                    return
+                }
                 e.target.scrollIntoView({behavior:'auto', 
-                                        block: 'center',
-                                        
+                                        block: 'center'
                                     })
             }
         })
@@ -138,8 +144,9 @@ export function initServicesSwiper() {
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
+                console.log('here enter')
                 serviceTitle.focus()
-                serviceTitle.click()
+                // serviceTitle.click()
                 return
             }
             const slide = e.target.closest('.swiper-slide');
@@ -157,7 +164,7 @@ export function initServicesSwiper() {
         }
     });
     document.addEventListener('change', e => {
-        console.log('chaning')
+        // console.log('chaning')
     })
     return servicesSwiper; // ✅ CRITICAL ADDITION
 }

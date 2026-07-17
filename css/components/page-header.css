@@ -79,9 +79,7 @@
 }
 
 
-#addressLinkHeader{
-    /* width: 33vw; */
-}
+
 #addressLinkHeader > a{
     text-decoration: none;
     /* margin-right: 5%; */
