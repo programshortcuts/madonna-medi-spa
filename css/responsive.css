@@ -27,12 +27,14 @@
     .page-title-container>h1 {
         /* margin: 0 25%; */
         /* margin-top: 10% !important; */
-        width: 100% !important;
+        /* line-height: 1.2; */
+        /* font-size: .9rem; */
+        /* width: 100% !important; */
+        /* flex-basis: 100%; */
+        /* flex-grow: 1; */
+        /* border: 1px solid blue */
     }
-    .page-container.med-spa-serv-container{
-        /* padding-top: 50% !important; */
-        margin-top: 50% !important;
-    }
+    
     #addressLinkHeader{
         width: 103vw !important;
     }

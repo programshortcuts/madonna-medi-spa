@@ -30,38 +30,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-basis: 90%; */
-    /* margin-left: 5%; */
     flex-wrap: wrap;
 }
 .page-title-container h1 {
-    margin: 0 25%;
-    margin-top: 3%;
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
+
     justify-content: center;
+    /* margin: 0 25%; */
+    margin-top: 5%;
+    width: 100%;
     line-height: .8;
 }
-.page-title-container h1 a{
+.page-title-container h1 .page-title{
     display: inline-block;
     width: 100%;
-}
-
-.page-header .page-title {
     text-decoration: none;
     letter-spacing: 25%;
     font-family: cursive;
-    font-size: 1.1rem;
-    
+    font-size: 1rem;
+    margin-left: 12%;
+    padding-top: 2%;
 }
 .page-header .tel-num-header {
     font-size: .5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-family: cursive;
     font-size: .7rem;
-    margin-top: 2%;
+    /* margin-top: -1%; */
+    margin-left: -22%;
 }
 .page-header>img {
     display: flex;
@@ -90,7 +88,7 @@
     /* min-width: 20vw; */
     font-size: .7rem;
     display: inline-block;
-    margin-top: 3%;
+    /* margin-top: -12%; */
     /* margin-left: 15%; */
     /* border: 1px solid blue; */
     text-shadow: none !important;
