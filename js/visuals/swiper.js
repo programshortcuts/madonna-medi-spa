@@ -32,9 +32,15 @@ export function initServicesSwiper() {
     const slides = el.querySelectorAll('.swiper-slide')
     slides.forEach(slide => {
         slide.addEventListener('focus', e => {
-            e.target.scrollIntoView({behavior:'auto', 
-                                    inline: 'center',
-                                    block: 'nearest'})
+        })
+        slide.addEventListener('keydown', e => {
+            const key = e.key.toLowerCase()
+            if(key === 'enter'){
+                e.target.scrollIntoView({behavior:'auto', 
+                                        block: 'center',
+                                        
+                                    })
+            }
         })
     })
 
@@ -181,10 +187,12 @@ export function initServiceNavController(swiperInstance) {
             const key = e.key.toLowerCase()
             if (key == 'enter') {
                 const index = Number(btn.dataset.slide);
+                
                 if (Number.isNaN(index)) return;
 
                 // IMPORTANT:
                 // Use loop-safe method when available
+                console.log(btn.dataset.slide)
                 if (swiperInstance.slideToLoop) {
                     swiperInstance.slideToLoop(index);
                 } else {
@@ -208,6 +216,7 @@ function syncServiceButton(swiper) {
         .querySelectorAll('.service-col-title')
         .forEach(btn => btn.classList.remove('is-focused'));
 
+    
     // Current active slide
     const slide = swiper.slides[swiper.activeIndex];
     if (!slide) return;

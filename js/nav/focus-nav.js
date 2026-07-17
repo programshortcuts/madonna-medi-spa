@@ -22,7 +22,7 @@ export function focusNav({e,target}){
             target.el.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
-                inline: 'center'
+                inline: 'start'
             });
         }
     } else {
