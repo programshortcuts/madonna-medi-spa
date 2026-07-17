@@ -30,7 +30,7 @@ export function initDropDown() {
             if(key === 'enter'){
                 // e.preventDefault()
                 const title = e.target.querySelector('.section-title')
-                title?.focus()
+                // title?.focus()
                 
             }
         
