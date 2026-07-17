@@ -34,10 +34,23 @@ export function initServicesSwiper() {
         slide.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
+            servicesSwiper.autoplay.stop(); 
+            console.log('click')
             if (e.target.classList.contains('service-title')) {
+                const slide = e.target.closest('.swiper-slide')
+                console.log(slide)
+                slide.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'end',
+
+                })
                 return
             }
-            e.target.scrollIntoView({behavior: 'auto',block: 'center',})
+            e.target.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+
+            })
         })
         slide.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
@@ -47,7 +60,9 @@ export function initServicesSwiper() {
                     
                     return
                 }
-                e.target.scrollIntoView({behavior:'auto', block: 'center'})
+                e.target.scrollIntoView({behavior:'auto', 
+                                        block: 'center'
+                                    })
             }
         })
     })
@@ -106,6 +121,7 @@ export function initServicesSwiper() {
 
     // Allow clicking on slides to navigate left/right
     el.addEventListener('click', (e) => {
+        
         const slide = e.target.closest('.swiper-slide');
         
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
@@ -124,6 +140,10 @@ export function initServicesSwiper() {
         } else if (clickedIndex > activeIndex) {
             servicesSwiper.slideNext();
         }
+        // el.scrollIntoView({ 
+        //     behavior: 'smooth', 
+        //     block: 'center'
+        //      });
     });
    
 
@@ -133,10 +153,9 @@ export function initServicesSwiper() {
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
-                console.log('second keydown')
+                console.log('here enter')
                 serviceTitle.focus()
-                console.log(el)
-                el.scrollIntoView({behavior:'smooth', block:'center'})
+                // serviceTitle.click()
                 return
             }
             const slide = e.target.closest('.swiper-slide');
@@ -145,8 +164,11 @@ export function initServicesSwiper() {
 
             // Don't navigate if the click was on a button or interactive element
             if (e.target.closest('button, a, [data-no-click]')) return;
-            console.log('here')
-            
+
+            // slide.scrollIntoView({
+            //     behavior: 'smooth',
+            //     block: 'center',
+            // });
             clickedServiceSlide = e.target
         }
     });
