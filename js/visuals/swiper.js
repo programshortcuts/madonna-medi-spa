@@ -31,7 +31,12 @@ export function initServicesSwiper() {
     if (!el || typeof Swiper === 'undefined') return;
     const slides = el.querySelectorAll('.swiper-slide')
     slides.forEach(slide => {
-        slide.addEventListener('focus', e => {
+        slide.addEventListener('click', e => {
+            e.target.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+
+            })
         })
         slide.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
