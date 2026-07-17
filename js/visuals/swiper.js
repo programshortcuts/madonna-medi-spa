@@ -29,43 +29,6 @@ export function initReviewsSwiper() {
 export function initServicesSwiper() {
     const el = document.querySelector('.services-swiper');
     if (!el || typeof Swiper === 'undefined') return;
-    const slides = el.querySelectorAll('.swiper-slide')
-    slides.forEach(slide => {
-        slide.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
-            servicesSwiper.autoplay.stop(); 
-            console.log('click')
-            if (e.target.classList.contains('service-title')) {
-                const slide = e.target.closest('.swiper-slide')
-                console.log(slide)
-                slide.scrollIntoView({
-                    behavior: 'auto',
-                    block: 'end',
-
-                })
-                return
-            }
-            e.target.scrollIntoView({
-                behavior: 'auto',
-                block: 'center',
-
-            })
-        })
-        slide.addEventListener('keydown', e => {
-            const key = e.key.toLowerCase()
-            if(key === 'enter'){
-                // e.preventDefault()
-                if(e.target.classList.contains('service-title')){
-                    
-                    return
-                }
-                e.target.scrollIntoView({behavior:'auto', 
-                                        block: 'center'
-                                    })
-            }
-        })
-    })
 
     if (servicesSwiper) servicesSwiper.destroy(true, true);
     let shouldFocusSlide = false;
@@ -119,31 +82,35 @@ export function initServicesSwiper() {
     }
     });
 
-    // Allow clicking on slides to navigate left/right
+    // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
-        
         const slide = e.target.closest('.swiper-slide');
-        
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
 
-        // Don't navigate if the click was on a button or interactive element
+        // Ignore clicks on nested interactive elements like buttons and links.
         if (e.target.closest('button, a, [data-no-click]')) return;
 
-        const clickedIndex = servicesSwiper.slides.indexOf(slide);
-        if (clickedIndex === -1) return;
+        servicesSwiper.autoplay.stop();
 
-        const activeIndex = servicesSwiper.activeIndex;
+        const clickedIndex = Number(slide.dataset.swiperSlideIndex ?? servicesSwiper.slides.indexOf(slide));
+        if (Number.isNaN(clickedIndex)) return;
 
-        // Navigate based on whether the clicked slide is before or after current
-        if (clickedIndex < activeIndex) {
-            servicesSwiper.slidePrev();
-        } else if (clickedIndex > activeIndex) {
-            servicesSwiper.slideNext();
+        const activeSlideIndex = typeof servicesSwiper.realIndex === 'number'
+            ? servicesSwiper.realIndex
+            : servicesSwiper.activeIndex;
+
+        if (clickedIndex === activeSlideIndex) {
+            slide.focus();
+            return;
         }
-        // el.scrollIntoView({ 
-        //     behavior: 'smooth', 
-        //     block: 'center'
-        //      });
+
+        shouldFocusSlide = true;
+
+        if (servicesSwiper.slideToLoop) {
+            servicesSwiper.slideToLoop(clickedIndex);
+        } else {
+            servicesSwiper.slideTo(clickedIndex);
+        }
     });
    
 
