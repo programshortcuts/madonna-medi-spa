@@ -28,7 +28,6 @@
         /* margin: 0 25%; */
         /* margin-top: 10% !important; */
         width: 100% !important;
-        /* margin-left: -1%; */
     }
     .page-container.med-spa-serv-container{
         /* padding-top: 50% !important; */
@@ -41,20 +40,8 @@
         width: 100% !important;
     }
         
+
     
-}
-@media screen and (min-width:431px) {
-    #longevityMedHomePage {
-        /* margin-top: -20%; */
-        margin-left: -15%;
-        z-index: 10;
-    }
-
-    #longevityMedHomePage>.content {
-        margin-left: 10%;
-        padding: 0 5%;
-
-    }
     
 
 }

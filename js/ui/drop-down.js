@@ -24,9 +24,7 @@ export function initDropDown() {
     })
     serviceSections.forEach(el => {
         el.addEventListener('keydown', e => {
-        //     console.log('here')
             const section = e.target.closest('.service-section')
-            console.log(section)
             if(!section)return
             let key = e.key.toLowerCase()
             if(key === 'enter'){
@@ -43,9 +41,7 @@ export function initDropDown() {
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             if(key === 'enter'){
-                console.log()
                 const sectionDetails = e.target.closest('.service-section').querySelector('.section-details')
-                console.log(sectionDetails)
                 if(sectionDetails.classList.contains('hide')){
                     sectionDetails.classList.remove('hide')
                 }
@@ -95,7 +91,6 @@ export function initDropDown() {
         })
     }
     function clickHandler(e){    
-        console.log(e.target)
         const catTitle = e.target.closest('.cat-title')
         const productTitle = e.target.closest('.products-title')
         const serviceSwiperDropDown = e.target.closest('.service-title.drop-down');
@@ -114,12 +109,10 @@ export function initDropDown() {
         // 🟣 CAT DROPDOWN
         if (catTitle) {
             const container = e.target.closest('.cat')
-            console.log(container)
             if (!container) return
     
             const downs = container.querySelector('.products-containers.downs')
     
-            console.log(downs)
             if (!downs) return
             downs.classList.toggle('hide')
     
@@ -196,7 +189,6 @@ export function initDropDown() {
         
         const key = e.key.toLowerCase()
         const sectionTitleDropDown = e.target.closest('.section-title.drop-down')
-        console.log(sectionTitleDropDown)
         const section = sectionTitleDropDown.closest('.section')
         
         // Services Swiper Dropdown
@@ -224,7 +216,6 @@ export function initDropDown() {
     }
     // function moreInfoButtonsToggle(e,currentDown){
     //     // const moreInfoButtons = e.target.closest('.more-info-buttons')
-    //     console.log(e.target)
     //     if (e.target.classList.contains('section-title')) {
 
     //         // allMoreInfoButtons.forEach(el => {
@@ -233,7 +224,6 @@ export function initDropDown() {
     //         return
     //     } else if (e.target.parentElement.clasList.contains('more-info-buttons')) {
             
-    //         console.log(moreInfoButtons)
     //         moreInfoButtons.classList.add('hide')
     //         if (!currentDown.classList.contains('hide')) {
     //         } else {

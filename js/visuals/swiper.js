@@ -34,7 +34,7 @@ export function initServicesSwiper() {
         slide.addEventListener('focus', e => {
             e.target.scrollIntoView({behavior:'auto', 
                                     inline: 'center',
-                                    block: 'start'})
+                                    block: 'nearest'})
         })
     })
 

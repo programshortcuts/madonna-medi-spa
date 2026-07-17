@@ -43,22 +43,7 @@
     padding-left: 2%;
 }
 
-section#longevityMedHomePage {
-    margin-top: -7.5% !important;
-}
 
-#longevityMedHomePage .title-text {
-    margin-left: 15%;
-}
-
-#longevityMedHomePage {
-    /* margin-top: -5%; */
-    z-index: 10;
-}
-
-#longevityMedHomePage>.content>p {
-    line-height: 2;
-}
 
 .section-title[data-nav-target="ourServices"] {
     width: 100%;
@@ -117,4 +102,24 @@ section#longevityMedHomePage {
 .reviews-container>p {
     padding-top: 5% !important;
     margin-bottom: -5%;
+}
+
+
+
+
+#longevityMedHomePage {
+    /* margin-top: -5%; */
+    z-index: 10;
+}
+
+#longevityMedHomePage>.content>p {
+    line-height: 2;
+}
+section#longevityMedHomePage {
+    margin-top: -11%;
+}
+
+#longevityMedHomePage .title-text {
+    margin-left: 18%;
+
 }
