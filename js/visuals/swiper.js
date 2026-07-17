@@ -86,7 +86,10 @@ export function initServicesSwiper() {
     el.addEventListener('click', (e) => {
         const slide = e.target.closest('.swiper-slide');
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
-
+        slide.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
         // Ignore clicks on nested interactive elements like buttons and links.
         if (e.target.closest('button, a, [data-no-click]')) return;
 
