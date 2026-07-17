@@ -1,4 +1,5 @@
 /* layout-home.css*/
+
 .home-page-header {
     display: flex;
     align-items: flex-end;
@@ -54,8 +55,6 @@
 .service-column > .service-col-title{
     display: block;
 }
-
-
 .services-swiper .swiper-slide .service-title {
     display: flex;
     justify-content: flex-end;

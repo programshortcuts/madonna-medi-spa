@@ -28,7 +28,6 @@ export function initReviewsSwiper() {
 
 export function initServicesSwiper() {
     const el = document.querySelector('.services-swiper');
-    console.log(el)
     if (!el || typeof Swiper === 'undefined') return;
     const slides = el.querySelectorAll('.swiper-slide')
     slides.forEach(slide => {
