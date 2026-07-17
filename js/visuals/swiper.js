@@ -36,6 +36,13 @@ export function initServicesSwiper() {
             e.stopPropagation()
             console.log('click')
             if (e.target.classList.contains('service-title')) {
+                const slide = e.target.closest('.swiper-slide')
+                console.log(slide)
+                slide.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'end',
+
+                })
                 return
             }
             e.target.scrollIntoView({
