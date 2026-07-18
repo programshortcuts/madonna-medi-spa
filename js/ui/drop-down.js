@@ -24,18 +24,20 @@ export function initDropDown() {
     })
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
-            if (e.target.classList.contains('swiper-slide')) {
-                console.log('here')
-                if (!content.classList.contains('hide')) {
-                    content.classList.add('hide')
-                }
-                return
-            } else {
+            console.log(e.target)
 
-                if (content.classList.contains('hide')) {
-                    content.classList.remove('hide')
-                }
-            }
+            console.log('here')
+            // if (e.target.classList.contains('swiper-slide')) {
+            //     if (!content.classList.contains('hide')) {
+            //         content.classList.add('hide')
+            //     }
+            //     return
+            // } else {
+
+            //     if (content.classList.contains('hide')) {
+            //         content.classList.remove('hide')
+            //     }
+            // }
             
         })
         el.addEventListener('keydown', e => {
