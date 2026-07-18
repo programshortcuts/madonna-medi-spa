@@ -85,6 +85,10 @@ export function initServicesSwiper() {
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
         const slide = e.target.closest('.swiper-slide');
+        const content = slide.querySelector('.content')
+        if (content.classList.contains('hide')) {
+            content.classList.remove('hide')
+        }
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
 
         // Ignore clicks on nested interactive elements like buttons and links.
@@ -117,6 +121,7 @@ export function initServicesSwiper() {
     el.addEventListener('keydown', (e) => {
         servicesSwiper.autoplay.stop(); 
         const key = e.key.toLowerCase()
+        
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
@@ -132,10 +137,10 @@ export function initServicesSwiper() {
             // Don't navigate if the click was on a button or interactive element
             if (e.target.closest('button, a, [data-no-click]')) return;
 
-            // slide.scrollIntoView({
-            //     behavior: 'smooth',
-            //     block: 'center',
-            // });
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
             clickedServiceSlide = e.target
         }
     });

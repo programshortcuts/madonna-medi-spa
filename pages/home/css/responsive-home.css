@@ -31,47 +31,33 @@
     #longevityMedHomePage .title-text {
     margin-left: 5%
     }
-    .home-page-container{
-        /* padding: 5% !important; */
-    }
+    
     .home-page-container>article.mission-state>p {
-        /* padding: 1%; */
         padding-top: 5%;
         margin-top: 2%;
-        /* padding-right: 5%; */
     }
-    
 }
-
-
 @media screen and (max-width:532px) {
     .home-page-header {
-        padding-top: 5%;
+        padding-top:25% !important;
     }
     .home-main-content > .main-item{
         /* background-color: blue !important; */
     }
-    
-            
 }
-
 @media screen and (min-width:431px) {
     section#longevityMedHomePage {
         margin-top: -10.5%;
     }
-    
     #longevityMedHomePage .title-text {
         margin-left: 15%;
     }
 }
 @media screen and (max-width:430px) {
     #longevityMedHomePage>.title-text {
-        margin-top: 4%;
-        
+        margin-top: 5%;
     }
-        .services-swiper .swiper-slide {
-            max-height: 200px !important;
-            /* border: 10px orchid solid; */
-        }
-    
+    .services-swiper .swiper-slide {
+        max-height: 200px !important;
+    }
 }
