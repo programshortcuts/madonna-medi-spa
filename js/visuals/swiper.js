@@ -88,16 +88,18 @@ export function initServicesSwiper() {
         const content = slide.querySelector('.content')
         const titleText = slide.querySelector('.title-text')
         servicesSwiper.autoplay.stop();
-        console.log(e.target)
-        if(e.target == slide ){
-            if (!content.classList.contains('hide')) {
-                content.classList.add('hide')
-            }
-            return
-        }
-        if (content.classList.contains('hide')) {
-            content.classList.remove('hide')
-        }
+        // console.log(e.target)
+        // if(e.target == slide ){
+        //     if (!content.classList.contains('hide')) {
+        //         content.classList.add('hide')
+        //     }
+        //     return
+        // } else {
+
+        //     if (content.classList.contains('hide')) {
+        //         content.classList.remove('hide')
+        //     }
+        // }
         if (!slide || !servicesSwiper.slides.includes(slide)) return;
 
         // Ignore clicks on nested interactive elements like buttons and links.

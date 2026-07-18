@@ -23,6 +23,21 @@ export function initDropDown() {
         });
     })
     serviceSections.forEach(el => {
+        el.addEventListener('click', e => {
+            if (e.target.classList.contains('swiper-slide')) {
+                console.log('here')
+                if (!content.classList.contains('hide')) {
+                    content.classList.add('hide')
+                }
+                return
+            } else {
+
+                if (content.classList.contains('hide')) {
+                    content.classList.remove('hide')
+                }
+            }
+            
+        })
         el.addEventListener('keydown', e => {
             const section = e.target.closest('.service-section')
             
