@@ -88,11 +88,16 @@ export function initServicesSwiper() {
         const content = slide.querySelector('.content')
         const titleText = slide.querySelector('.title-text')
         servicesSwiper.autoplay.stop();
-        if(e.target == slide || e.target == titleText){
-            console.log(titleText)
+        console.log(titleText)
+        if(e.target == slide ){
             content.classList.toggle('hide')
             return
-        } else {
+        } else if (e.target == titleText ){
+            content.classList.toggle('hide')
+            return
+        }
+        else 
+            {
 
             if (content.classList.contains('hide')) {
                 content.classList.remove('hide')
@@ -124,17 +129,18 @@ export function initServicesSwiper() {
         } else {
             servicesSwiper.slideTo(clickedIndex);
         }
+        
     });
    
 
     el.addEventListener('keydown', (e) => {
         servicesSwiper.autoplay.stop(); 
         const key = e.key.toLowerCase()
-        
+        console.log('here')
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
-                console.log('here enter')
+                
                 serviceTitle.focus()
                 // serviceTitle.click()
                 return
