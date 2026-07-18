@@ -1,5 +1,6 @@
 // letter-nav.js
 
+import { navMedSpaService } from "./mediSpaServ-nav.js";
 import { letterNav } from "./letter-nav.js";
 import { servicesSwiper } from "../visuals/swiper.js";
 export function initKeydboardNav({ container = document } = {}) {
@@ -30,6 +31,7 @@ export function initKeydboardNav({ container = document } = {}) {
 
             lastElClicked = e.target;
         }
+        navMedSpaService({container,e})
 
         letterNav({ container, e });
 

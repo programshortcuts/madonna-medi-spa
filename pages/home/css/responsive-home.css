@@ -7,6 +7,10 @@
     }
 }
 
+@media screen and (max-width: 722px) {
+    
+}
+
 @media screen and (min-width:535px) {
     .home-page-container {
         margin: 0 2%;
@@ -55,7 +59,7 @@
 }
 @media screen and (max-width:430px) {
     #longevityMedHomePage>.title-text {
-        margin-top: 5%;
+        margin-top: 2% !important;
     }
     .services-swiper .swiper-slide {
         max-height: 200px !important;
