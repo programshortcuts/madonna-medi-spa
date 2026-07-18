@@ -86,6 +86,15 @@ export function initServicesSwiper() {
     el.addEventListener('click', (e) => {
         const slide = e.target.closest('.swiper-slide');
         const content = slide.querySelector('.content')
+        const titleText = slide.querySelector('.title-text')
+        servicesSwiper.autoplay.stop();
+        console.log(e.target)
+        if(e.target == slide ){
+            if (!content.classList.contains('hide')) {
+                content.classList.add('hide')
+            }
+            return
+        }
         if (content.classList.contains('hide')) {
             content.classList.remove('hide')
         }
@@ -94,7 +103,7 @@ export function initServicesSwiper() {
         // Ignore clicks on nested interactive elements like buttons and links.
         if (e.target.closest('button, a, [data-no-click]')) return;
 
-        servicesSwiper.autoplay.stop();
+        
 
         const clickedIndex = Number(slide.dataset.swiperSlideIndex ?? servicesSwiper.slides.indexOf(slide));
         if (Number.isNaN(clickedIndex)) return;

@@ -25,6 +25,7 @@ export function initDropDown() {
     serviceSections.forEach(el => {
         el.addEventListener('keydown', e => {
             const section = e.target.closest('.service-section')
+            
             if(!section)return
             let key = e.key.toLowerCase()
             if(key === 'enter'){
