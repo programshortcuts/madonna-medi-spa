@@ -165,19 +165,25 @@ export function initServicesSwiper() {
     el.addEventListener('keydown', (e) => {
         servicesSwiper.autoplay.stop(); 
         const key = e.key.toLowerCase()
-        console.log('here')
+        
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
-                
+                console.log(serviceTitle)
                 serviceTitle.focus()
-                // serviceTitle.click()
+                serviceTitle.click()
                 return
             }
             const slide = e.target.closest('.swiper-slide');
 
             if (!slide || !servicesSwiper.slides.includes(slide)) return;
+            console.log(slide)
+            if(e.target == slide){
+                console.log(slide.querySelector('.service-title'))
+                slide.querySelector('.service-title').focus()
+                return
 
+            }
             // Don't navigate if the key event originated from a nested interactive element
             if (e.target.closest('button, a, [data-no-click]')) return;
 
@@ -187,7 +193,6 @@ export function initServicesSwiper() {
                 : servicesSwiper.activeIndex;
 
             if (Number.isNaN(clickedIndex)) return;
-
             if (clickedIndex === activeSlideIndex) {
                 // Already active — ensure focus and vertical visibility
                 slide.focus();
@@ -198,22 +203,18 @@ export function initServicesSwiper() {
                 }
                 return;
             }
-
             shouldFocusSlide = true;
-
             // Ensure vertical scroll to center the slide in viewport while letting Swiper manage horizontal centering
             try {
                 slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
             } catch (err) {
                 // ignore
             }
-
             if (servicesSwiper.slideToLoop) {
                 servicesSwiper.slideToLoop(clickedIndex);
             } else {
                 servicesSwiper.slideTo(clickedIndex);
             }
-
             clickedServiceSlide = e.target;
         }
     });

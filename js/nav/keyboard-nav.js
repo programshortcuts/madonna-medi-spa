@@ -31,7 +31,7 @@ export function initKeydboardNav({ container = document } = {}) {
 
             lastElClicked = e.target;
         }
-        navMedSpaService({container,e})
+        // navMedSpaService({container,e})
 
         letterNav({ container, e });
 
