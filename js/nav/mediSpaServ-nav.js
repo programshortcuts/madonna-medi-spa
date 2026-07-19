@@ -2,7 +2,7 @@
 import { focusNav } from "./focus-nav.js";
 
 export function navMedSpaService({ container, e }) {
-
-    // focusNav({ e, target })
+    console.log(e.target)
+        // focusNav({ e, target })
 
 }

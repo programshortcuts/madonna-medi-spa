@@ -13,7 +13,6 @@ export function initDropDown() {
     serviceSectionTitles.forEach(el=>{
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
-            console.log('here')
             if(key === 'enter'){
                 const serviceSection = e.target.closest('.service-section')
                 const serviceDetails = serviceSection.querySelector('.section-details')
@@ -25,18 +24,21 @@ export function initDropDown() {
     })
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
-            console.log(e.target)
-            if (e.target.classList.contains('swiper-slide')) {
-                
-                if (!content.classList.contains('hide')) {
-                    content.classList.add('hide')
+            if(e.target.tagName === 'P'){
+                if (e.target.classList.contains('sections-preview')) {
+                    console.log('here')
+                    const content = el.querySelector('content')
+                    console.log(content)
+                    content.classList.toggle('hide')
                 }
+                // if (!content.classList.contains('hide')) {
+                // }
                 return
             } else {
 
-                if (content.classList.contains('hide')) {
-                    content.classList.remove('hide')
-                }
+                // if (content.classList.contains('hide')) {
+                    // content.classList.remove('hide')
+                // }
             }
             
         })
