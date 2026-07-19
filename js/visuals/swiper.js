@@ -85,30 +85,31 @@ export function initServicesSwiper() {
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
         const slide = e.target.closest('.swiper-slide');
-        const content = slide.querySelector('.content')
-        const titleText = slide.querySelector('.title-text')
-        servicesSwiper.autoplay.stop();
-        console.log(titleText)
-        if(e.target == slide ){
-            content.classList.toggle('hide')
-            return
-        } else if (e.target == titleText ){
-            content.classList.toggle('hide')
-            return
-        }
-        else 
-            {
+        if (!slide) return;
 
-            if (content.classList.contains('hide')) {
-                content.classList.remove('hide')
+        const content = slide.querySelector('.content');
+        const titleButton = e.target.closest('.service-title');
+        const titleText = slide.querySelector('.title-text');
+
+        servicesSwiper.autoplay.stop();
+
+        const isTitleClick = titleButton || e.target === titleText;
+        if (e.target === slide || isTitleClick) {
+            if (content) {
+                content.classList.toggle('hide');
             }
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center'
+            });
+            return;
         }
-        if (!slide || !servicesSwiper.slides.includes(slide)) return;
+
+        if (!servicesSwiper.slides.includes(slide)) return;
 
         // Ignore clicks on nested interactive elements like buttons and links.
         if (e.target.closest('button, a, [data-no-click]')) return;
-
-        
 
         const clickedIndex = Number(slide.dataset.swiperSlideIndex ?? servicesSwiper.slides.indexOf(slide));
         if (Number.isNaN(clickedIndex)) return;
@@ -119,10 +120,20 @@ export function initServicesSwiper() {
 
         if (clickedIndex === activeSlideIndex) {
             slide.focus();
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center'
+            });
             return;
         }
 
         shouldFocusSlide = true;
+        slide.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
 
         if (servicesSwiper.slideToLoop) {
             servicesSwiper.slideToLoop(clickedIndex);
