@@ -99,8 +99,14 @@ export function initServicesSwiper() {
             ? servicesSwiper.realIndex
             : servicesSwiper.activeIndex;
 
+        // If the click originated from a nested interactive element (other than the service title), ignore it
+        if (target.closest('button, a, [data-no-click]') && !serviceTitleButton) return;
+
+        // If click was on the service-title button, do not toggle content here (drop-down.js manages it).
         if (serviceTitleButton) {
-            // Let the native button/drop-down handler toggle content.
+            if (!servicesSwiper.slides.includes(slide)) return;
+            if (Number.isNaN(clickedIndex)) return;
+
             if (clickedIndex !== activeSlideIndex) {
                 shouldFocusSlide = true;
                 if (servicesSwiper.slideToLoop) {
@@ -108,57 +114,51 @@ export function initServicesSwiper() {
                 } else {
                     servicesSwiper.slideTo(clickedIndex);
                 }
+            } else {
+                slide.focus();
             }
-            slide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'center'
-            });
+
             return;
         }
 
-        if (e.target === slide || isTitleTextClick) {
+        // Clicking the title-text (when not inside the button) or the slide background toggles content and ensures the slide becomes active
+        if (isTitleTextClick || target === slide) {
             if (content) {
                 content.classList.toggle('hide');
             }
-            slide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'center'
-            });
+
+            if (!servicesSwiper.slides.includes(slide)) return;
+            if (Number.isNaN(clickedIndex)) return;
+
+            if (clickedIndex !== activeSlideIndex) {
+                shouldFocusSlide = true;
+                if (servicesSwiper.slideToLoop) {
+                    servicesSwiper.slideToLoop(clickedIndex);
+                } else {
+                    servicesSwiper.slideTo(clickedIndex);
+                }
+            } else {
+                slide.focus();
+            }
+
             return;
         }
 
+        // Fallback: if click was on slide but not title (handled above), ensure we navigate to it
         if (!servicesSwiper.slides.includes(slide)) return;
-
-        // Ignore clicks on nested interactive elements like buttons and links.
-        if (e.target.closest('button, a, [data-no-click]')) return;
-
         if (Number.isNaN(clickedIndex)) return;
 
         if (clickedIndex === activeSlideIndex) {
             slide.focus();
-            slide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'center'
-            });
             return;
         }
 
         shouldFocusSlide = true;
-        slide.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-            inline: 'center'
-        });
-
         if (servicesSwiper.slideToLoop) {
             servicesSwiper.slideToLoop(clickedIndex);
         } else {
             servicesSwiper.slideTo(clickedIndex);
         }
-        
     });
    
 
@@ -178,14 +178,43 @@ export function initServicesSwiper() {
 
             if (!slide || !servicesSwiper.slides.includes(slide)) return;
 
-            // Don't navigate if the click was on a button or interactive element
+            // Don't navigate if the key event originated from a nested interactive element
             if (e.target.closest('button, a, [data-no-click]')) return;
 
-            slide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-            });
-            clickedServiceSlide = e.target
+            const clickedIndex = Number(slide.dataset.swiperSlideIndex ?? servicesSwiper.slides.indexOf(slide));
+            const activeSlideIndex = typeof servicesSwiper.realIndex === 'number'
+                ? servicesSwiper.realIndex
+                : servicesSwiper.activeIndex;
+
+            if (Number.isNaN(clickedIndex)) return;
+
+            if (clickedIndex === activeSlideIndex) {
+                // Already active — ensure focus and vertical visibility
+                slide.focus();
+                try {
+                    slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                } catch (err) {
+                    // fallback: no-op
+                }
+                return;
+            }
+
+            shouldFocusSlide = true;
+
+            // Ensure vertical scroll to center the slide in viewport while letting Swiper manage horizontal centering
+            try {
+                slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+            } catch (err) {
+                // ignore
+            }
+
+            if (servicesSwiper.slideToLoop) {
+                servicesSwiper.slideToLoop(clickedIndex);
+            } else {
+                servicesSwiper.slideTo(clickedIndex);
+            }
+
+            clickedServiceSlide = e.target;
         }
     });
     document.addEventListener('change', e => {
