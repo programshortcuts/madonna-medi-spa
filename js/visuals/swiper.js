@@ -84,17 +84,40 @@ export function initServicesSwiper() {
 
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
-        const slide = e.target.closest('.swiper-slide');
+        const target = e.target instanceof Element ? e.target : e.target.parentElement;
+        const slide = target?.closest('.swiper-slide');
         if (!slide) return;
 
         const content = slide.querySelector('.content');
-        const titleButton = e.target.closest('.service-title');
-        const titleText = slide.querySelector('.title-text');
+        const serviceTitleButton = target.closest('.service-title');
+        const isTitleTextClick = !!target.closest('.title-text');
 
         servicesSwiper.autoplay.stop();
 
-        const isTitleClick = titleButton || e.target === titleText;
-        if (e.target === slide || isTitleClick) {
+        const clickedIndex = Number(slide.dataset.swiperSlideIndex ?? servicesSwiper.slides.indexOf(slide));
+        const activeSlideIndex = typeof servicesSwiper.realIndex === 'number'
+            ? servicesSwiper.realIndex
+            : servicesSwiper.activeIndex;
+
+        if (serviceTitleButton) {
+            // Let the native button/drop-down handler toggle content.
+            if (clickedIndex !== activeSlideIndex) {
+                shouldFocusSlide = true;
+                if (servicesSwiper.slideToLoop) {
+                    servicesSwiper.slideToLoop(clickedIndex);
+                } else {
+                    servicesSwiper.slideTo(clickedIndex);
+                }
+            }
+            slide.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center'
+            });
+            return;
+        }
+
+        if (e.target === slide || isTitleTextClick) {
             if (content) {
                 content.classList.toggle('hide');
             }
@@ -111,12 +134,7 @@ export function initServicesSwiper() {
         // Ignore clicks on nested interactive elements like buttons and links.
         if (e.target.closest('button, a, [data-no-click]')) return;
 
-        const clickedIndex = Number(slide.dataset.swiperSlideIndex ?? servicesSwiper.slides.indexOf(slide));
         if (Number.isNaN(clickedIndex)) return;
-
-        const activeSlideIndex = typeof servicesSwiper.realIndex === 'number'
-            ? servicesSwiper.realIndex
-            : servicesSwiper.activeIndex;
 
         if (clickedIndex === activeSlideIndex) {
             slide.focus();
