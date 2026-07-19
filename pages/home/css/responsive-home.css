@@ -58,6 +58,9 @@
     }
 }
 @media screen and (max-width:430px) {
+    .service-column>.service-col-title>.title-text {
+        font-size: 95% !important;
+    }
     #longevityMedHomePage>.title-text {
         margin-top: 2% !important;
     }
