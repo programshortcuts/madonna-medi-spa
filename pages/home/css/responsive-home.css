@@ -1,6 +1,16 @@
 /* responsivce-home.css */
 
 @media screen and (min-width:723px) {
+    .service-column {
+        margin: 0 1%;
+        padding-top: 0%;
+
+    }
+
+    .service-column>.service-col-title {
+        margin-top: 1%;
+        padding: .5% 0;   
+    }
     .home-page-header {
         /* float: left; */
         /* width: 45%; */
@@ -65,6 +75,6 @@
         margin-top: 2% !important;
     }
     .services-swiper .swiper-slide {
-        max-height: 200px !important;
+        /* max-height: 200px !important; */
     }
 }
