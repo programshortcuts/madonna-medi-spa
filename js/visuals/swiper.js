@@ -49,7 +49,6 @@ export function initServicesSwiper() {
         threshold: 10,
         touchAngle: 25,
 
-        loopedSlides: el.querySelectorAll('.swiper-slide').length,
 
         keyboard: {
             enabled: true,
