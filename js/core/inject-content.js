@@ -43,7 +43,15 @@ document.addEventListener("submit", (e) => {
 export function initInjectContentListeners() {
     // ✅ FIX: ensure DOM is ready before first injection
     requestAnimationFrame(() => {
+
+        history.replaceState(
+            { href: DEFAULT_PAGE },
+            "",
+            `#${DEFAULT_PAGE}`
+        );
+
         injectPage(DEFAULT_PAGE);
+
     });
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[data-link]');
@@ -54,6 +62,13 @@ export function initInjectContentListeners() {
             return;
         }
         e.preventDefault();
+
+        history.pushState(
+            { href },
+            "",
+            `#${href}`
+        );
+
         injectPage(href);
         window.scrollTo(0, 0);
         mainLandingPage.scrollTo(0, 0);
@@ -67,6 +82,19 @@ export function initInjectContentListeners() {
         }
         lastClickedLink = link;
         
+    });
+    window.addEventListener("popstate", (e) => {
+
+        if (e.state?.href) {
+
+            injectPage(e.state.href);
+
+        } else {
+
+            injectPage(DEFAULT_PAGE);
+
+        }
+
     });
 }
 /* ----------------------------- PAGE INJECTION CORE
