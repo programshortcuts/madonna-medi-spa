@@ -295,6 +295,15 @@ export function initServiceNavController(swiperInstance) {
                     swiperInstance.slideTo(index);
                 }
 
+                // After navigation, ensure the active slide is focused and vertically centered
+                setTimeout(() => {
+                    const active = swiperInstance.slides?.[swiperInstance.activeIndex];
+                    if (active) {
+                        try { active.focus({ preventScroll: true }); } catch (e) {}
+                        try { active.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' }); } catch (e) {}
+                    }
+                }, 350);
+
                 // 🚫 DO NOT:
                 // - focus()
                 // - scrollIntoView()
