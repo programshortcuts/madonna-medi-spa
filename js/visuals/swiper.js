@@ -184,9 +184,19 @@ export function initServicesSwiper() {
    
 
     el.addEventListener('keydown', (e) => {
-        servicesSwiper.autoplay.stop(); 
-        const key = e.key.toLowerCase()
-        
+        // Stop autoplay for any keyboard interaction inside the services swiper
+        servicesSwiper.autoplay.stop();
+        const key = (e.key || '').toLowerCase();
+
+        // If Arrow navigation (left/right) is used while focus is inside the swiper,
+        // mark shouldFocusSlide so slideChangeTransitionEnd will focus the active slide.
+        if (key === 'arrowleft' || key === 'arrowright') {
+            if (el.contains(e.target)) {
+                shouldFocusSlide = true;
+            }
+            return; // allow Swiper to handle the navigation
+        }
+
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
@@ -216,7 +226,7 @@ export function initServicesSwiper() {
             if (Number.isNaN(clickedIndex)) return;
             if (clickedIndex === activeSlideIndex) {
                 // Already active — ensure focus and vertical visibility
-                slide.focus();
+                try { slide.focus(); } catch (e) {}
                 try {
                     slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
                 } catch (err) {
@@ -265,18 +275,18 @@ export function initServiceNavController(swiperInstance) {
                 swiperInstance.slideTo(index);
             }
 
-            // After navigation, ensure the active slide is focused and vertically centered
+            // After navigation, ensure the active slide is focused (no vertical centering on click)
             setTimeout(() => {
                 const active = swiperInstance.slides?.[swiperInstance.activeIndex];
                 if (active) {
                     try { active.focus({ preventScroll: true }); } catch (e) {}
-                    try { active.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' }); } catch (e) {}
+                    // Intentionally do NOT call scrollIntoView here for click — keep view unchanged
                 }
             }, 350);
 
             // 🚫 DO NOT:
             // - focus() (handled above with preventScroll)
-            // - scrollIntoView() (handled above)
+            // - scrollIntoView() (handled intentionally elsewhere)
             // - activeElement manipulation
         });
         btn.addEventListener('keydown', (e) => {

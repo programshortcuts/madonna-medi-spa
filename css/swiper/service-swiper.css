@@ -85,7 +85,6 @@
         }
     .services-container {
         height: fit-content;
-        /* max-height: 50px; */
     }
     
     .swiper.services-swiper {
@@ -98,7 +97,8 @@
     }
     .services-swiper > .swiper-wrapper > .swiper-slide {
         width: 220px !important;
-        height: 200px !important;
+        /* height: 200px !important; */
+        max-height: 50px !important;
         /* border: 10px solid orange; */
         /* max-height: 20vh !important; */
         /* margin-top: 10%; */
