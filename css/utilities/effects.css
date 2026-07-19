@@ -36,3 +36,8 @@
     /* temp highlight */
     transition: background-color 0.2s ease;
 }
+.service-section:active,.service-section:focus{
+    /* padding: 2% 0; */
+    padding-left: 5%;
+
+}

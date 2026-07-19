@@ -27,14 +27,22 @@
     padding-top: 1%;
     /* padding-bottom: 1%; */
     padding-right: 1%;
-    line-height: 2;
+    line-height: 1.5;
     letter-spacing: 0.05em;
     margin-left: 1%;
 
 }
+
 .img-wrapper.float-left {
     margin-right: 3%;
 }
 .service-section ul {
     margin: 0 5%;
+}
+.sections-preview{
+    padding-top: 2%;
+}
+.img-wrapper {
+    margin-top: 1%;
+    margin-left: 2%;
 }
