@@ -18,7 +18,16 @@
 }
 
 @media screen and (max-width: 722px) {
+    .service-column {
+            margin: 0 1%;
+            padding-top: 0%;
     
+        }
+    
+        .service-column>.service-col-title {
+            margin-top: 1%;
+            padding: .5% 0;
+        }
 }
 
 @media screen and (min-width:535px) {
@@ -61,7 +70,7 @@
 }
 @media screen and (min-width:431px) {
     section#longevityMedHomePage {
-        margin-top: -10.5%;
+        /* margin-top: -10.5%; */
     }
     #longevityMedHomePage .title-text {
         margin-left: 15%;
