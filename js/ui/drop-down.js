@@ -16,7 +16,7 @@ export function initDropDown() {
             if(key === 'enter'){
                 console.log(e.target)                
                 const serviceSection = e.target.closest('.service-section')
-                
+                // hideAllDowns()    
                 pauseAllVideos()
                 
                 
@@ -25,37 +25,48 @@ export function initDropDown() {
     })
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
-            const content = el.querySelector('.section-details')
+            
+            const sectionDetails = el.querySelector('.section-details')
+            const moreInfoButton = el.querySelector('.more-info-buttons ')
             if(e.target.tagName === 'P'){
                 if (e.target.classList.contains('sections-preview')) {
-                    content.classList.toggle('hide')
+                    sectionDetails.classList.toggle('hide')
                 }
                 
                 return
             } else {
                 if(e.target.tagName != 'VIDEO' || e.target.tagName != 'IMG'){
 
-                    content.classList.toggle('hide')
+                    sectionDetails.classList.toggle('hide')
                 }
-                // if (content.classList.contains('hide')) {
-                // }
+            }
+            if(!sectionDetails.classList.contains('hide')){
+                moreInfoButton.classList.add('hide')
+            } else {
+                moreInfoButton.classList.remove('hide')
+                
             }
             
         })
         el.addEventListener('keydown', e => {
-            const section = e.target.closest('.service-section')
-            if(!section)return
             let key = e.key.toLowerCase()
             if(key === 'enter'){
-                // e.preventDefault()
+                const section = e.target.closest('.service-section')
+                
+                if(!section)return
                 const title = e.target.querySelector('.section-title')
-                // title?.focus()
                 const sectionDetails = section.querySelector('.section-details')
-                // console.log(section)
-                sectionDetails.classList.toggle('hide')
+                const moreInfoButton = section.querySelector('.more-info-buttons ')
+                sectionDetails?.classList.toggle('hide')
+                
+                
+                if (!moreInfoButton.classList.contains('hide')) {
+                    moreInfoButton.classList.add('hide')
+                }else{
+                    moreInfoButton.classList.remove('hide')
+                }
             }
         
-            const sectionDetails = e.target.closest('.service-section').querySelector('.section-details')
         });
     })
     sectionsPreviews.forEach(el => {
