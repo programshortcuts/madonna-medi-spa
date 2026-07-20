@@ -1,6 +1,6 @@
 /* sizing-med-spa-services.css */
 .section#bioHormoneReplacement {
-    min-height: 10vh;
+    /* min-height: 10vh; */
 }
 
 #botoxAndFillers {
@@ -25,6 +25,7 @@
 
 .service-section {
     max-height: 100vh;
+    min-height: 25vh;
 }
 
 .med-spa-serv-container .img-wrapper>img {
