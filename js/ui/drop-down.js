@@ -16,20 +16,22 @@ export function initDropDown() {
             if(key === 'enter'){
                 
                 const serviceSection = e.target.closest('.service-section')
-                const serviceDetails = serviceSection.querySelector('.section-details')
-                if(serviceDetails?.classList.contains('hide')) return
+                const content = serviceSection.querySelector('.content')
+                const sectionsPreview = serviceSection.querySelector('.sections-preview')
+                const sectionDetails = serviceSection.querySelector('.section-details')
+                // if (content?.classList.toggle('hide')) 
+                
                 pauseAllVideos()
+                
                 
             }
         });
     })
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
-            console.log('click')
             const content = el.querySelector('.section-details')
             if(e.target.tagName === 'P'){
                 if (e.target.classList.contains('sections-preview')) {
-                    console.log(content)
                     content.classList.toggle('hide')
                 }
                 
@@ -46,7 +48,6 @@ export function initDropDown() {
         })
         el.addEventListener('keydown', e => {
             const section = e.target.closest('.service-section')
-            console.log('keydown')            
             if(!section)return
             let key = e.key.toLowerCase()
             if(key === 'enter'){
