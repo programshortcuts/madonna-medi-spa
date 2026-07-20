@@ -6,17 +6,30 @@ export function initDropDown() {
     const sectionsPreviews = document.querySelectorAll('.sections-preview') 
     const dropDowns = document.querySelectorAll('.drop-down')
     const downs = document.querySelectorAll('.downs')
-    const allMoreInfoButtons = document.querySelectorAll('.more-info-buttons')
+    // const allMoreInfoButtons = document.querySelectorAll('.more-info-buttons')
+    const allMoreInfoButtons = document.querySelectorAll('.more-info-buttons button')
     const serviceSectionTitles = document.querySelectorAll('.service-section .section-title')
     hideAllDowns()
-    
+    allMoreInfoButtons.forEach(el => {
+        el.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase()
+            if(key === 'enter'){
+                const section = e.target.closest('.section')
+                const serviceDetails = section.querySelector('.service-details')
+                serviceDetails.classList.toggle('hide')
+
+            }
+        });
+    })    
     serviceSectionTitles.forEach(el=>{
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             if(key === 'enter'){
                 console.log(e.target)                
-                const serviceSection = e.target.closest('.service-section')
-                // hideAllDowns()    
+                const section = e.target.closest('.service-section')
+                hideAllDowns()    
+                const serviceDetails = section.querySelector('.service-details')
+                serviceDetails.classList.toggle('hide')
                 pauseAllVideos()
                 
                 
@@ -36,7 +49,7 @@ export function initDropDown() {
                 return
             } else {
                 if(e.target.tagName != 'VIDEO' || e.target.tagName != 'IMG'){
-
+                    hideAllDowns()
                     sectionDetails.classList.toggle('hide')
                 }
             }
