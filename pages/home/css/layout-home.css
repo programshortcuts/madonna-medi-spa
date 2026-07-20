@@ -62,3 +62,8 @@
     
 }
 
+.services-swiper .content>.more-info-links {
+    display: flex;
+    justify-content: flex-end;
+    /* align-self: flex-end; */
+}

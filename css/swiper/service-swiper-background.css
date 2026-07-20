@@ -4,17 +4,18 @@
     min-height: 50vh;
 }
 #bioIdenticalServiceHome{
-    background: url('../../imgs/ai-imgs/bio-hormone-header-wide.png')
+    background: url('../../pages/medical-spa-services/media/bio-horm-replace.png')
     /* center/cover no-repeat !important; */
     /* fit no-repeat !important; */
 ;
     /* background: url(imgs/ai-imgs/bio-hormone-header-wide.png')  */
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-x: 82% !important;
-    background-position-y: -10% !important;
-    filter:grayscale(.95);
-    filter: brightness(.8);
+    /* background-position-x: 82% !important; */
+    background-position-x: 40% !important;
+    background-position-y: -20% !important;
+    /* filter:grayscale(.95); */
+    /* filter: brightness(.8); */
     /* background-size: 90% !important; */
     /* background-origin: 50%; */
 }

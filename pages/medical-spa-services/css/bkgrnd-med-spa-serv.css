@@ -36,8 +36,8 @@
 
 .service-section.colored#botoxAndFillers,
 .service-section#botoxAndFillers:hover {
-    filter: saturate(.7);
-    filter: brightness(.8);
+    /* filter: saturate(.7); */
+    /* filter: brightness(.8); */
 }
 .more-info-buttons > button {
     appearance: none;

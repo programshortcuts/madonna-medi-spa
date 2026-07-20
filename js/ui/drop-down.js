@@ -14,12 +14,8 @@ export function initDropDown() {
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             if(key === 'enter'){
-                
+                console.log(e.target)                
                 const serviceSection = e.target.closest('.service-section')
-                const content = serviceSection.querySelector('.content')
-                const sectionsPreview = serviceSection.querySelector('.sections-preview')
-                const sectionDetails = serviceSection.querySelector('.section-details')
-                // if (content?.classList.toggle('hide')) 
                 
                 pauseAllVideos()
                 
