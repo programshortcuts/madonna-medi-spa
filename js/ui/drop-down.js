@@ -26,16 +26,19 @@ export function initDropDown() {
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
             console.log('click')
+            const content = el.querySelector('.section-details')
             if(e.target.tagName === 'P'){
                 if (e.target.classList.contains('sections-preview')) {
-                    const content = el.querySelector('content')
                     console.log(content)
                     content.classList.toggle('hide')
                 }
                 
                 return
             } else {
-                content.classList.toggle('hide')
+                if(e.target.tagName != 'VIDEO' || e.target.tagName != 'IMG'){
+
+                    content.classList.toggle('hide')
+                }
                 // if (content.classList.contains('hide')) {
                 // }
             }
