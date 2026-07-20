@@ -14,6 +14,7 @@ export function initDropDown() {
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             if(key === 'enter'){
+                
                 const serviceSection = e.target.closest('.service-section')
                 const serviceDetails = serviceSection.querySelector('.section-details')
                 if(serviceDetails?.classList.contains('hide')) return
@@ -24,34 +25,34 @@ export function initDropDown() {
     })
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
+            console.log('click')
             if(e.target.tagName === 'P'){
                 if (e.target.classList.contains('sections-preview')) {
-                    console.log('here')
                     const content = el.querySelector('content')
                     console.log(content)
                     content.classList.toggle('hide')
                 }
-                // if (!content.classList.contains('hide')) {
-                // }
+                
                 return
             } else {
-
+                content.classList.toggle('hide')
                 // if (content.classList.contains('hide')) {
-                    // content.classList.remove('hide')
                 // }
             }
             
         })
         el.addEventListener('keydown', e => {
             const section = e.target.closest('.service-section')
-            
+            console.log('keydown')            
             if(!section)return
             let key = e.key.toLowerCase()
             if(key === 'enter'){
                 // e.preventDefault()
                 const title = e.target.querySelector('.section-title')
                 // title?.focus()
-                
+                const sectionDetails = section.querySelector('.section-details')
+                // console.log(section)
+                sectionDetails.classList.toggle('hide')
             }
         
             const sectionDetails = e.target.closest('.service-section').querySelector('.section-details')
