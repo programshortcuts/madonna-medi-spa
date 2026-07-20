@@ -7,7 +7,7 @@
 }
 
 .section-title.drop-down {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     z-index: 1;
     /* Ensure it's above the content */
