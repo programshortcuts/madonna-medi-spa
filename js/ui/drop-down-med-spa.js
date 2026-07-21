@@ -38,7 +38,8 @@ export function initDropDownMedSpa() {
         if (!isTriggerKey(key)) {
             return;
         }
-
+        if(key === ' '){ return
+        }
         const section = event.currentTarget;
         const titleButton = getSectionTitleButton(section);
         const clickedTitleButton = event.target.closest('.section-title');
