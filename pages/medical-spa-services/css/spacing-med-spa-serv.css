@@ -11,10 +11,15 @@
     padding-bottom: 18%;
 }
 
+.med-spa-serv-container .service-section:nth-child(1){
+    margin-top: 5%;
+}
 .med-spa-serv-container .service-section {
     padding-left: 2%;
     /* margin: 5% 0; */
-    margin-bottom: 5%;
+    /* margin-top: 2%; */
+    /* border: 2px solid red; */
+    /* margin-bottom: 5%; */
 }
 
 .med-spa-serv-container .service-section p:first-of-type{
