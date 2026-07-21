@@ -38,48 +38,73 @@ export function initDropDown() {
     })
     serviceSections.forEach(el => {
         el.addEventListener('click', e => {
-            
             const sectionDetails = el.querySelector('.section-details')
             const moreInfoButton = el.querySelector('.more-info-buttons ')
-            if(e.target.tagName === 'P'){
+
+            // If a preview paragraph was clicked, toggle this section only
+            if (e.target.tagName === 'P') {
                 if (e.target.classList.contains('sections-preview')) {
+                    // Hide other section-details and pause other videos
+                    document.querySelectorAll('.service-section .section-details').forEach(other => {
+                        if (other !== sectionDetails) other.classList.add('hide')
+                    })
+                    const currentVid = el.querySelector('video')
+                    pauseAllVideos(document, currentVid)
+
                     sectionDetails.classList.toggle('hide')
                 }
-                
+
                 return
             } else {
-                if(e.target.tagName != 'VIDEO' || e.target.tagName != 'IMG'){
-                    hideAllDowns()
+                // Do not toggle when clicking a video or an image inside the section
+                if (e.target.tagName !== 'VIDEO' && e.target.tagName !== 'IMG') {
+                    // Hide other section-details so only this one is visible
+                    document.querySelectorAll('.service-section .section-details').forEach(other => {
+                        if (other !== sectionDetails) other.classList.add('hide')
+                    })
+
+                    // Pause all other videos (but keep any video inside the clicked section playing)
+                    const currentVid = el.querySelector('video')
+                    pauseAllVideos(document, currentVid)
+
                     sectionDetails.classList.toggle('hide')
                 }
             }
-            if(!sectionDetails.classList.contains('hide')){
+
+            if (!sectionDetails.classList.contains('hide')) {
                 moreInfoButton.classList.add('hide')
             } else {
                 moreInfoButton.classList.remove('hide')
-                
             }
-            
+
         })
+
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
-            if(key === 'enter'){
+            if (key === 'enter') {
                 const section = e.target.closest('.service-section')
-                
-                if(!section)return
+
+                if (!section) return
                 const title = e.target.querySelector('.section-title')
                 const sectionDetails = section.querySelector('.section-details')
                 const moreInfoButton = section.querySelector('.more-info-buttons ')
+
+                // Hide other section-details and pause other videos for keyboard activation
+                document.querySelectorAll('.service-section .section-details').forEach(other => {
+                    if (other !== sectionDetails) other.classList.add('hide')
+                })
+                const currentVid = section.querySelector('video')
+                pauseAllVideos(document, currentVid)
+
                 sectionDetails?.classList.toggle('hide')
-                
-                
+
                 if (!moreInfoButton.classList.contains('hide')) {
                     moreInfoButton.classList.add('hide')
-                }else{
+                } else {
                     moreInfoButton.classList.remove('hide')
                 }
             }
-        
+
         });
     })
     sectionsPreviews.forEach(el => {
