@@ -18,9 +18,21 @@
     flex-wrap: wrap;
     /* background-color: blue; */
 }
-.more-info-buttons{
+.more-info-buttons {
     display: inline-flex;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 180ms ease, visibility 180ms ease;
+}
 
+.service-section:hover .more-info-buttons,
+.service-section:focus-within .more-info-buttons,
+.service-section.active .more-info-buttons,
+.service-section.colored .more-info-buttons {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .women-men-nav {

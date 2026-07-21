@@ -1,0 +1,12 @@
+.service-section *:active, .service-section *:focus,
+.service-section:active .more-info-buttons,
+.service-section:hover .more-info-buttons,
+ .service-section:focus .more-info-buttons {
+    display: inline-flex !important;
+}
+
+.service-section .more-info-buttons,
+ .service-section .more-info-buttons {
+    display: none ;
+
+}
