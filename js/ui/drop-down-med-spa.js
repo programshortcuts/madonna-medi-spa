@@ -2,226 +2,120 @@
 import { pauseAllVideos } from "../video/video-controls.js";
 
 export function initDropDownMedSpa() {
-    // Only initialize on the medical spa services pages
     const medSpaContainer = document.querySelector('.page-container.med-spa-serv-container');
     if (!medSpaContainer) return;
 
-    const serviceSections = medSpaContainer.querySelectorAll('.service-section');
-    const sectionsPreviews = medSpaContainer.querySelectorAll('.sections-preview');
-    const downs = medSpaContainer.querySelectorAll('.downs');
-    const allMoreInfoButtons = medSpaContainer.querySelectorAll('.more-info-buttons button');
-    const serviceSectionTitles = medSpaContainer.querySelectorAll('.service-section .section-title');
+    const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
 
-    hideAllDowns();
-
-    allMoreInfoButtons.forEach(el => {
-        el.addEventListener('keydown', (e) => {
-            const key = e.key.toLowerCase();
-            if (key === 'enter') {
-                const section = e.target.closest('.section');
-                const serviceDetails = section.querySelector('.service-details');
-                if (serviceDetails) serviceDetails.classList.toggle('hide');
-            }
-        });
+    serviceSections.forEach((section) => {
+        section.tabIndex = 0;
+        section.addEventListener('click', handleSectionClick);
+        section.addEventListener('keydown', handleSectionKeydown);
+        syncSectionTitleState(section);
     });
 
-    serviceSectionTitles.forEach(el => {
-        el.addEventListener('keydown', e => {
-            let key = e.key.toLowerCase();
-            if (key === 'enter') {
-                const section = e.target.closest('.service-section');
-                hideAllDowns();
-                const serviceDetails = section.querySelector('.service-details');
-                if (serviceDetails) serviceDetails.classList.toggle('hide');
-                pauseAllVideos();
-            }
-        });
-    });
+    function handleSectionClick(event) {
+        const section = event.currentTarget;
+        const titleButton = getSectionTitleButton(section);
+        const clickedTitleButton = event.target.closest('.section-title');
 
-    serviceSections.forEach(el => {
-        el.addEventListener('click', e => {
-            const sectionDetails = el.querySelector('.section-details');
-            const moreInfoButton = el.querySelector('.more-info-buttons ');
-
-            // If a preview paragraph was clicked, toggle this section only
-            if (e.target.tagName === 'P') {
-                if (e.target.classList.contains('sections-preview')) {
-                    // Hide other section-details and pause other videos
-                    medSpaContainer.querySelectorAll('.service-section .section-details').forEach(other => {
-                        if (other !== sectionDetails) other.classList.add('hide');
-                    });
-                    const currentVid = el.querySelector('video');
-                    pauseAllVideos(document, currentVid);
-
-                    if (sectionDetails) sectionDetails.classList.toggle('hide');
-                }
-
-                return;
-            } else {
-                // Do not toggle when clicking a video or an image inside the section
-                if (e.target.tagName !== 'VIDEO' && e.target.tagName !== 'IMG') {
-                    // Hide other section-details so only this one is visible
-                    medSpaContainer.querySelectorAll('.service-section .section-details').forEach(other => {
-                        if (other !== sectionDetails) other.classList.add('hide');
-                    });
-
-                    // Pause all other videos (but keep any video inside the clicked section playing)
-                    const currentVid = el.querySelector('video');
-                    pauseAllVideos(document, currentVid);
-
-                    if (sectionDetails) sectionDetails.classList.toggle('hide');
-                }
-            }
-
-            if (sectionDetails && !sectionDetails.classList.contains('hide')) {
-                if (moreInfoButton) moreInfoButton.classList.add('hide');
-            } else {
-                if (moreInfoButton) moreInfoButton.classList.remove('hide');
-            }
-
-        });
-
-        el.addEventListener('keydown', e => {
-            let key = e.key.toLowerCase();
-            if (key === 'enter') {
-                const section = e.target.closest('.service-section');
-                if (!section) return;
-                const title = e.target.querySelector('.section-title');
-                const sectionDetails = section.querySelector('.section-details');
-                const moreInfoButton = section.querySelector('.more-info-buttons ');
-
-                // Hide other section-details and pause other videos for keyboard activation
-                medSpaContainer.querySelectorAll('.service-section .section-details').forEach(other => {
-                    if (other !== sectionDetails) other.classList.add('hide');
-                });
-                const currentVid = section.querySelector('video');
-                pauseAllVideos(document, currentVid);
-
-                if (sectionDetails) sectionDetails.classList.toggle('hide');
-
-                if (moreInfoButton && !moreInfoButton.classList.contains('hide')) {
-                    moreInfoButton.classList.add('hide');
-                } else if (moreInfoButton) {
-                    moreInfoButton.classList.remove('hide');
-                }
-            }
-
-        });
-    });
-
-    sectionsPreviews.forEach(el => {
-        el.addEventListener('keydown', e => {
-            let key = e.key.toLowerCase();
-            if (key === 'enter') {
-                const sectionDetails = e.target.closest('.service-section').querySelector('.section-details');
-                if (sectionDetails && sectionDetails.classList.contains('hide')) {
-                    sectionDetails.classList.remove('hide');
-                }
-
-            }
-        });
-    });
-
-    // Attach generic section-title drop-down handling scoped to medSpaContainer
-    const dropDowns = medSpaContainer.querySelectorAll('.drop-down');
-    dropDowns.forEach(el => {
-        if (el.classList.contains('service-title')) {
-            const service = el.closest('.service');
-            const downs = service?.querySelector('.downs');
-            if (downs) downs.classList.add('hide');
-        }
-        el.removeEventListener('click', toggleContent);
-        el.addEventListener('click', toggleContent);
-    });
-
-    function toggleContent(e) {
-        e.preventDefault();
-        if (e.type === 'click') {
-            clickHandler(e);
+        if (clickedTitleButton && clickedTitleButton === titleButton) {
+            toggleSectionContent(section);
             return;
         }
-        if (e.type === 'keydown') {
-            keydownHandler(e);
+
+        const previewMoreInfoButton = event.target.closest('.sections-preview .more-info-buttons button');
+        const clickedSectionDetails = event.target.closest('.section-details');
+        if (clickedSectionDetails && !previewMoreInfoButton) {
             return;
         }
+
+        toggleSectionDetails(section);
     }
 
-    function hideAllDowns() {
-        downs.forEach(el => {
-            if (!el.classList.contains('hide')) {
-                if (el.closest('.cat')) ;
-                el.classList.add('hide');
-            }
-        });
-    }
-
-    function clickHandler(e) {
-        const serviceSwiperDropDown = e.target.closest('.service-title.drop-down');
-        const sectionTitleDropDown = e.target.closest('.section-title.drop-down');
-
-        // Services Swiper Dropdown (if present inside med-spa container)
-        if (serviceSwiperDropDown) {
-            const service = serviceSwiperDropDown.closest('.service');
-            if (!service) return;
-            const downs = service.querySelector('.downs');
-            if (!downs) return;
-            downs.classList.toggle('hide');
+    function handleSectionKeydown(event) {
+        const key = event.key.toLowerCase();
+        if (!isTriggerKey(key)) {
             return;
         }
 
-        // SECTION DROPDOWN
-        if (sectionTitleDropDown) {
-            const section = sectionTitleDropDown.closest('.service-section');
-            if (!section) return;
+        const section = event.currentTarget;
+        const titleButton = getSectionTitleButton(section);
+        const clickedTitleButton = event.target.closest('.section-title');
 
-            const currentDown = section.querySelector('.section-details.downs');
-            const moreInfoButtons = section.querySelector('.more-info-buttons');
-
-            if (!currentDown) return;
-
-            // hide other open sections
-            medSpaContainer.querySelectorAll('.service-section').forEach(otherSection => {
-                if (otherSection === section) return;
-                const otherDown = otherSection.querySelector('.section-details.downs');
-                const otherButtons = otherSection.querySelector('.more-info-buttons');
-
-                if (otherDown) otherDown.classList.add('hide');
-                if (otherButtons) otherButtons.classList.remove('hide');
-            });
-
-            // toggle current section
-            currentDown.classList.toggle('hide');
-
-            // hide/show current section buttons
-            if (moreInfoButtons) {
-                if (currentDown.classList.contains('hide')) {
-                    moreInfoButtons.classList.remove('hide');
-                } else {
-                    moreInfoButtons.classList.add('hide');
-                }
-            }
-
+        if (clickedTitleButton && clickedTitleButton === titleButton) {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleSectionContent(section);
             return;
         }
+
+        const previewMoreInfoButton = event.target.closest('.sections-preview .more-info-buttons button');
+        const clickedSectionDetails = event.target.closest('.section-details');
+        if (clickedSectionDetails && !previewMoreInfoButton) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        toggleSectionDetails(section);
     }
 
-    function keydownHandler(e) {
-        const key = e.key.toLowerCase();
-        const sectionTitleDropDown = e.target.closest('.section-title.drop-down');
-        if (!sectionTitleDropDown) return;
+    function toggleSectionContent(section) {
+        const content = getSectionContent(section);
+        if (!content) return;
 
-        const section = sectionTitleDropDown.closest('.section');
-        if (!section) return;
-
-        const currentDown = section.querySelector('.content.downs');
-        if (!currentDown) return;
-
-        // Hide every OTHER section content
-        medSpaContainer.querySelectorAll('.service-section .content.downs').forEach(el => {
-            if (el !== currentDown) el.classList.add('hide');
+        // When toggling the section TITLE, do not hide other sections' content.
+        // Only ensure other sections' "section-details" are hidden so details panels don't remain open.
+        serviceSections.forEach((otherSection) => {
+            if (otherSection === section) return;
+            const otherDetails = otherSection.querySelector('.section-details');
+            if (otherDetails) {
+                otherDetails.classList.add('hide');
+            }
         });
 
-        // Toggle clicked section
-        currentDown.classList.toggle('hide');
+        // Toggle only this section's content/preview
+        content.classList.toggle('hide');
+        syncSectionTitleState(section);
+        pauseAllVideos(medSpaContainer);
+    }
+
+    function toggleSectionDetails(section) {
+        const details = section.querySelector('.section-details');
+        if (!details) return;
+
+        serviceSections.forEach((otherSection) => {
+            const otherDetails = otherSection.querySelector('.section-details');
+            if (otherDetails && otherSection !== section) {
+                otherDetails.classList.add('hide');
+            }
+        });
+
+        details.classList.toggle('hide');
+
+        const keepVideo = section.querySelector('video');
+        pauseAllVideos(medSpaContainer, keepVideo);
+    }
+
+    function getSectionContent(section) {
+        return section.querySelector('.content') || section.querySelector('.sections-preview');
+    }
+
+    function getSectionTitleButton(section) {
+        return Array.from(section.children).find((child) => child.classList.contains('section-title')) || null;
+    }
+
+    function syncSectionTitleState(section) {
+        const titleButton = getSectionTitleButton(section);
+        const content = getSectionContent(section);
+
+        if (!titleButton || !content) return;
+
+        titleButton.setAttribute('aria-expanded', String(!content.classList.contains('hide')));
+    }
+
+    function isTriggerKey(key) {
+        return key === 'enter' || key === ' ' || key === 'spacebar';
     }
 }
