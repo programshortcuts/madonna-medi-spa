@@ -77,6 +77,13 @@ export function initDropDownMedSpa() {
 
         // Toggle only this section's content/preview
         content.classList.toggle('hide');
+        console.log(section)
+        if(content.classList.contains('hide')){
+            section.classList.add('collapse-height')
+        } else {
+            
+            section.classList.remove('collapse-height')
+        }
         syncSectionTitleState(section);
         pauseAllVideos(medSpaContainer);
     }

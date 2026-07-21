@@ -1,3 +1,3 @@
-expor function t navMedSpaServ({e}){
+export function navMedSpaServ({e}){
 
 }

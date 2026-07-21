@@ -23,10 +23,7 @@
 
 }
 
-.service-section {
-    max-height: 100vh;
-    min-height: 32vh;
-}
+
 
 .med-spa-serv-container .img-wrapper>img {
     max-height: 200px;
@@ -49,4 +46,17 @@
 .content p{
     /* height: fit-content; */
     /* width: fit-content; */
+}
+.service-section {
+    max-height: 100vh;
+    min-height: 32vh;
+}
+.service-section.collapse-height{
+    max-height:fit-content !important;
+    min-height: fit-content !important;
+    padding-bottom: 5%;
+    /* border: 1px solid blue !important */
+}
+.service-section.collapse-height > .content{
+    display: none;
 }
