@@ -15,10 +15,15 @@
         max-width: 224px;
         /* border: 10px solid red !important; */
         
-    }
-    
+    }    
     .img-wrapper>video {
         max-height: 200px;
         max-width: 200px;
+    }
+    .service-section{
+        font-size: 90%;
+        /* border: 1px solid black; */
+        /* max-height: 10vh !important; */
+        min-height: 15vh;
     }
 }
