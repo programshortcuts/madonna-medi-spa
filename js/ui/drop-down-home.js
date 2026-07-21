@@ -13,9 +13,17 @@ export function initDropDownHome() {
     // Initialize service title downs inside the home services swiper
     // Ensure any service-specific downs are hidden initially
     const serviceElements = homeContainer.querySelectorAll('.service');
+    // Determine the "Our Services" section title height to use for collapsed services
+    const sectionTitleEl = document.querySelector('button.section-title[data-nav-target="our-services"]') || document.querySelector('header#ourServiceHomePage .section-title');
+    const baseTitleHeight = sectionTitleEl ? Math.ceil(sectionTitleEl.getBoundingClientRect().height) : 0;
+
     serviceElements.forEach(service => {
         const downs = service.querySelector('.downs');
-        if (downs) downs.classList.add('hide');
+        if (downs) {
+            downs.classList.add('hide');
+            // Collapse the service element initially so hidden services match the section title height
+            if (baseTitleHeight) service.style.height = `${baseTitleHeight}px`;
+        }
     });
 
     // Attach listeners to dropdowns (click) but scoped to home container
@@ -69,7 +77,24 @@ export function initDropDownHome() {
             if (!service) return;
             const downs = service.querySelector('.downs');
             if (!downs) return;
+
+            // Toggle the downs content first
             downs.classList.toggle('hide');
+
+            // Find the main "Our Services" section title to match its height when collapsing
+            const sectionTitle = document.querySelector('button.section-title[data-nav-target="our-services"]') || document.querySelector('header#ourServiceHomePage .section-title');
+            const titleHeight = sectionTitle ? Math.ceil(sectionTitle.getBoundingClientRect().height) : 0;
+
+            // If the content was just hidden, collapse the service container to the section title height.
+            // If the content is shown, clear the explicit height to allow natural sizing.
+            if (downs.classList.contains('hide')) {
+                // Apply explicit height so the slide collapses to the title height
+                service.style.height = titleHeight ? `${titleHeight}px` : '';
+            } else {
+                // Remove explicit height so it returns to normal size
+                service.style.height = '';
+            }
+
             lastClickedDrop = e.target;
             return;
         }
@@ -92,6 +117,14 @@ export function initDropDownHome() {
             });
 
             currentDown.classList.toggle('hide');
+
+            // Collapse or expand the service container to match the section title height when toggled via keyboard
+            if (currentDown.classList.contains('hide')) {
+                if (baseTitleHeight) service.style.height = `${baseTitleHeight}px`;
+            } else {
+                service.style.height = '';
+            }
+
             lastClickedDrop = e.target;
         }
     }
