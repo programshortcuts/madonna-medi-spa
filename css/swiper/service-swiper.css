@@ -81,9 +81,15 @@
         margin-top: -1% !important;
     }
 }
+@media screen and (min-width:534px) {
+    .services-swiper .swiper-slide .content {
+        margin: 15% 0 ;
+    }
+    
+}
 @media screen and (max-width:532px) {
     .services-swiper .swiper-slide .content {
-        font-size: .85rem;
+        /* font-size: .85rem; */
     }
     
     .services-container {
@@ -91,7 +97,7 @@
     }
     
     .swiper.services-swiper {
-        padding-inline: 4%;
+        padding: 4%;
         /* max-height: 50px !important; */
         height: fit-content;
     }

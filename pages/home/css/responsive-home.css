@@ -67,6 +67,11 @@
     .home-main-content > .main-item{
         /* background-color: blue !important; */
     }
+        .services-swiper > .swiper-slide > .content {
+            /* max-height: 200px !important; */
+            margin: 5% 0 !important;
+            border: 1px solid blue !important;
+        }
 }
 @media screen and (min-width:431px) {
     section#longevityMedHomePage {
@@ -83,7 +88,5 @@
     #longevityMedHomePage>.title-text {
         margin-top: 2% !important;
     }
-    .services-swiper .swiper-slide {
-        /* max-height: 200px !important; */
-    }
+    
 }
