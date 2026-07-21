@@ -4,6 +4,7 @@
     /* overflow: hidden; */
     position: relative;
     /* Add this line */
+    clear: both;
 }
 
 .section-title.drop-down {
