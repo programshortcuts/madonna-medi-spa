@@ -37,6 +37,7 @@
 .staff-wrapper {
     overflow: hidden;
     overflow-x: scroll;
+    /* overflow-x: ; */
     touch-action: pan-x;
     display: flex;
 }
