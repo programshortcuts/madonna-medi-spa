@@ -37,7 +37,7 @@
 #ourServiceHomePage .title-text,
 #longevityMedHomePage  {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 500 !important;
+    font-weight: 500 ;
 }
 #longevityMedHomePage  .title-text{
     font-size: 1rem;

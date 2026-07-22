@@ -10,7 +10,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     font-size: 1rem;
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-right: 5%;
 }
 
@@ -33,7 +33,7 @@
     color: rgb(25, 44, 55);
 }
 .swiper.services-swiper {
-    margin-top: 5%;
+    margin-top: 3%;
     width: 100%;
     overflow: visible;
     /* KEY FIX */

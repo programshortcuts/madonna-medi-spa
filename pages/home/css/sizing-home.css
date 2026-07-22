@@ -33,6 +33,7 @@
     object-fit: contain;
 }
 img#officeInPhoto {
+
     max-width: 300px;
     max-height: 400px;
 }
@@ -50,4 +51,8 @@ img#officeInPhoto {
 #longevityMedicine .sections-preview .img-wrapper img{
     
     max-width: 200px !important;
+}
+.section-title#ourServices>span.title-text {
+    display: inline-block;
+    width: 100%;
 }
