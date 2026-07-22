@@ -9,6 +9,7 @@
 }
 .service-section .section-title {
     border: none;
+    border-top-left-radius: var(--radius);;
 }
 .service-section .img-wrapper {
     border-radius: 18px;

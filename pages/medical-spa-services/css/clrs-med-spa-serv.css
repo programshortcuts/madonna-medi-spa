@@ -1,5 +1,6 @@
-.service.title-text {
+.section-title .title-text {
     color: var(--heading);
+    background: transparent;
 }
 .sections-preview p,
 .section-details p {
