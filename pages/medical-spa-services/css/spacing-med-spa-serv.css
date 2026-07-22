@@ -1,3 +1,4 @@
+
 /* spacing-med-spa-services.css */
 .med-spa-serv-container {
     padding: 0 1.5rem;
@@ -23,9 +24,36 @@
 .service.title-text {
     letter-spacing: .02em;
 }
+.section-details {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+}
+/*==============================================================
+  FLOATING MEDIA
+==============================================================*/
+.service-section .img-wrapper {
+    margin: .4rem 0 1rem;
+}
+.float-right {
+    margin-left: 2.4rem;
+}
+
+.float-left {
+    margin-right: 2.4rem;
+}
 /*==============================================================
   CONTENT
 ==============================================================*/
 .content {
     padding: 2.75rem 3rem 3rem;
+}
+/*==============================================================
+  BUTTON AREA
+==============================================================*/
+.more-info-buttons {
+    margin: 2.5rem 0 .25rem;
+}
+.more-info-btn {
+    padding: .95rem 1.65rem;
+    letter-spacing: .04em;
 }
