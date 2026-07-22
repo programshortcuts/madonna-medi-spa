@@ -53,9 +53,6 @@
 .service-column {
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
-    justify-content: flex-start;
-    /* align-self: flex-start; */
 }
 .service-column > .service-col-title{
     display: block;
@@ -70,12 +67,4 @@
     display: flex;
     justify-content: flex-end;
     /* align-self: flex-end; */
-}
-.section-title#ourServices {
-    display: flex;
-    justify-content: flex-start;
-    text-align: start;
-}
-.section-title#ourServices>span.title-text {
-    display: inline-block;
 }

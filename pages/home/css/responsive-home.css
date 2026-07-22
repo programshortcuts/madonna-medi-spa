@@ -61,10 +61,6 @@
     }
 }
 @media screen and (max-width:532px) {
-    #ourServices>span.title-text {
-        font-size: 1.33rem;
-    }
-            
     .home-page-header {
         padding-top:25% !important;
     }

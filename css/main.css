@@ -2,31 +2,26 @@
 /* contact.css */
 @import url('../pages/contact/css/new-contact.css');
 @import url('../pages/contact/css/forms.css');
-
 /* @import url('../pages/contact/css/bkgrnd-contact.css'); */
 /* @import url('../pages/contact/css/colors-contact.css'); */
 /* @import url('../pages/contact/css/layout-contact.css'); */
 /* @import url('../pages/contact/css/spacing-contact.css'); */
 /* @import url('../pages/contact/css/position-contact.css'); */
-
 /* visuals */
 @import url('./swiper/swiper.css');
 @import url('./swiper/reviews-swiper.css');
 @import url('./swiper/service-swiper.css');
-
 @import url('./swiper/service-swiper-background.css');
- /* medical-spa-services */ /* no bkgrn-med-spa-serv.css in clrs instead*/
-@import url('../pages/medical-spa-services/css/med-spa-serv.css');
-
-@import url('../pages/medical-spa-services/css/borders-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/clrs-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/layout-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/effects-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/position-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/sizing-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/spacing-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/txt-med-spa-serv.css');
-@import url('../pages/medical-spa-services/css/responsive-med-spa-serv.css');
+/* medical-spa-services */
+@import url('../pages/medical-spa-services/css/new-med-spa-serv.css');
+/* @import url('../pages/medical-spa-services/css/bkgrnd-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/layout-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/effects-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/position-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/sizing-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/spacing-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/txt-med-spa-serv.css'); */
+/* @import url('../pages/medical-spa-services/css/responsive-med-spa-serv.css'); */
 
 /* components */
 @import url('components/mobile-header-nav.css');
@@ -44,12 +39,13 @@
 /* utilities */
 @import url('utilities/effects.css');
 @import url('utilities/background-colors.css');
-@import url('utilities/colors.css');
 @import url('utilities/layout.css');
 @import url('utilities/position.css');
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
+/* @import url('utilities/borders.css'); */
+@import url('utilities/colors.css');
 
 /* home */
 @import url('../pages/home/css/bkgrnd-home.css');
