@@ -1,7 +1,7 @@
 // drop-down-med-serv.js
 import { pauseAllVideos } from "../video/video-controls.js";
 
-export function initDropDownMedSpa() {
+export function initDropDownMedServ() {
     const medSpaContainer = document.querySelector('.page-container.med-spa-serv-container');
     if (!medSpaContainer) return;
 
@@ -9,7 +9,7 @@ export function initDropDownMedSpa() {
 
     serviceSections.forEach((section) => {
         section.tabIndex = 0;
-        section.addEventListener('click', handleSectionClick);
+        // section.addEventListener('click', handleSectionClick);
         section.addEventListener('keydown', handleSectionKeydown);
         syncSectionTitleState(section);
     });

@@ -1,10 +1,11 @@
 /* main.css */
 /* contact.css */
-@import url('../pages/contact/css/bkgrnd-contact.css');
-@import url('../pages/contact/css/colors-contact.css');
-@import url('../pages/contact/css/layout-contact.css');
-@import url('../pages/contact/css/spacing-contact.css');
-@import url('../pages/contact/css/position-contact.css');
+@import url('../pages/contact/css/new-contact.css');
+/* @import url('../pages/contact/css/bkgrnd-contact.css'); */
+/* @import url('../pages/contact/css/colors-contact.css'); */
+/* @import url('../pages/contact/css/layout-contact.css'); */
+/* @import url('../pages/contact/css/spacing-contact.css'); */
+/* @import url('../pages/contact/css/position-contact.css'); */
 /* visuals */
 @import url('./swiper/swiper.css');
 @import url('./swiper/reviews-swiper.css');
