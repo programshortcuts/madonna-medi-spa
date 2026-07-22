@@ -4,16 +4,7 @@
 .services-swiper .swiper-slide .content {
     
 }
-.service-column>.service-col-title {
-    text-decoration: none;
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
-    font-size: 1rem;
-    max-width: 30%;
-    margin-top: 2%;
-    margin-right: 5%;
-}
+
 
 .services-swiper .swiper-slide .service-title {
     padding: 1% 0;

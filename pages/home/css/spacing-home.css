@@ -100,7 +100,7 @@ section#longevityMedHomePage {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     font-size: 1rem;
-    max-width: 30%;
+    max-width: fit-content;
     margin-top: 2%;
     margin-right: 5%;
 }
