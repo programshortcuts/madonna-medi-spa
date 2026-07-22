@@ -5,8 +5,6 @@
   Designed to work with the existing HTML & JavaScript.
   No HTML changes required.
 ==============================================================*/
-
-
 /*==============================================================
   VARIABLES
 ==============================================================*/
@@ -126,8 +124,9 @@
 
 .service-section .section-title img {
 
-    width: 72px;
-    height: auto;
+    /* width: 72px; */
+
+    /* height: auto; */
 
 }
 
@@ -192,9 +191,9 @@
 
 .img-wrapper {
 
-    width: 360px;
+    /* width: 360px; */
 
-    max-width: 42%;
+    /* max-width: 42%; */
 
     margin: .3rem 0 1.5rem;
 
@@ -317,8 +316,8 @@
   LINKS
 ==============================================================*/
 
-.more-info-link,
-.more-info-links a {
+.service-section .more-info-link,
+.service-section .more-info-links a {
 
     display: inline-flex;
 
@@ -500,7 +499,7 @@
 
     .img-wrapper {
 
-        width: 270px;
+        /* width: 170px; */
 
     }
 
