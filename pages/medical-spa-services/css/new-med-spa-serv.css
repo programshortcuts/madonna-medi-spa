@@ -93,7 +93,7 @@
   SECTION TITLE
 ==============================================================*/
 
-.section-title {
+.service-section .section-title {
 
     width: 100%;
 
@@ -118,13 +118,13 @@
 
 }
 
-.section-title:hover {
+.service-section .section-title:hover {
 
     background: #fbfdff;
 
 }
 
-.section-title img {
+.service-section .section-title img {
 
     width: 72px;
     height: auto;
@@ -532,7 +532,7 @@
 
     }
 
-    .section-title {
+    .service-section .section-title {
 
         padding: 1.4rem 1.5rem;
 
