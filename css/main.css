@@ -2,15 +2,18 @@
 /* contact.css */
 @import url('../pages/contact/css/new-contact.css');
 @import url('../pages/contact/css/forms.css');
+
 /* @import url('../pages/contact/css/bkgrnd-contact.css'); */
 /* @import url('../pages/contact/css/colors-contact.css'); */
 /* @import url('../pages/contact/css/layout-contact.css'); */
 /* @import url('../pages/contact/css/spacing-contact.css'); */
 /* @import url('../pages/contact/css/position-contact.css'); */
+
 /* visuals */
 @import url('./swiper/swiper.css');
 @import url('./swiper/reviews-swiper.css');
 @import url('./swiper/service-swiper.css');
+
 @import url('./swiper/service-swiper-background.css');
  /* medical-spa-services */ /* no bkgrn-med-spa-serv.css in clrs instead*/
 @import url('../pages/medical-spa-services/css/med-spa-serv.css');
@@ -41,13 +44,13 @@
 /* utilities */
 @import url('utilities/effects.css');
 @import url('utilities/background-colors.css');
+@import url('utilities/colors.css');
 @import url('utilities/layout.css');
 @import url('utilities/position.css');
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
-/* @import url('utilities/borders.css'); */
-@import url('utilities/colors.css');
+@import url('utilities/borders.css');
 
 /* home */
 @import url('../pages/home/css/bkgrnd-home.css');

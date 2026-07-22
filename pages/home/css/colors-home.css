@@ -1,6 +1,6 @@
 /* colors-home.css */
 .home-page-container button.section-title {
-    color: var(----font-p-clr);
+    /* color: var(----font-p-clr); */
 }
 .home-page-header > p{
     color: whitesmoke;

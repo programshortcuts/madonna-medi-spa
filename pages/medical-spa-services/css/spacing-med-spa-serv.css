@@ -14,7 +14,7 @@
 }
 
 .service-section {
-    margin: 0 0 3.75rem;
+    /* margin: 0 0 3.75rem; */
 }
 .service-section .section-title {
     gap: 2rem;
@@ -30,7 +30,7 @@
 .sections-preview p,
 .section-details p {
     line-height: 1.95;
-    margin: 0 0 1.45rem;
+    /* margin: 0 0 1.45rem; */
 }
 
 .sections-preview h2,

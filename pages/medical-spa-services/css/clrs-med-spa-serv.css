@@ -1,13 +1,6 @@
+.section-title,
 .section-title .title-text {
-
-    background: inherit;
-    background-color: black;
-}
-.section-title .title-text {
-    color: var(--heading);
-    background: inherit;
-    /* background: transparent; */
-    /* background: black; */
+    background: transparent;
 }
 .sections-preview p,
 .section-details p {
