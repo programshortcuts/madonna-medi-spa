@@ -1,4 +1,17 @@
 /* sizing-med-spa-services.css */
+/*==============================================================
+  SERVICE SECTION
+==============================================================*/
+.sections-preview p,
+.section-details p {
+    font-size: 1.08rem;
+    max-width: 78ch;
+}
+
+.sections-preview h2,
+.section-details h2 {
+    margin-bottom: .65rem;
+}
 .med-spa-serv-container {
     width: 100%;
 }
@@ -10,6 +23,17 @@
 }
 .service-section .section-title {
     width: 90%;
+}
+.service-section .section-title img {
+    width: 72px;
+    /* height: auto; */
+}
+.img-wrapper img,
+.img-wrapper video,
+.service-video {
+
+    display: block;
+    object-fit: cover;
 }
 
 /*==============================================================
@@ -25,4 +49,9 @@
 .service-video {
     width: 100%;
     height: 100%;
+}
+
+.women-men-nav img {
+    width: 58px;
+    height: auto;
 }

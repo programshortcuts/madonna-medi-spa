@@ -1,5 +1,6 @@
 
 /* spacing-med-spa-services.css */
+
 .med-spa-serv-container {
     padding: 0 1.5rem;
     padding-top: 5rem;
@@ -24,6 +25,17 @@
 .service.title-text {
     letter-spacing: .02em;
 }
+.sections-preview p,
+.section-details p {
+    line-height: 1.95;
+    margin: 0 0 1.45rem;
+}
+
+.sections-preview h2,
+.section-details h2 {
+    margin-bottom: .65rem;
+}
+
 .section-details {
     margin-top: 2.5rem;
     padding-top: 2rem;
@@ -36,15 +48,14 @@
 .section-details li {
     margin-bottom: .55rem;
 }
-.women-men-nav {
-    gap: 1.5rem;
-    margin: 2rem 0;
+.section-details li {
+    line-height: 1.8;
 }
-.women-men-nav a {
-    gap: 1rem;
-    padding: 1rem 1.35rem;
-    
+
+.section-details h2 {
+    margin-bottom: .5rem;
 }
+
 /*==============================================================
   FLOATING MEDIA
 ==============================================================*/
@@ -85,4 +96,14 @@
 .service-section .more-info-links a {
     margin-top: 1.5rem;
     gap: .5rem;
+}
+.women-men-nav {
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.women-men-nav a {
+    gap: 1rem;
+    padding: 1rem 1.35rem;
+
 }

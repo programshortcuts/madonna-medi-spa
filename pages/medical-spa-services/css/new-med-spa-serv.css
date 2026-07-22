@@ -29,41 +29,25 @@
   SERVICE SECTION
 ==============================================================*/
 .service-section {
-    position: relative;
     border: 1px solid var(--section-border);
     border-radius: var(--radius);
     box-shadow: var(--section-shadow);
-    overflow: hidden;
 }
-/* clearfix */
-.service-section::after,
-.sections-preview::after,
-.section-details::after {
-    content: "";
-    display: block;
-    clear: both;
-}
+
 /*==============================================================
   SECTION TITLE
 ==============================================================*/
 .service-section .section-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     /* background: linear-gradient(to bottom, #ffffff, #fbfdff); */
     border: none;
     /* border-bottom: 1px solid #edf2f6; */
     cursor: pointer;
     /* transition: background var(--transition); */
-    text-align: left;
 }
 .service-section .section-title:hover {
     /* background:blue; */
 }
-.service-section .section-title img {
-    width: 72px;
-    /* height: auto; */
-}
+
 .service.title-text {
     font-size: clamp(1.55rem, 2vw, 2.2rem);
     font-weight: 700;
@@ -80,38 +64,24 @@
 .sections-preview p,
 .section-details p {
     font-size: 1.08rem;
-    line-height: 1.95;
     color: var(--text);
-    margin: 0 0 1.45rem;
-    max-width: 78ch;
+    
 }
 .sections-preview h2,
 .section-details h2 {
+    
     color: var(--heading);
-    margin-bottom: .65rem;
 }
 /*==============================================================
   FLOATING MEDIA
 ==============================================================*/
 .service-section .img-wrapper {
-    overflow: hidden;
     border-radius: 18px;
     background: #edf4fa;
     box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
 }
-.img-wrapper img,
-.img-wrapper video,
-.service-video {
-    
-    display: block;
-    object-fit: cover;
-}
-.float-right {
-    float: right;
-}
-.float-left {
-    float: left;
-}
+
+
 /*==============================================================
   BUTTON AREA
 ==============================================================*/
@@ -151,8 +121,6 @@
 ==============================================================*/
 .service-section .more-info-link,
 .service-section .more-info-links a {
-    display: inline-flex;
-    align-items: center;
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
@@ -176,22 +144,12 @@
 ==============================================================*/
 .section-details li {
     color: var(--text);
-    line-height: 1.8;
 }
 .section-details h2 {
     font-size: 1.15rem;
-    margin-bottom: .5rem;
 }
-/*==============================================================
-  WOMEN / MEN LINKS
-==============================================================*/
-.women-men-nav {
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .women-men-nav a {
-    display: flex;
-    align-items: center;
     border: 1px solid #dbe4ec;
     border-radius: 18px;
     background: white;
@@ -205,26 +163,8 @@
     transform: translateY(-3px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, .08);
 }
-.women-men-nav img {
-    width: 58px;
-    height: auto;
-}
-/*==============================================================
-  OPTIONAL ALTERNATING MEDIA
-  (Works only if HTML already contains float-left/right classes)
-==============================================================*/
-#longevityMedicine .img-wrapper {
-    float: right;
-}
-#bioHormoneReplacement .img-wrapper {
-    float: left;
-}
-#botoxAndFillers .img-wrapper {
-    float: right;
-}
-#glp1 .img-wrapper {
-    float: right;
-}
+
+
 /*==============================================================
   TABLET
 ==============================================================*/
