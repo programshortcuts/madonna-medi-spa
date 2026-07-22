@@ -1,0 +1,49 @@
+/* bkgrnd-med-spa-serv.css */
+.med-spa-serv-container .service-section {
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: -2%;
+    filter: saturate(1);
+    filter: brightness(1);
+    filter: grayscale(50%);
+
+}
+
+.service-section#bioHormoneReplacement {
+    /* background-image: url('../media/bio-horm-replace.png');  */
+}
+
+.service-section#IVinfusionTherapy {
+    /* background-image: url('../media/iv-infusion.jpeg');  */
+}
+
+.service-section#peptides {
+    /* background-image: url('../media/peptide-header-wide.png'); */
+}
+
+.service-section#botoxAndFillers {
+    background-image: url('../media/botox-filler.webp');
+
+}
+
+
+
+.service-section.colored,
+.service-section:hover {
+    filter: saturate(1.2);
+    filter: brightness(1.05);
+}
+
+.service-section.colored#botoxAndFillers,
+.service-section#botoxAndFillers:hover {
+    /* filter: saturate(.7); */
+    /* filter: brightness(.8); */
+}
+.more-info-buttons > button {
+    appearance: none;
+    -webkit-appearance: none ;
+    border: none;
+    background-color: transparent !important;
+
+}
+

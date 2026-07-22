@@ -1,0 +1,49 @@
+/* layout-med-spa-services.css */
+.service-section {
+    /* Limits the section to full viewport height */
+    /* overflow: hidden; */
+    position: relative;
+    /* Add this line */
+    clear: both;
+}
+
+.section-title.drop-down {
+    /* position: sticky; */
+    top: 0;
+    z-index: 1;
+    /* Ensure it's above the content */
+}
+.page-container.med-spa-serv-container .sections-containers .service-section .content  p{
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: blue; */
+}
+.more-info-buttons {
+    display: inline-flex;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.service-section:hover .more-info-buttons,
+.service-section:focus-within .more-info-buttons,
+.service-section.active .more-info-buttons,
+.service-section.colored .more-info-buttons {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.women-men-nav {
+    display: flex ;
+    justify-content: space-around;
+    padding: 1% 0;
+}
+.women-men-nav {
+}
+.women-men-nav a {
+    display: inline-flex;
+    flex-direction: column;
+
+}

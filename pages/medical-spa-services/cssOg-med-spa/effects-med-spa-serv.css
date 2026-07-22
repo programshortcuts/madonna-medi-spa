@@ -1,0 +1,14 @@
+.service-section .more-info-buttons {
+    display: none;
+}
+
+.service-section:hover .more-info-buttons,
+.service-section:focus-within .more-info-buttons,
+.service-section.active .more-info-buttons,
+.service-section.colored .more-info-buttons {
+    display: inline-flex !important;
+}
+
+.service-section .content:not(.hide) .more-info-buttons {
+    display: none !important;
+}
