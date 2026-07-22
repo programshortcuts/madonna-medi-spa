@@ -1,6 +1,13 @@
 .section-title .title-text {
+
+    background: inherit;
+    background-color: black;
+}
+.section-title .title-text {
     color: var(--heading);
-    background: transparent;
+    background: inherit;
+    /* background: transparent; */
+    /* background: black; */
 }
 .sections-preview p,
 .section-details p {
@@ -12,21 +19,21 @@
     color: var(--heading);
 }
 .service-section .img-wrapper {
-    background: #edf4fa;
+    /* background: #edf4fa; */
 }
 .more-info-btn {    
     
-    background: white;
+    /* background: white; */
     color: var(--accent);
 }
 .less-info {
     
-    background: white;
+    /* background: white; */
 }
 .section-details li {
     color: var(--text);
 }
 .women-men-nav a {
-    background: white;
+    /* background: white; */
     color: var(--heading);
 }
