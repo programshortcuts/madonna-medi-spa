@@ -29,6 +29,22 @@ if (!mainLandingPage) {
 const pageCache = new Map();
 let lastClickedLink = null;
 
+function centerElementInScrollContainer(element) {
+    if (!element || !pageWrapper) return;
+
+    const scrollContainer = pageWrapper;
+    const containerHeight = scrollContainer.clientHeight || window.innerHeight;
+    const elementRect = element.getBoundingClientRect();
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const offsetTop = elementRect.top - containerRect.top + scrollContainer.scrollTop;
+    const targetScrollTop = Math.max(0, offsetTop - (containerHeight / 2) + (elementRect.height / 2));
+
+    scrollContainer.scrollTo({
+        top: targetScrollTop,
+        behavior: 'smooth'
+    });
+}
+
 /* -----------------------------
    GLOBAL FORM SAFETY
 ----------------------------- */
@@ -204,19 +220,16 @@ export async function injectPage(href) {
 
     if (autoFocusEl) {
         requestAnimationFrame(() => {
-            autoFocusEl.focus();
-            autoFocusEl.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
+            window.setTimeout(() => {
+                autoFocusEl.focus({ preventScroll: true });
+                centerElementInScrollContainer(autoFocusEl);
+            }, 50);
+        });
+    } else {
+        requestAnimationFrame(() => {
+            pageWrapper.scrollTop = 0;
         });
     }
-    // -----------------------------
-    // RESET VIEW
-    // -----------------------------
-    requestAnimationFrame(() => {
-        pageWrapper.scrollTop = 0;
-    });
     onPageReady();
     // -----------------------------
     // INIT UI MODULES
