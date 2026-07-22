@@ -21,7 +21,8 @@
     }
 
     .img-wrapper {
-        width: 240px !important;
+        width: 220px !important;
+        height: 200px;
         margin: 0 0 1.5rem;
     }
 

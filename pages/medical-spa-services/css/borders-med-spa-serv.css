@@ -12,7 +12,7 @@
     border-top-left-radius: var(--radius);;
 }
 .service-section .img-wrapper {
-    border-radius: 18px;
+    border-radius: 8px;
 }
 .more-info-btn {
     border: 1px solid var(--accent);
