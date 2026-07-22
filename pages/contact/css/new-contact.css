@@ -1,7 +1,10 @@
+.page-container.contact-page-container{
+    /* padding: 0; */
+    /* margin:0; */
+}
 /* ================================
    CONTACT PAGE MAIN LAYOUT
-================================ */
-
+========================= */
 .contact-page-container {
     position: relative;
     min-height: 100vh;
@@ -10,15 +13,13 @@
     display: flex;
     flex-direction: column;
 }
-
 /* ================================
    SILHOUETTE IMAGE
 ================================ */
-
 .contact-page-container .animation-container {
-    position: absolute;
+    position: fixed;
     right: -15%;
-    top: 0;
+    top: 30%;
     height: 100%;
     width: 65%;
     z-index: 0;
@@ -27,8 +28,6 @@
     align-items: center;
     pointer-events: none;
 }
-
-
 .contact-page-container #target {
     height: 110vh;
     width: auto;
@@ -37,145 +36,48 @@
     mask-image: linear-gradient(to left,
             black 70%,
             transparent 100%);
-
     opacity: .95;
 }
-
-
 /* ================================
    CONTENT LEFT SIDE
 ================================ */
-
 .contact-container,
-.address-num-container,
 .social-media-email-container,
 .contact-address-num-container {
     position: relative;
     z-index: 2;
     width: 34%;
 }
-
-
-
-/* ================================
-   FORM CARD
-================================ */
-
-.form-contact-container {
-
-    background: rgba(255, 255, 255, .75);
-    backdrop-filter: blur(15px);
-
-    padding: 40px;
-    /* padding: 40px; */
-    border-radius: 24px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, .08);
-
-    max-width: 600px;
-}
-
-
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-
-.form-group label {
-
-    display: block;
-    font-size: .9rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-
-    margin-bottom: 8px;
-    color: #555;
-}
-
-
-.form-group input,
-.form-group textarea {
-
-    width: 100%;
-    padding: 16px;
-
-    border: none;
-    border-bottom: 1px solid #ccc;
-
-    background: transparent;
-
-    font-size: 1rem;
-
-}
-
-
-.form-group input:focus,
-.form-group textarea:focus {
-
-    outline: none;
-    border-color: #b18a63;
-
-}
-
-
-
 /* ================================
    ADDRESS
 ================================ */
-
-
 .address-box {
-
     font-size: 1.2rem;
     line-height: 1.7;
-
     margin-bottom: 40px;
-
 }
-
-
 .address-box a {
-
     color: #333;
     text-decoration: none;
-
 }
-
-
 .address-box a:hover {
-
     color: #b18a63;
-
 }
-
-
-
 /* ================================
    SOCIAL MEDIA
 ================================ */
-
-
 .social-media-email-container {
-
     margin-top: 50px;
-
 }
-
-
 .social-media-email-container > .social-media-container {
-
     display: flex;
     gap: 5px;
     align-items: center;
     /* flex-direction: column; */
-
 }
 .social-media-item {
     width: 70px;
     height: 70px;
-
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -183,62 +85,37 @@
     background: white;
     box-shadow:
         0 10px 30px rgba(0, 0, 0, .12);
-
     transition: .3s ease;
 }
 .social-media-item svg {
     width: 38px;
     height: 38px;
-
 }
 .social-media-item:hover {
-
     transform:
         translateY(-5px);
-
     box-shadow:
         0 15px 40px rgba(0, 0, 0, .18);
-
 }
 /* ================================
    MOBILE
 ================================ */
-
 @media(max-width:900px) {
-
-
     .contact-page-container {
-
         padding: 50px 25px;
-
     }
-
-
     .contact-page-container .animation-container {
-
         opacity: .25;
-
         width: 100%;
         right: -30%;
-
     }
-
-
     .contact-container,
     .address-num-container,
     .social-media-email-container,
     .contact-address-num-container {
-
         width: 100%;
-
     }
-
-
     .form-contact-container {
-
         padding: 25px;
-
     }
-
-
 }
