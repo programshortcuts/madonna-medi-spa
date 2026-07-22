@@ -28,6 +28,23 @@
     margin-top: 2.5rem;
     padding-top: 2rem;
 }
+.section-details ul {
+    margin: 0 0 2rem 1.25rem;
+    padding: 0;
+}
+
+.section-details li {
+    margin-bottom: .55rem;
+}
+.women-men-nav {
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+.women-men-nav a {
+    gap: 1rem;
+    padding: 1rem 1.35rem;
+    
+}
 /*==============================================================
   FLOATING MEDIA
 ==============================================================*/
@@ -56,4 +73,16 @@
 .more-info-btn {
     padding: .95rem 1.65rem;
     letter-spacing: .04em;
+}
+.less-info {
+    margin-right: 1rem;
+    padding: .8rem 1.4rem;
+}
+/*==============================================================
+  LINKS
+==============================================================*/
+.service-section .more-info-link,
+.service-section .more-info-links a {
+    margin-top: 1.5rem;
+    gap: .5rem;
 }

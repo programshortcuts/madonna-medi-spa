@@ -144,7 +144,6 @@
   DETAILS
 ==============================================================*/
 .section-details {
-    
     border-top: 1px solid #edf1f5;
 }
 /*==============================================================
@@ -154,8 +153,6 @@
 .service-section .more-info-links a {
     display: inline-flex;
     align-items: center;
-    gap: .5rem;
-    margin-top: 1.5rem;
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
@@ -169,8 +166,6 @@
   LESS BUTTON
 ==============================================================*/
 .less-info {
-    margin-right: 1rem;
-    padding: .8rem 1.4rem;
     border-radius: 999px;
     background: white;
     border: 1px solid #ccd7e2;
@@ -179,12 +174,7 @@
 /*==============================================================
   GLP LISTS
 ==============================================================*/
-.section-details ul {
-    margin: 0 0 2rem 1.25rem;
-    padding: 0;
-}
 .section-details li {
-    margin-bottom: .55rem;
     color: var(--text);
     line-height: 1.8;
 }
@@ -198,14 +188,10 @@
 .women-men-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    margin: 2rem 0;
 }
 .women-men-nav a {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.35rem;
     border: 1px solid #dbe4ec;
     border-radius: 18px;
     background: white;
