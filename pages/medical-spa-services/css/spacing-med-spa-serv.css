@@ -1,6 +1,5 @@
 
 /* spacing-med-spa-services.css */
-
 .med-spa-serv-container {
     padding: 0 .5rem;
     padding-top: 5rem;
@@ -12,15 +11,14 @@
     max-width: var(--service-max-width);
     /* margin: auto; */
 }
-
 .service-section {
     /* margin: 0 0 3.75rem; */
 }
 .service-section .section-title {
-    gap: 2rem;
+    /* gap: 2rem; */
     /* padding: 1.75rem 2.5rem; */
     /* margin-top: 1%; */
-    padding-top: 1%;
+    /* padding-top: 1%; */
     padding-bottom: 1%;
     padding-left: 2%;
 }
@@ -35,7 +33,7 @@
 
 .sections-preview h2,
 .section-details h2 {
-    margin-bottom: .65rem;
+    /* margin-bottom: .65rem; */
 }
 
 
@@ -49,10 +47,6 @@
 }
 .section-details li {
     line-height: 1.8;
-}
-
-.section-details h2 {
-    margin-bottom: .5rem;
 }
 
 /*==============================================================
@@ -72,7 +66,7 @@
   CONTENT
 ==============================================================*/
 .content {
-    padding: 2.75rem 3rem 3rem;
+    /* padding: 2.75rem 3rem 3rem; */
 }
 /*==============================================================
   BUTTON AREA
