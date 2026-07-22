@@ -1,29 +1,73 @@
-@media screen and (max-width:920px) {
-    /* .main-landing-page {
-        padding-top: 15% !important;
-    } */
-    
+/*==============================================================
+  MEDICAL SPA SERVICES
+  Premium Editorial Layout
+  --------------------------------------------------------------
+  Designed to work with the existing HTML & JavaScript.
+  No HTML changes required.
+==============================================================*/
+/*==============================================================
+  VARIABLES
+==============================================================*/
+:root {
+    --service-max-width: 1320px;
+    /* --section-bg: #ffffff; */
+    --section-border: #dfe7ee;
+    --section-shadow: 0 18px 40px rgba(25, 42, 60, .06);
+    --heading: #17324d;
+    --text: #495868;
+    --muted: #748190;
+    --accent: #2d7fb8;
+    --accent-hover: #185f91;
+    --radius: 22px;
+    --transition: .28s ease;
 }
-@media screen and (min-width:534px) {
-    .img-wrapper>video {
-        max-height: 200px;
-        max-width: 300px;
+.more-info-btn {
+    appearance: none;
+}
+@media (max-width:1000px) {
+    .content {
+        padding: 2.25rem;
+    }
+    .img-wrapper {
+        /* width: 170px; */
+    }
+    .sections-preview p,
+    .section-details p {
+        font-size: 1.02rem;
     }
 }
-@media screen and (max-width:533px) {
-    .img-wrapper.float-left {
-        max-width: 224px;
-        /* border: 10px solid red !important; */
-        
-    }    
-    .img-wrapper>video {
-        max-height: 200px;
-        max-width: 200px;
+/*==============================================================
+  MOBILE
+==============================================================*/
+@media (max-width:700px) {
+    .med-spa-serv-container {
+        padding: 2rem .9rem 4rem;
     }
-    .service-section{
-        font-size: 90%;
-        /* border: 1px solid black; */
-        /* max-height: 10vh !important; */
-        min-height: 15vh;
+    .content {
+        padding: 1.7rem;
+    }
+    .service-section .section-title {
+        padding: 1.4rem 1.5rem;
+    }
+    .title-text {
+        font-size: 1.4rem;
+    }
+    .img-wrapper,
+    .float-left,
+    .float-right {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1.5rem;
+    }
+    .women-men-nav {
+        flex-direction: column;
+    }
+    .service-section .more-info-buttons {
+        margin-top: 2rem;
+    }
+    .sections-preview p,
+    .section-details p {
+        max-width: none;
     }
 }

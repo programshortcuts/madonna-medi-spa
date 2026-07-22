@@ -1,0 +1,45 @@
+/* clrs-med-spa-serv.css */
+
+.service.title-text {
+    color: var(--heading);
+}
+.sections-preview p,
+.section-details p {
+    color: var(--text);
+    
+}
+.sections-preview h2,
+.section-details h2 {    
+    color: var(--heading);
+}
+.service-section .img-wrapper {
+    background: #edf4fa;
+}
+.more-info-btn {    
+    appearance: none;
+    background: white;
+    color: var(--accent);
+}
+/*==============================================================
+  DETAILS
+==============================================================*/
+
+
+/*==============================================================
+  LESS BUTTON
+==============================================================*/
+.less-info {
+    
+    background: white;
+}
+/*==============================================================
+  GLP LISTS
+==============================================================*/
+.section-details li {
+    color: var(--text);
+}
+
+.women-men-nav a {
+    background: white;
+    color: var(--heading);
+}
