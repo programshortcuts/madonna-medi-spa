@@ -1,6 +1,7 @@
 .section-title,
 .section-title .title-text {
     background: transparent;
+    color: var(--text);
 }
 .sections-preview p,
 .section-details p {
