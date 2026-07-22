@@ -60,7 +60,6 @@ document.addEventListener("submit", (e) => {
 export function initInjectContentListeners() {
     // ✅ FIX: ensure DOM is ready before first injection
     requestAnimationFrame(() => {
-
         if (!history.state) {
 
             history.replaceState(
