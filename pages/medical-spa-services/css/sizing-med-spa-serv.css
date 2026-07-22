@@ -28,13 +28,6 @@
     width: 72px;
     /* height: auto; */
 }
-.img-wrapper img,
-.img-wrapper video,
-.service-video {
-
-    display: block;
-    object-fit: cover;
-}
 
 /*==============================================================
   FLOATING MEDIA
@@ -47,6 +40,8 @@
 .img-wrapper img,
 .img-wrapper video,
 .service-video {
+    display: block;
+        object-fit: cover;
     width: 100%;
     height: 100%;
 }

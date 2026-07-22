@@ -15,32 +15,17 @@
   MOBILE
 ==============================================================*/
 @media (max-width:700px) {
-    .med-spa-serv-container {
-        padding: 2rem .9rem 4rem;
-    }
-    .content {
-        padding: 1.7rem;
-    }
-    .service-section .section-title {
-        padding: 1.4rem 1.5rem;
-    }
     .title-text {
         font-size: 1.4rem;
     }
-    .img-wrapper,
-    .float-left,
-    .float-right {
-        /* float: none; */
-        width: 100%;
-        max-width: 100%;
+    .img-wrapper{
+        width: 240px !important;
         margin: 0 0 1.5rem;
     }
     .women-men-nav {
         flex-direction: column;
     }
-    .service-section .more-info-buttons {
-        margin-top: 2rem;
-    }
+    
     .sections-preview p,
     .section-details p {
         max-width: none;
