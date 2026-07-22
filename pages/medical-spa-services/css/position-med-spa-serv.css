@@ -37,3 +37,9 @@
 .more-info-buttons {
     clear: both;
 }
+.float-right{
+    float: right;
+}
+.float-left{
+    float: left;
+}

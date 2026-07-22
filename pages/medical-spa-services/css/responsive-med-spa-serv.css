@@ -30,7 +30,7 @@
     .img-wrapper,
     .float-left,
     .float-right {
-        float: none;
+        /* float: none; */
         width: 100%;
         max-width: 100%;
         margin: 0 0 1.5rem;
