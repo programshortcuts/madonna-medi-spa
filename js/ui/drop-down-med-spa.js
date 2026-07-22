@@ -7,7 +7,10 @@ export function initDropDownMedSpa() {
 
     const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
     const sectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
-
+    sectionDetails.forEach(el => {
+        console.log(el)
+        el.classList.add('hide')}
+    )
     serviceSections.forEach((section) => {
         section.tabIndex = 0;
         section.addEventListener('click', handleSectionClick);
