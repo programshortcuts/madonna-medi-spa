@@ -1,5 +1,3 @@
-/* clrs-med-spa-serv.css */
-
 .service.title-text {
     color: var(--heading);
 }
@@ -16,29 +14,17 @@
     background: #edf4fa;
 }
 .more-info-btn {    
-    appearance: none;
+    
     background: white;
     color: var(--accent);
 }
-/*==============================================================
-  DETAILS
-==============================================================*/
-
-
-/*==============================================================
-  LESS BUTTON
-==============================================================*/
 .less-info {
     
     background: white;
 }
-/*==============================================================
-  GLP LISTS
-==============================================================*/
 .section-details li {
     color: var(--text);
 }
-
 .women-men-nav a {
     background: white;
     color: var(--heading);
