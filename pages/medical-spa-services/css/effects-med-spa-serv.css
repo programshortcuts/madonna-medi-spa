@@ -1,7 +1,58 @@
+/* effects-med-spa-serv.css */
 .service-section .more-info-buttons {
     display: none;
 }
+.service-section .section-title {
+    cursor: pointer;
+    transition: background var(--transition);
+}
+.service.title-text {
+    text-transform: uppercase;
+}
 
+/*==============================================================
+  BUTTON AREA
+==============================================================*/
+
+.more-info-btn {
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+.more-info-btn:hover {
+    box-shadow: 0 10px 22px rgba(45, 127, 184, .18);
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+.less-info {
+    cursor: pointer;
+}
+/*==============================================================
+  LINKS
+==============================================================*/
+.service-section .more-info-link,
+.service-section .more-info-links a {
+    color: var(--accent);
+    transition: color var(--transition);
+}
+.more-info-link:hover,
+.more-info-links a:hover {
+    color: var(--accent-hover);
+}
+.women-men-nav a {
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+.women-men-nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .08);
+}
 .service-section:hover .more-info-buttons,
 .service-section:focus-within .more-info-buttons,
 .service-section.active .more-info-buttons,
@@ -11,4 +62,16 @@
 
 .service-section .content:not(.hide) .more-info-buttons {
     display: none !important;
+}
+.section-title:active~.img-wrapper>img {
+    filter: grayscale(0) !important;
+}
+
+.section-title:active~.img-wrapper>img {
+    filter: grayscale(0) !important;
+}
+.service-section>button.section-title:active,
+.service-section>button.section-title:focus {
+    box-shadow: 0 2px 2px 3px silver;
+    text-transform: capitalize;
 }

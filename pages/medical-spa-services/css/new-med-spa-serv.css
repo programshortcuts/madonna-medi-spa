@@ -28,30 +28,13 @@
 /*==============================================================
   SERVICE SECTION
 ==============================================================*/
-.service-section {
-    border: 1px solid var(--section-border);
-    border-radius: var(--radius);
-    box-shadow: var(--section-shadow);
-}
+
 
 /*==============================================================
   SECTION TITLE
 ==============================================================*/
-.service-section .section-title {
-    /* background: linear-gradient(to bottom, #ffffff, #fbfdff); */
-    border: none;
-    /* border-bottom: 1px solid #edf2f6; */
-    cursor: pointer;
-    /* transition: background var(--transition); */
-}
-.service-section .section-title:hover {
-    /* background:blue; */
-}
 
 .service.title-text {
-    font-size: clamp(1.55rem, 2vw, 2.2rem);
-    font-weight: 700;
-    text-transform: uppercase;
     color: var(--heading);
 }
 /*==============================================================
@@ -63,7 +46,6 @@
 ==============================================================*/
 .sections-preview p,
 .section-details p {
-    font-size: 1.08rem;
     color: var(--text);
     
 }
@@ -76,68 +58,30 @@
   FLOATING MEDIA
 ==============================================================*/
 .service-section .img-wrapper {
-    border-radius: 18px;
     background: #edf4fa;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
 }
 
 
 /*==============================================================
   BUTTON AREA
 ==============================================================*/
-.more-info-buttons {
-    clear: both;
-}
-.more-info-btn {
+
+.more-info-btn {    
     appearance: none;
-    border: 1px solid var(--accent);
     background: white;
     color: var(--accent);
-    border-radius: 999px;
-    font-size: .96rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition:
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition),
-        box-shadow var(--transition);
-}
-.more-info-btn:hover {
-    background: var(--accent);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 22px rgba(45, 127, 184, .18);
 }
 /*==============================================================
   DETAILS
 ==============================================================*/
-.section-details {
-    border-top: 1px solid #edf1f5;
-}
-/*==============================================================
-  LINKS
-==============================================================*/
-.service-section .more-info-link,
-.service-section .more-info-links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color var(--transition);
-}
-.more-info-link:hover,
-.more-info-links a:hover {
-    color: var(--accent-hover);
-}
+
+
 /*==============================================================
   LESS BUTTON
 ==============================================================*/
 .less-info {
-    border-radius: 999px;
+    
     background: white;
-    border: 1px solid #ccd7e2;
-    cursor: pointer;
 }
 /*==============================================================
   GLP LISTS
@@ -145,24 +89,12 @@
 .section-details li {
     color: var(--text);
 }
-.section-details h2 {
-    font-size: 1.15rem;
-}
 
 .women-men-nav a {
-    border: 1px solid #dbe4ec;
-    border-radius: 18px;
     background: white;
-    text-decoration: none;
     color: var(--heading);
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
 }
-.women-men-nav a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, .08);
-}
+
 
 
 /*==============================================================
