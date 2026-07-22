@@ -1,5 +1,9 @@
 /* service-swiper.css */
 
+
+.services-swiper .swiper-slide .content {
+    
+}
 .service-column>.service-col-title {
     text-decoration: none;
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
@@ -11,11 +15,15 @@
 }
 
 .services-swiper .swiper-slide .service-title {
+    padding: 1% 0;
+        padding-right: 5%;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
 }
 
 .services-swiper .swiper-slide .content {
+    padding: 4% 5%;
+    line-height: 1.5;
     font-size: .95rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-family: 'Courier New', Courier, monospace;
