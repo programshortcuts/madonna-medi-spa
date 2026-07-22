@@ -6,6 +6,7 @@ export function initDropDownMedSpa() {
     if (!medSpaContainer) return;
 
     const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
+    const sectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
 
     serviceSections.forEach((section) => {
         section.tabIndex = 0;
