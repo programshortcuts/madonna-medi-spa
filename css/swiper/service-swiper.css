@@ -6,6 +6,10 @@
 }
 
 
+.services-swiper .swiper-slide p {
+    display: inline;
+    border: 1px solid red
+}
 .services-swiper .swiper-slide .service-title {
     padding: 1% 0;
     padding-right: 5%;

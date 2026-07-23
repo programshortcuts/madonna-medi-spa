@@ -1,20 +1,28 @@
 /* sizing-med-spa-services.css */
+.med-spa-serv-container {
+    width: 100%;
+    
+}
+.service-section{
+    /* border: 1px solid red; */
+    
+}
 /*==============================================================
   SERVICE SECTION
 ==============================================================*/
 .sections-preview p,
 .section-details p {
     font-size: 1.08rem;
-    max-width: 78ch;
+    /* max-width: 78ch; */
+    border: 1px solid blue;
+    display: inline;
 }
 
 .sections-preview h2,
 .section-details h2 {
     margin-bottom: .65rem;
 }
-.med-spa-serv-container {
-    width: 100%;
-}
+
 /*==============================================================
   SERVICE SECTION
 ==============================================================*/
@@ -33,17 +41,23 @@
   FLOATING MEDIA
 ==============================================================*/
 .service-section .img-wrapper {
-    width: 300px;
-    height: 250px;
-    max-width: 100%;
+    /* width: 300px; */
+    /* height: 250px; */
+    max-width: 500px;
+    width: fit-content;
+    /* border: 1px solid blue; */
+    height: fit-content;
 }
-.img-wrapper img,
-.img-wrapper video,
 .service-video {
     display: block;
-        object-fit: cover;
     width: 100%;
     height: 100%;
+}
+.img-wrapper img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
 }
 
 .women-men-nav img {

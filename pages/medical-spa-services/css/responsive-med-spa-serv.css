@@ -1,6 +1,8 @@
 /* responsive-med-spa-serv.css */
 @media (min-width:701px) {
-    
+    .service-section {
+        width: 100vw;
+    }    
     .content {
         /* padding: 2.25rem; */
     }
@@ -21,9 +23,7 @@
     }
 
     .img-wrapper {
-        width: 220px !important;
-        height: 200px;
-        margin: 0 0 1.5rem;
+        max-width: 100px !important;
     }
 
     .women-men-nav {
