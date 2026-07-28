@@ -30,7 +30,7 @@ export function initKeydboardNav({ container = document } = {}) {
 
             lastElClicked = e.target;
         }
-        
+        // if(e.target.closest(''))
         letterNav({ container, e });
 
     });

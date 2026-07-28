@@ -6,6 +6,6 @@ import { initDropDownMedServ } from "./drop-down-med-serv.js";
 export function initDropDown() {
     // Initialize page-specific dropdown handlers. Each initializer will early return if it's not the right page.
     initDropDownHome();
-    // initDropDownMedServ();
+    initDropDownMedServ();
 }
 
