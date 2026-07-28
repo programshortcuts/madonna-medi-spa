@@ -14,11 +14,11 @@
     padding: 0 5% !important;
     border: 2px solid purple;
 }
-.address-num-container .address-box {
+.page-container.home-page-container .address-num-container .address-box {
     padding: 2%
 }
-.address-num-container {
-    padding-bottom: 10%;
+.page-container.home-page-container .address-num-container {
+    padding-bottom: 20%;
 }
 .page-container.home-page-container .main-item {
     padding-bottom: 2%;
