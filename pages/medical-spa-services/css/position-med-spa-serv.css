@@ -14,11 +14,11 @@
 }
 
 #bioHormoneReplacement .img-wrapper {
-    float: left;
+    /* float: left; */
 }
 
 #botoxAndFillers .img-wrapper {
-    float: right;
+    /* float: right; */
 }
 
 #glp1 .img-wrapper {

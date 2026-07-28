@@ -23,29 +23,27 @@ export function initDropDownMedServ() {
 }
 function handleSectionClick(e){
     const section = e.target.closest('.service-section')
+    if(!section) return;
     const content = section.querySelector('.content');
     const sectionDetails = section.querySelector('.section-details');
     if(e.target.closest('.section-preview')){
-        console.log('preview');    
         toggleHide(sectionDetails);
         return
     }
     if(e.target.closest('.section-title')){
         toggleHide(content);
-        console.log('title');
     }
     
 }
 function handleSectionKeydown(e){
     const section = e.target.closest('.service-section')
+    if(!section) return;
+    
     const sectionDetails = section.querySelector('.section-details');
     if(e.target.closest('.section-title')){
-        toggleHide(sectionDetails);
-        
+        toggleHide(sectionDetails);       
     }
 }
-
-
 function toggleHide(el){
     el.classList.toggle('hide');
 }
