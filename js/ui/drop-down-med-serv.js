@@ -15,7 +15,6 @@ export function initDropDownMedServ() {
 
     function hideAllSectionDetails(){
         allSectionDetails.forEach(el => {
-            console.log(el);
             el.classList.add('hide')
             
         })
@@ -25,9 +24,15 @@ export function initDropDownMedServ() {
 function handleSectionClick(e){
     const section = e.target.closest('.service-section')
     const content = section.querySelector('.content');
+    const sectionDetails = section.querySelector('.section-details');
+    if(e.target.closest('.section-preview')){
+        console.log('preview');    
+        toggleHide(sectionDetails);
+        return
+    }
     if(e.target.closest('.section-title')){
         toggleHide(content);
-        
+        console.log('title');
     }
     
 }
