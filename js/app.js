@@ -6,6 +6,7 @@ import { initInjectContentListeners } from "./core/inject-content.js";
 import { initToggleNav } from "./ui/toggle-nav.js";
 import { initKeydboardNav } from "./nav/keyboard-nav.js";
 import { initDropDown } from "./ui/drop-down.js";
+import { initDropDownMedServ } from "./ui/drop-down-med-serv.js";
 // import { initFilterSortItems } from "./ui/filter-sort-items.js";
 // import { initMedicalSpaAnimation } from "./visuals/animation.js";
 
@@ -33,6 +34,7 @@ function initMain(){
 }
 function setupGlobalListeners(){
     initDropDown()
+    initDropDownMedServ()
     // initFilterSortItems()
     // initChangeStyles()
 }

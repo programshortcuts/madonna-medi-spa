@@ -10,15 +10,14 @@
 /*==============================================================
   SERVICE SECTION
 ==============================================================*/
-.sections-preview p,
+.section-preview p,
 .section-details p {
     font-size: 1.08rem;
     /* max-width: 78ch; */
-    border: 1px solid blue;
     display: inline;
 }
 
-.sections-preview h2,
+.section-preview h2,
 .section-details h2 {
     margin-bottom: .65rem;
 }

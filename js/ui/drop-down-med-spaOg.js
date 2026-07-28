@@ -24,7 +24,7 @@ export function initDropDownMedSpa() {
             return;
         }
 
-        const previewMoreInfoButton = event.target.closest('.sections-preview .more-info-buttons button');
+        const previewMoreInfoButton = event.target.closest('.section-preview .more-info-buttons button');
         const clickedSectionDetails = event.target.closest('.section-details');
         if (clickedSectionDetails && !previewMoreInfoButton) {
             return;
@@ -51,7 +51,7 @@ export function initDropDownMedSpa() {
             return;
         }
 
-        const previewMoreInfoButton = event.target.closest('.sections-preview .more-info-buttons button');
+        const previewMoreInfoButton = event.target.closest('.section-preview .more-info-buttons button');
         const clickedSectionDetails = event.target.closest('.section-details');
         if (clickedSectionDetails && !previewMoreInfoButton) {
             return;
@@ -107,7 +107,7 @@ export function initDropDownMedSpa() {
     }
 
     function getSectionContent(section) {
-        return section.querySelector('.content') || section.querySelector('.sections-preview');
+        return section.querySelector('.content') || section.querySelector('.section-preview');
     }
 
     function getSectionTitleButton(section) {

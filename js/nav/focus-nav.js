@@ -21,8 +21,8 @@ export function focusNav({e,target}){
             // No Swiper instance — fall back to normal scroll
             target.el.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center',
-                inline: 'start'
+                block: 'center'
+                // inline: 'start'
             });
         }
     } else {
@@ -32,14 +32,14 @@ export function focusNav({e,target}){
         if (target.el.classList.contains('service-title')) {
             target.el.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center',
-                inline: 'center'
+                block: 'center'
+                // inline: 'center'
             });
         } else {
             target.el.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center',
-                inline: 'end'
+                block: 'center'
+                // inline: 'end'
             });
         }
     }

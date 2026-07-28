@@ -9,7 +9,7 @@
     .img-wrapper {
         /* width: 170px; */
     }
-    .sections-preview p,
+    .section-preview p,
     .section-details p {
         font-size: 1.02rem;
     }
@@ -30,7 +30,7 @@
         flex-direction: column;
     }
 
-    .sections-preview p,
+    .section-preview p,
     .section-details p {
         max-width: none;
     }

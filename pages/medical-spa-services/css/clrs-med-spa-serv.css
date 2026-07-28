@@ -3,12 +3,12 @@
     background: transparent;
     color: var(--text);
 }
-.sections-preview p,
+.section-preview p,
 .section-details p {
     color: var(--text);
     
 }
-.sections-preview h2,
+.section-preview h2,
 .section-details h2 {    
     color: var(--heading);
 }

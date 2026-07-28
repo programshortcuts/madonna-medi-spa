@@ -28,7 +28,7 @@
 
 /* clearfix */
 .service-section::after,
-.sections-preview::after,
+.section-preview::after,
 .section-details::after {
     content: "";
     display: block;
