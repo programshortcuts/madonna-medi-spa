@@ -5,7 +5,7 @@ export function initDropDownMedServ() {
     const medSpaContainer = document.querySelector('.page-container.med-spa-serv-container');
     if (!medSpaContainer) return;
     const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
-    const sectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
+    const allSectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
     serviceSections.forEach((section) => {       
         section.tabIndex = 0;
         section.addEventListener('click', handleSectionClick);
@@ -13,22 +13,34 @@ export function initDropDownMedServ() {
     });
 
 
-    // function hideAllSectionDetails
+    function hideAllSectionDetails(){
+        allSectionDetails.forEach(el => {
+            console.log(el);
+            el.classList.add('hide')
+            
+        })
+    }
+    hideAllSectionDetails()
 }
 function handleSectionClick(e){
     const section = e.target.closest('.service-section')
     const content = section.querySelector('.content');
     if(e.target.closest('.section-title')){
-        toggleContent(content);
+        toggleHide(content);
         
     }
     
 }
 function handleSectionKeydown(e){
-
+    const section = e.target.closest('.service-section')
+    const sectionDetails = section.querySelector('.section-details');
+    if(e.target.closest('.section-title')){
+        toggleHide(sectionDetails);
+        
+    }
 }
 
-function toggleContent(content){
-    console.log(content);
-    content.classList.toggle('hide');
+
+function toggleHide(el){
+    el.classList.toggle('hide');
 }
