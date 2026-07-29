@@ -1,0 +1,6 @@
+/* responsive-contact.css */
+@media screen and(max-width: 741px){
+    .form-contact-container {
+        /* max-width: 400px; */
+    }
+}
