@@ -105,12 +105,16 @@ export function initDropDownHome() {
     function keydownHandler(e) {
         const key = e.key.toLowerCase();
         const serviceTitle = e.target.closest('.service-title.drop-down');
+        console.log(e.target);
+        
         if (serviceTitle && (key === 'enter' || key === ' ')) {
             const service = serviceTitle.closest('.service');
             if (!service) return;
             const currentDown = service.querySelector('.content.downs') || service.querySelector('.downs');
             if (!currentDown) return;
-
+            // currentDown.focus()
+            
+            
             // Hide other service contents
             homeContainer.querySelectorAll('.service .content.downs, .service .downs').forEach(el => {
                 if (el !== currentDown) el.classList.add('hide');

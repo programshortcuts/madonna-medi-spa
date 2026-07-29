@@ -13,6 +13,10 @@
 }
 .service-section {
     /* margin: 0 0 3.75rem; */
+    /* padding: 0 2.5rem; */
+}
+.service-section .content {
+    padding-bottom: 25%;
 }
 .service-section .section-title {
     /* gap: 2rem; */

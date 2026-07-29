@@ -23,13 +23,6 @@
 
     display: block;
 }
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
-}
 /*==============================================================
 LINKS
 ==============================================================*/
@@ -45,4 +38,9 @@ LINKS
 .women-men-nav a {
     display: flex;
     align-items: center;
+}
+
+.more-info-buttons {
+    display: inline-flex;
+    background-color: blue;
 }

@@ -1,21 +1,6 @@
 /* components/page-header.css */
 /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-#addressLinkHeader>a:visited,
-.address-title {
-    color: grey ;
-    text-decoration: none;
-}   
-.address-title {
-    font-size: .8rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: var(--header-clr);
-    width: 30%;
-    margin-top: -3% !important;
-    margin-right: -10% !important;
-    /* margin-bottom: 5%; */
-
-}
 .page-header {
     z-index: 999;
     position: fixed;
@@ -26,11 +11,17 @@
     width: 100%;
     height: 6vh;
 }
-.page-header>.page-title-container {    
+
+
+
+.page-header>.page-title-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    position: relative;
+    display: flex;
+    padding-left: 5%;
 }
 .page-title-container h1 {
     display: flex;
@@ -38,9 +29,6 @@
     align-items: center;
 
     justify-content: center;
-    /* margin: 0 25%; */
-    margin-top: 5%;
-    width: 100%;
     line-height: .8;
 }
 .page-title-container h1 .page-title{
@@ -53,6 +41,23 @@
     margin-left: 12%;
     padding-top: 2%;
 }
+.page-title-container>.address-title {
+    flex-shrink: 1;
+    margin-left: 10%;
+    margin-top: 2% !important;  ;
+    font-size: .8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--header-clr);
+    flex-basis: 33%;
+}
+
+#addressLinkHeader>a:visited,
+.address-title {
+    color: grey ;
+    text-decoration: none;
+}   
+
+
 .page-header .tel-num-header {
     font-size: .5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -91,6 +96,12 @@
     /* border: 1px solid blue; */
     text-shadow: none !important;
     color: black;
-    box-shadow: none !important;
+    /* box-shadow: none !important; */
     width: 100%;
+}
+
+@media screen and (max-width:541px) {
+ .page-header>.page-title-container {   
+
+ }
 }

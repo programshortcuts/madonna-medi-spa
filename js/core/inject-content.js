@@ -1,8 +1,8 @@
 // inject-content.js
 import { initAllVideos } from "../video/video-controls.js";
 // 🔥 Ensure correct default page
-// export const DEFAULT_PAGE = "pages/home/home.html";
-export const DEFAULT_PAGE = "pages/medical-spa-services/medical-spa-services.html";
+export const DEFAULT_PAGE = "pages/home/home.html";
+// export const DEFAULT_PAGE = "pages/medical-spa-services/medical-spa-services.html";
 // export const DEFAULT_PAGE = "pages/medical-spa-services/services/glp-1/glp-1.html";
 // export const DEFAULT_PAGE = "pages/contact/contact.html";
 // export const DEFAULT_PAGE = "pages/products/products.html";
@@ -17,7 +17,7 @@ import { initProductsController } from "../ui/products-controller.js";
 
 import { initBgSlider } from "../visuals/change-background.js";
 import { initDropDown } from "../ui/drop-down.js";
-import {initDropDownMedServ} from "../ui/drop-down-med-serv.js";
+// import {initDropDownMedServ} from "../ui/drop-down-med-serv.js";
 
 export const mainLandingPage = document.querySelector('.main-landing-page');
 export const pageWrapper = document.querySelector('.page-wrapper');
