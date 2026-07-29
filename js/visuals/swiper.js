@@ -207,10 +207,10 @@ export function initServicesSwiper() {
             const slide = e.target.closest('.swiper-slide');
 
             if (!slide || !servicesSwiper.slides.includes(slide)) return;
+            console.log(slide)
             if(e.target == slide){
+                console.log(slide.querySelector('.service-title'))
                 slide.querySelector('.service-title').focus()
-                
-                
                 return
 
             }

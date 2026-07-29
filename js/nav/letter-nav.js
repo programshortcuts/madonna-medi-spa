@@ -74,8 +74,7 @@ export function letterNav({ container, e }) {
         e.target.matches('input, textarea, [contenteditable="true"]')
     ) {
         if(e.key === 'enter') {
-            const serviceTitle = e.target.closest('.service-title.drop-down');
-            serviceTitle?.focus()
+            
         }
         return;
     }
