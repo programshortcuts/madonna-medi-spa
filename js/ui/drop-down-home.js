@@ -50,7 +50,7 @@ export function initDropDownHome() {
         const catTitle = e.target.closest('.cat-title');
         const productTitle = e.target.closest('.products-title');
         const serviceSwiperDropDown = e.target.closest('.service-title.drop-down');
-
+        
         // PRODUCT DROPDOWN
         if (productTitle) {
             const productsContainers = productTitle.closest('.products');

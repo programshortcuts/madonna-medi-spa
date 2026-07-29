@@ -247,7 +247,7 @@ export async function injectPage(href) {
     initProductsController();
     initItemsScroll();
     initZoomItems();
-    initDropDownMedServ()
+    inidropDown()
     // OPTIONAL PAGE-SPECIFIC INIT
     if (href.includes("bookings")) {
         // initBookingForm(); // keep commented if not imported
