@@ -24,24 +24,42 @@ export function initDropDownMedServ() {
 function handleSectionClick(e){
     const section = e.target.closest('.service-section')
     if(!section) return;
-    const content = section.querySelector('.content');
-    const sectionDetails = section.querySelector('.section-details');
-    if(e.target.closest('.section-preview')){
-        toggleHide(sectionDetails);
-        return
-    }
-    if(e.target.closest('.section-title')){
-        toggleHide(content);
-    }
-    
+
+    toggleSectionInteraction(section, e.target);
 }
 function handleSectionKeydown(e){
-    const section = e.target.closest('.service-section')
-    if(!section) return;
-    
+    const key = e.key.toLowerCase();
+    if(key !== 'enter') return;
+
+    const serviceSection = e.target.closest('.service-section');
+    if(!serviceSection) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if(e.target === serviceSection){
+        const sectionDetails = serviceSection.querySelector('.section-details');
+        if(sectionDetails){
+            toggleHide(sectionDetails);
+            return;
+        }
+    }
+
+    toggleSectionInteraction(serviceSection, e.target);
+}
+function toggleSectionInteraction(section, target){
+    const content = section.querySelector('.content');
     const sectionDetails = section.querySelector('.section-details');
-    if(e.target.closest('.section-title')){
-        toggleHide(sectionDetails);       
+
+    if(!content || !sectionDetails) return;
+
+    if(target.closest('.section-preview')){
+        toggleHide(sectionDetails);
+        return;
+    }
+
+    if(target.closest('.section-title')){
+        toggleHide(content);
     }
 }
 function toggleHide(el){

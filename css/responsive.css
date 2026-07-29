@@ -29,18 +29,18 @@
 
 @media screen and (max-width:541px) {
     .page-title-container>h1 {
-        margin-top: 4%;   
+        /* margin-top: 4%;    */
     }
     .page-title-container>h1 .tel-num-header {
-        margin-top: 2%;
+        /* margin-top: 2%; */
     }
     #longevityMedHomePage .title-text {
-        margin-top: 7% !important;
+        /* margin-top: 7% !important; */
     }
     #addressLinkHeader{
-        margin-top: 5%;
-        padding-top: 1%;
-        width: 40vw !important;
+        /* margin-top: 5%; */
+        /* padding-top: 1%; */
+        /* width: 40vw !important; */
     }
     #addressLinkHeader > a{
         width: 100% !important;

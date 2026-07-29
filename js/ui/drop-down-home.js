@@ -10,22 +10,6 @@ export function initDropDownHome() {
 
     const dropDowns = homeContainer.querySelectorAll('.drop-down');
 
-    // Initialize service title downs inside the home services swiper
-    // Ensure any service-specific downs are hidden initially
-    const serviceElements = homeContainer.querySelectorAll('.service');
-    // Determine the "Our Services" section title height to use for collapsed services
-    const sectionTitleEl = document.querySelector('button.section-title[data-nav-target="our-services"]') || document.querySelector('header#ourServiceHomePage .section-title');
-    const baseTitleHeight = sectionTitleEl ? Math.ceil(sectionTitleEl.getBoundingClientRect().height) : 0;
-
-    serviceElements.forEach(service => {
-        const downs = service.querySelector('.downs');
-        if (downs) {
-            downs.classList.add('hide');
-            // Collapse the service element initially so hidden services match the section title height
-            if (baseTitleHeight) service.style.height = `${baseTitleHeight}px`;
-        }
-    });
-
     // Attach listeners to dropdowns (click) but scoped to home container
     dropDowns.forEach(el => {
         // Prevent stacking handlers
@@ -94,7 +78,7 @@ export function initDropDownHome() {
                 // Remove explicit height so it returns to normal size
                 service.style.height = '';
             }
-
+            
             lastClickedDrop = e.target;
             return;
         }
