@@ -37,7 +37,7 @@
     display: block;
     width: 100%;
     white-space: none;
-    border: solid blue 2px;
+    /* border: solid blue 2px; */
     text-decoration: none;
     letter-spacing: 25%;
     font-family: cursive;
