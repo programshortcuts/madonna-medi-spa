@@ -63,4 +63,6 @@
     width: 58px;
     height: auto;
 }
-.more-info-buttons
+.more-info-buttons{
+    width: 100%;
+}

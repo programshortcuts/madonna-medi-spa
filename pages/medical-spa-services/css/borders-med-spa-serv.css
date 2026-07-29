@@ -30,3 +30,6 @@
     border: 1px solid #dbe4ec;
     border-radius: 18px;
 }
+.more-info-buttons button{
+    padding: 1% 2%
+}
