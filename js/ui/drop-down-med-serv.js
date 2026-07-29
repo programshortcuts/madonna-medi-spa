@@ -35,11 +35,16 @@ function handleSectionKeydown(e){
     if(key !== 'enter') return;
 
     const serviceSection = e.target.closest('.service-section');
+    const sectiontitle = serviceSection.closest('.section-title');
     if(!serviceSection) return;
 
     e.preventDefault();
     e.stopPropagation();
 
+    if(e.target === sectiontitle){
+        hideAllSectionDetails()
+        
+    }
     if(e.target === serviceSection){
         const sectionDetails = serviceSection.querySelector('.section-details');
         if(sectionDetails){

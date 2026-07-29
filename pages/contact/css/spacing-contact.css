@@ -1,7 +1,7 @@
 /* sizing-contact.css */
 .page-container.contact-page-container{
-    /* padding-top: 40%; */
-    /* margin-top: 2%; */
+    padding-top: 40%;
+    margin-top: 20%;
 }
 .page-container.contact-page-container> .address-num-container{
     margin: 0;

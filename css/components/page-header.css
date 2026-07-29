@@ -18,37 +18,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-wrap: wrap; */
     position: relative;
     display: flex;
     padding-left: 5%;
 }
 .page-title-container h1 {
+    margin-left: 10%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     justify-content: center;
     line-height: .8;
+    flex-basis: 80%;
+    flex-grow: 1;
 }
 .page-title-container h1 .page-title{
-    display: inline-block;
+    display: block;
     width: 100%;
+    white-space: none;
+    border: solid blue 2px;
     text-decoration: none;
     letter-spacing: 25%;
     font-family: cursive;
     font-size: 1rem;
-    margin-left: 12%;
-    padding-top: 2%;
+    /* margin-left: 12%; */
+    /* padding-top: 2%; */
 }
 .page-title-container>.address-title {
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
     margin-left: 10%;
     margin-top: 2% !important;  ;
     font-size: .8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: var(--header-clr);
-    flex-basis: 33%;
+    /* flex-basis: 50%; */
 }
 
 #addressLinkHeader>a:visited,

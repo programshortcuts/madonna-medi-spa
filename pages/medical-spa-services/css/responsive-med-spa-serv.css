@@ -17,7 +17,7 @@
 /*==============================================================
   MOBILE
 ==============================================================*/
-@media (max-width:700px) {
+@media (max-width:541px) {
     .title-text {
         font-size: 1.4rem;
     }
@@ -37,5 +37,9 @@
     .med-spa-serv-container {
         padding: 0 .5rem;
         padding-top: 5rem;
+    }
+    .service-section#botoxAndFillers{
+        background-position-x: 00%;
+        /* background-size: cover; */
     }
 }
