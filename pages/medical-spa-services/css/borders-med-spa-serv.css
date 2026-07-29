@@ -7,9 +7,12 @@
 .section-details {
     border-top: 1px solid #edf1f5;
 }
-.service-section .section-title {
-    border: none;
-    border-top-left-radius: var(--radius);;
+.service-section > button.section-title {
+    /* border: none; */
+    border-right: none !important;
+    border-bottom: none !important;
+    /* background-color: blue !important; */
+    border-top-left-radius: var(--radius);
 }
 .service-section .img-wrapper {
     border-radius: 8px;

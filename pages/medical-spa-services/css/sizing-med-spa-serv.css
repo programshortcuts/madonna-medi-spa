@@ -29,7 +29,7 @@
     max-width: var(--service-max-width);
 }
 .service-section .section-title {
-    width: 90%;
+    width: 100%;
 }
 .service-section .section-title img {
     width: 72px;
