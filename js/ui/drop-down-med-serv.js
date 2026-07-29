@@ -18,6 +18,9 @@ export function initDropDownMedServ() {
             el.classList.add('hide')
             
         })
+        serviceSections.forEach((section) => {
+            syncMoreInfoButtonVisibility(section);
+        })
     }
     hideAllSectionDetails()
 }
@@ -41,6 +44,7 @@ function handleSectionKeydown(e){
         const sectionDetails = serviceSection.querySelector('.section-details');
         if(sectionDetails){
             toggleHide(sectionDetails);
+            syncMoreInfoButtonVisibility(serviceSection);
             return;
         }
     }
@@ -55,12 +59,22 @@ function toggleSectionInteraction(section, target){
 
     if(target.closest('.section-preview')){
         toggleHide(sectionDetails);
+        syncMoreInfoButtonVisibility(section);
         return;
     }
 
     if(target.closest('.section-title')){
         toggleHide(content);
+        syncMoreInfoButtonVisibility(section);
     }
+}
+function syncMoreInfoButtonVisibility(section){
+    const buttons = section.querySelector('.more-info-buttons');
+    const details = section.querySelector('.section-details');
+
+    if(!buttons || !details) return;
+
+    buttons.classList.toggle('is-hidden', !details.classList.contains('hide'));
 }
 function toggleHide(el){
     el.classList.toggle('hide');

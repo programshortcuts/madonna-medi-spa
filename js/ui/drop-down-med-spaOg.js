@@ -24,6 +24,11 @@ export function initDropDownMedSpa() {
             return;
         }
 
+        if (event.target === section) {
+            toggleSectionDetails(section);
+            return;
+        }
+
         const previewMoreInfoButton = event.target.closest('.section-preview .more-info-buttons button');
         const clickedSectionDetails = event.target.closest('.section-details');
         if (clickedSectionDetails && !previewMoreInfoButton) {
@@ -86,6 +91,7 @@ export function initDropDownMedSpa() {
             section.classList.remove('collapse-height')
         }
         syncSectionTitleState(section);
+        syncMoreInfoButtonVisibility(section);
         pauseAllVideos(medSpaContainer);
     }
 
@@ -101,6 +107,7 @@ export function initDropDownMedSpa() {
         });
 
         details.classList.toggle('hide');
+        syncMoreInfoButtonVisibility(section);
 
         const keepVideo = section.querySelector('video');
         pauseAllVideos(medSpaContainer, keepVideo);
@@ -108,6 +115,15 @@ export function initDropDownMedSpa() {
 
     function getSectionContent(section) {
         return section.querySelector('.content') || section.querySelector('.section-preview');
+    }
+
+    function syncMoreInfoButtonVisibility(section) {
+        const buttons = section.querySelector('.more-info-buttons');
+        const details = section.querySelector('.section-details');
+
+        if (!buttons || !details) return;
+
+        buttons.classList.toggle('is-hidden', !details.classList.contains('hide'));
     }
 
     function getSectionTitleButton(section) {
