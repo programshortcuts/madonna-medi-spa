@@ -34,6 +34,9 @@
 .section-preview p,
 .section-details p {
     line-height: 1.95;
+    margin-left: 2%;
+    padding: 1%;
+    border-radius: 9px;
     /* margin: 0 0 1.45rem; */
 }
 
