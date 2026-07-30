@@ -1,6 +1,5 @@
 // letter-nav.js
 import { focusNav } from "./focus-nav.js";
-import { scrollToCenter } from "./keyboard-nav.js";
 function isActuallyVisible(el) {
     if (!el) return false;
     const style = getComputedStyle(el);
