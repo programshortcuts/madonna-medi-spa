@@ -17,6 +17,13 @@
 /*==============================================================
   MOBILE
 ==============================================================*/
+@media (min-width:542px) {
+    .img-wrapper {
+        max-width: 200px !important;
+        max-height: 200px !;
+    }
+    
+}
 @media (max-width:541px) {
     .title-text {
         font-size: 1.4rem;
@@ -24,6 +31,7 @@
 
     .img-wrapper {
         max-width: 200px !important;
+        max-height: 200px !;
     }
 
     .women-men-nav {

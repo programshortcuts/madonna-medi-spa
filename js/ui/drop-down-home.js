@@ -10,6 +10,8 @@ export function initDropDownHome() {
 
     const dropDowns = homeContainer.querySelectorAll('.drop-down');
 
+    // Initialize service title downs inside the home services swiper
+
     // Attach listeners to dropdowns (click) but scoped to home container
     dropDowns.forEach(el => {
         // Prevent stacking handlers
