@@ -18,8 +18,15 @@ export function initToggleNav() {
     });
     sideNavBtn.addEventListener('click', (e) => {
         // const mobileHeaderNavUl = document.querySelector('.mobile-header-nav > ul') 
-        console.log('here')
         expandToggle()
+
+    });
+    mobileNav.addEventListener('click', (e) => {
+        // const mobileHeaderNavUl = document.querySelector('.mobile-header-nav > ul') 
+        if(e.target.tagName != 'A'){
+
+            expandToggle()
+        }
 
     });
     function expandToggle(){
@@ -35,10 +42,16 @@ export function initToggleNav() {
 
     document.addEventListener('click', closeNavIfOutside);
     document.addEventListener('keydown', e => {
-        // if (e.target.closest('#sideNavBtn')) return;
-        // if(e.target.id == 'sideNavBtn'){
+        // console.log(e.target);
+        // if(e.target == sideNavBtn){ 
+        //     expandToggle()
         //     return
         // }
+        // if(e.target.tagName != 'A' ){
+        //     expandToggle()
+        //     return
+        // }
+        
         
             
 

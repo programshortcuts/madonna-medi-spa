@@ -5,23 +5,12 @@ export function initDropDownMedServ() {
     const medSpaContainer = document.querySelector('.page-container.med-spa-serv-container');
     if (!medSpaContainer) return;
     const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
-    
+    const contents = medSpaContainer.querySelectorAll('.content')
     const allSectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
     serviceSections.forEach((section) => {       
         section.tabIndex = 0;
-        // section.addEventListener('click', handleSectionClick);
-        // section.addEventListener('keydown', handleSectionKeydown);
-        section.addEventListener('click',  e => {
-            hideAllSectionDetails()
-            handleSectionClick(e)
-        });
-        section.addEventListener('keydown', e => {
-            const key = e.key.toLowerCase()
-            if(key == 'enter'){
-                hideAllSectionDetails()
-            }
-            handleSectionKeydown(e)
-        });
+        section.addEventListener('click', handleSectionClick);
+        section.addEventListener('keydown', handleSectionKeydown);
     });
 
 
