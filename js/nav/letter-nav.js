@@ -56,6 +56,7 @@ function buildElements(container = document) {
 
     return raw.filter(el => {
         if (!isActuallyVisible(el)) return false;
+        if (el.classList.contains('main-landing-page')) return false;
         if (seen.has(el)) return false;
 
         ensureFocusable(el);
@@ -108,6 +109,8 @@ export function letterNav({ container, e }) {
             sorted[0]; // wrap
     }
     if (!target?.el) return;
+    console.log(target.el);
+    
     focusNav({ e, target })
 
 }

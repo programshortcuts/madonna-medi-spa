@@ -1,8 +1,10 @@
 
 /* spacing-med-spa-services.css */
-.med-spa-serv-container {
+.page-container.med-spa-serv-container {
     padding: 0 .5rem;
     padding-top: 5rem;
+    margin-bottom: 50rem;
+    padding-bottom: 50rem;
 }
 /*==============================================================
   SERVICE SECTION
