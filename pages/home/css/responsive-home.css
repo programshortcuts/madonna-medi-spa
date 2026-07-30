@@ -82,6 +82,9 @@
     }
 }
 @media screen and (max-width:430px) {
+    .reviews-swiper .swiper-slide{
+        font-size: .9rem;
+    }
     .service-column>.service-col-title>.title-text {
         font-size: 95% !important;
     }

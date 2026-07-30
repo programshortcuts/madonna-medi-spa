@@ -10,7 +10,7 @@
     display: inline;
 }
 .services-swiper .swiper-slide .service-title {
-    padding: 1% 0;
+    padding: 1% 1%;
     padding-right: 5%;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
@@ -40,6 +40,13 @@
 }
 .services-swiper .swiper-slide .service-title {
     border: none;
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+}
+.services-swiper .swiper-slide .service-title .title-text{
+    display: block;
+    width: fit-content;
 }
 .services-swiper .swiper-slide {
     display: flex;

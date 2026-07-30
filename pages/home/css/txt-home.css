@@ -44,13 +44,15 @@
     font-size: 1rem;
 }
 #ourServiceHomePage .title-text{
+    font-size: 1.2rem;
     font-weight: 600 !important;
 }
     
 .and-font {
     font-family: Arial, Helvetica, sans-serif;
 }
-
-
-
-
+.reviews-container > p > .more-info-link:visited,
+.reviews-container > p > .more-info-link{
+    color: black;
+    text-decoration: none;
+}

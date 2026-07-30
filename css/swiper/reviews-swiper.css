@@ -29,6 +29,8 @@
     flex-direction: column;
     text-align: center;
     padding: 10px;
+    height: fit-content;
+    width: fit-content;
 }
 
 /* 
