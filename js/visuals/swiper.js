@@ -34,8 +34,8 @@ export function initServicesSwiper() {
         el.addEventListener('focus', e => {
             // el.focus()
             console.log('here');
-            
-            el.scrollIntoView({behavior:'instant', block:'center'})
+            const swiperWrapper = el.closest('.swiper-wrapper')
+            swiperWrapper.scrollIntoView({behavior:'instant', block:'center'})
         })
     })
     if (servicesSwiper) servicesSwiper.destroy(true, true);
