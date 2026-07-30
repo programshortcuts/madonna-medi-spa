@@ -6,9 +6,9 @@
 .service-section>button.section-title:focus{
     box-shadow: 0 2px 2px 3px silver;
     /* box-shadow: 1px -1px 1px 4px lawngreen; */
-    box-shadow: 1px -1px 1px 4px lightcyan;
+    /* box-shadow: 1px -1px 1px 4px lightcyan; */
     border: 1px solid grey;
-    border-top: 1px solid lightgreen;
+    border-top: 1px solid whitesmoke;
     outline: none;
     text-shadow: 0 1px 1px lightcyan;
     text-transform: capitalize;
