@@ -7,7 +7,8 @@ export function initToggleNav() {
     navInitialized = true
     const sideNavBtn = document.querySelector('#sideNavBtn')
     const imgSmoke = document.querySelector('#madonnaShilouetteLogo')
-    
+    const mobileNav = document.querySelector('.mobile-header-nav');
+
     
     sideNavBtn.addEventListener('keydown', (e) => {
         const key = e.key.toLowerCase()
@@ -33,7 +34,15 @@ export function initToggleNav() {
     
 
     document.addEventListener('click', closeNavIfOutside);
-    document.addEventListener('keydown', closeNavIfOutside);
+    document.addEventListener('keydown', e => {
+        // if (e.target.closest('#sideNavBtn')) return;
+        // if(e.target.id == 'sideNavBtn'){
+        //     return
+        // }
+        
+            
+
+    });
 }
 function closeNavIfOutside(e) {
     if (!pageWrapper.classList.contains('expand')) return;
