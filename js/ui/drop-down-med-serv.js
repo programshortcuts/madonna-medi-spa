@@ -51,8 +51,8 @@ function toggleSectionInteraction(section, target){
     const content = section.querySelector('.content');
     const sectionDetails = section.querySelector('.section-details');
 
-    if(!content || !sectionDetails) return;
 
+    if(!content || !sectionDetails) return;
     if(target.closest('.section-preview')){
         toggleHide(sectionDetails);
         return;

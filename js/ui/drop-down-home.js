@@ -30,6 +30,8 @@ export function initDropDownHome() {
             keydownHandler(e);
             return;
         }
+        console.log(e.target);
+        
     }
 
     function clickHandler(e) {
