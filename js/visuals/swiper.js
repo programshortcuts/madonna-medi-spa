@@ -32,8 +32,6 @@ export function initServicesSwiper() {
     const slides = document.querySelectorAll('.services-swiper > .swiper-wrapper > .swiper-slide')
     slides.forEach(el => {
         el.addEventListener('focus', e => {
-            console.log('here');
-
             scrollToCenter(el)
         })
     })

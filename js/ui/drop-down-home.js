@@ -48,13 +48,16 @@ export function initDropDownHome() {
         const key = e.key.toLowerCase()
         if(key != 'enter') return
         e.preventDefault();
-        e.stopImmediatePropagation();
+        e.stopImmediatePropagation(); // crucial for stopping double print console.logs bubbling
 
-        console.log(e.target);
-        if(e.target.classList.contains('.swiper-slide')){
-            if (!slide) return;
-            const slide = e.target.closest('.swiper-slide');
-            toggleServiceContent(slide);
+        // console.log(e.target);
+        if(e.target.classList.contains('swiper-slide')){
+            console.log('slide');
+            
+        }
+        if(e.target.closest('service-title')){
+            console.log('title');
+            
         }
         
         
