@@ -1,4 +1,5 @@
 // js/visuals/swiper.js
+import { scrollToCenter } from "../nav/keyboard-nav.js";
 let reviewsSwiper = null;
 let clickedServiceSlide = null;
 export let servicesSwiper = null;
@@ -29,7 +30,13 @@ export function initReviewsSwiper() {
 export function initServicesSwiper() {
     const el = document.querySelector('.services-swiper');
     if (!el || typeof Swiper === 'undefined') return;
+    const slides = el.querySelectorAll('.swiper-slide')
+    slides.forEach(el => {
+        el.addEventListener('focus', e => {
 
+            scrollToCenter(el)
+        })
+    })
     if (servicesSwiper) servicesSwiper.destroy(true, true);
     let shouldFocusSlide = false;
     let initialLoad = true;
