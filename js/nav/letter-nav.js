@@ -109,7 +109,7 @@ export function letterNav({ container, e }) {
             sorted[0]; // wrap
     }
     if (!target?.el) return;
-    console.log(target.el);
+    // console.log(target.el);
     
     focusNav({ e, target })
 
