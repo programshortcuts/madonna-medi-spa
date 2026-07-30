@@ -17,21 +17,13 @@
 /*==============================================================
   MOBILE
 ==============================================================*/
-@media (min-width:542px) {
-    .img-wrapper {
-        max-width: 200px !important;
-        max-height: 200px !;
-    }
-    
-}
-@media (max-width:541px) {
+@media (max-width:700px) {
     .title-text {
         font-size: 1.4rem;
     }
 
     .img-wrapper {
         max-width: 200px !important;
-        max-height: 200px !;
     }
 
     .women-men-nav {
@@ -45,9 +37,5 @@
     .med-spa-serv-container {
         padding: 0 .5rem;
         padding-top: 5rem;
-    }
-    .service-section#botoxAndFillers{
-        background-position-x: 00%;
-        /* background-size: cover; */
     }
 }

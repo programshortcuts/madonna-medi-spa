@@ -17,7 +17,7 @@ import { initProductsController } from "../ui/products-controller.js";
 
 import { initBgSlider } from "../visuals/change-background.js";
 import { initDropDown } from "../ui/drop-down.js";
-// import {initDropDownMedServ} from "../ui/drop-down-med-serv.js";
+import {initDropDownMedServ} from "../ui/drop-down-med-serv.js";
 
 export const mainLandingPage = document.querySelector('.main-landing-page');
 export const pageWrapper = document.querySelector('.page-wrapper');
@@ -247,8 +247,7 @@ export async function injectPage(href) {
     initProductsController();
     initItemsScroll();
     initZoomItems();
-    // initDropDownMedServ()
-    initDropDown()
+    initDropDownMedServ()
     // OPTIONAL PAGE-SPECIFIC INIT
     if (href.includes("bookings")) {
         // initBookingForm(); // keep commented if not imported

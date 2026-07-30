@@ -4,16 +4,11 @@ import { pauseAllVideos } from "../video/video-controls.js";
 export function initDropDownHome() {
     // Only initialize on the home page
     const homeContainer = document.querySelector('.page-container.home-page-container');
-    const serviceSlidesContent = document.querySelectorAll('.services-swiper > .swiper-wrapper > .swiper-slide > .content')
-    hideAllEls(serviceSlidesContent)
-    
     if (!homeContainer) return;
 
     let lastClickedDrop;
 
     const dropDowns = homeContainer.querySelectorAll('.drop-down');
-
-    // Initialize service title downs inside the home services swiper
 
     // Attach listeners to dropdowns (click) but scoped to home container
     dropDowns.forEach(el => {
@@ -94,10 +89,7 @@ export function initDropDownHome() {
     function keydownHandler(e) {
         const key = e.key.toLowerCase();
         const serviceTitle = e.target.closest('.service-title.drop-down');
-        const serviceSlide = e.target.closest('.service-slide')
-        // console.log(e.target);
-        
-        if (serviceTitle && (key === 'enter')) {
+        if (serviceTitle && (key === 'enter' || key === ' ')) {
             const service = serviceTitle.closest('.service');
             if (!service) return;
             const currentDown = service.querySelector('.content.downs') || service.querySelector('.downs');
@@ -120,7 +112,4 @@ export function initDropDownHome() {
             lastClickedDrop = e.target;
         }
     }
-}
-function hideAllEls(els){
-    els.forEach(el => el.classList.add('hide'))
 }

@@ -73,6 +73,3 @@ function syncServiceFocusHighlight() {
         matchingBtn.classList.add('is-focused');
     }
 }
-export function scrollToCenter(el){
-    el.scrollIntoView({behavior:'smooth',block:'center'})
-}

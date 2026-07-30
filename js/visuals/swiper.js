@@ -1,5 +1,4 @@
 // js/visuals/swiper.js
-import { scrollToCenter } from "../nav/keyboard-nav.js";
 let reviewsSwiper = null;
 let clickedServiceSlide = null;
 export let servicesSwiper = null;
@@ -29,12 +28,6 @@ export function initReviewsSwiper() {
 
 export function initServicesSwiper() {
     const el = document.querySelector('.services-swiper');
-    const slides = document.querySelectorAll('.services-swiper > .swiper-wrapper > .swiper-slide')
-    slides.forEach(el => {
-        el.addEventListener('focus', e => {
-            scrollToCenter(el)
-        })
-    })
     if (!el || typeof Swiper === 'undefined') return;
 
     if (servicesSwiper) servicesSwiper.destroy(true, true);
@@ -214,11 +207,10 @@ export function initServicesSwiper() {
             const slide = e.target.closest('.swiper-slide');
 
             if (!slide || !servicesSwiper.slides.includes(slide)) return;
+            console.log(slide)
             if(e.target == slide){
-                // console.log(slide.querySelector('.service-title'))
+                console.log(slide.querySelector('.service-title'))
                 slide.querySelector('.service-title').focus()
-                const content = slide.querySelector('.content')
-                content.classList.toggle('hide')
                 return
 
             }
@@ -256,7 +248,9 @@ export function initServicesSwiper() {
             clickedServiceSlide = e.target;
         }
     });
-    
+    document.addEventListener('change', e => {
+        // console.log('chaning')
+    })
     return servicesSwiper; // ✅ CRITICAL ADDITION
 }
 
@@ -327,6 +321,8 @@ export function initServiceNavController(swiperInstance) {
         });
     });
 }
+
+
 function syncServiceButton(swiper) {
 
     // Remove previous highlight

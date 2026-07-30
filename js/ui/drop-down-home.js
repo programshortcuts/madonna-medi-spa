@@ -5,23 +5,21 @@ export function initDropDownHome() {
     // Only initialize on the home page
     const homeContainer = document.querySelector('.page-container.home-page-container');
     if (!homeContainer) return;
+    const slideContents = homeContainer.querySelectorAll('.swiper-slide .content')
+    slideContents.forEach(el => {
+        el.classList.add('hide')
+    })
+    let lastClickedDrop;
 
-
-    // Initialize service title downs inside the home services swiper
+    const dropDowns = homeContainer.querySelectorAll('.drop-down');
 
     // Attach listeners to dropdowns (click) but scoped to home container
-    const serviceSlides = homeContainer.querySelectorAll(
-        ".services-swiper .swiper-slide.service"
-    );
-    serviceSlides.forEach(slide => {
-
-        slide.addEventListener("click", serviceClick);
-
-
-        slide.addEventListener("keydown", serviceKeydown);
-        
-
+    dropDowns.forEach(el => {
+        // Prevent stacking handlers
+        el.removeEventListener('click', toggleContent);
+        el.addEventListener('click', toggleContent);
     });
+
     function toggleContent(e) {
         e.preventDefault();
         if (e.type === 'click') {
@@ -33,45 +31,64 @@ export function initDropDownHome() {
             return;
         }
     }
-    function serviceClick(e) {
 
-        // Ignore clicks inside expanded content
-        if (e.target.closest(".content")) return;
+    function clickHandler(e) {
+        const serviceSwiperDropDown = e.target.closest('.service-title.drop-down');
 
-        e.preventDefault();
+        if (serviceSwiperDropDown) {
+            const service = serviceSwiperDropDown.closest('.service');
+            if (!service) return;
+            const downs = service.querySelector('.downs');
+            if (!downs) return;
 
-        const slide = e.currentTarget;
+            // Toggle the downs content first
+            downs.classList.toggle('hide');
 
-        toggleServiceContent(slide);
-    }
-    function serviceKeydown(e) {
-        const key = e.key.toLowerCase()
-        if(key != 'enter') return
-        e.preventDefault();
-        e.stopImmediatePropagation(); // crucial for stopping double print console.logs bubbling
+            // Find the main "Our Services" section title to match its height when collapsing
+            const sectionTitle = document.querySelector('button.section-title[data-nav-target="our-services"]') || document.querySelector('header#ourServiceHomePage .section-title');
+            const titleHeight = sectionTitle ? Math.ceil(sectionTitle.getBoundingClientRect().height) : 0;
 
-        // console.log(e.target);
-        if(e.target.classList.contains('swiper-slide')){
-            console.log('slide');
+            // If the content was just hidden, collapse the service container to the section title height.
+            // If the content is shown, clear the explicit height to allow natural sizing.
+            if (downs.classList.contains('hide')) {
+                // Apply explicit height so the slide collapses to the title height
+                service.style.height = titleHeight ? `${titleHeight}px` : '';
+            } else {
+                // Remove explicit height so it returns to normal size
+                service.style.height = '';
+            }
             
+            lastClickedDrop = e.target;
+            return;
         }
-        if(e.target.closest('service-title')){
-            console.log('title');
-            
+
+        // If click reaches here, no known handler
+    }
+
+    function keydownHandler(e) {
+        const key = e.key.toLowerCase();
+        const serviceTitle = e.target.closest('.service-title.drop-down');
+        if (serviceTitle && (key === 'enter' || key === ' ')) {
+            const service = serviceTitle.closest('.service');
+            if (!service) return;
+            const currentDown = service.querySelector('.content.downs') || service.querySelector('.downs');
+            if (!currentDown) return;
+
+            // Hide other service contents
+            homeContainer.querySelectorAll('.service .content.downs, .service .downs').forEach(el => {
+                if (el !== currentDown) el.classList.add('hide');
+            });
+
+            currentDown.classList.toggle('hide');
+
+            // Collapse or expand the service container to match the section title height when toggled via keyboard
+            if (currentDown.classList.contains('hide')) {
+                if (baseTitleHeight) service.style.height = `${baseTitleHeight}px`;
+            } else {
+                service.style.height = '';
+            }
+
+            lastClickedDrop = e.target;
         }
-        
-        
-
-
     }
-    function toggleServiceContent(slide) {
-        const content = slide.querySelector(".content");
-    
-        if (!content) return;
-    
-        content.classList.toggle("hide");
-    }
-}
-function hideAllEls(els){
-    els.forEach(el => el.classList.add('hide'))
 }
