@@ -6,7 +6,7 @@ export let servicesSwiper = null;
 export function initReviewsSwiper() {
     const el = document.querySelector('.reviews-swiper');
     if (!el || typeof Swiper === 'undefined') return;
-
+    
     if (reviewsSwiper) reviewsSwiper.destroy(true, true);
 
     reviewsSwiper = new Swiper(el, {
@@ -29,7 +29,15 @@ export function initReviewsSwiper() {
 export function initServicesSwiper() {
     const el = document.querySelector('.services-swiper');
     if (!el || typeof Swiper === 'undefined') return;
-
+    const slides = el.querySelectorAll('.services-swiper .swiper-slide')
+    slides.forEach(el => {
+        el.addEventListener('focus', e => {
+            // el.focus()
+            console.log('here');
+            
+            el.scrollIntoView({behavior:'instant', block:'center'})
+        })
+    })
     if (servicesSwiper) servicesSwiper.destroy(true, true);
     let shouldFocusSlide = false;
     let initialLoad = true;
