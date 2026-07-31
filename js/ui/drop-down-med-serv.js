@@ -16,7 +16,10 @@ export function initDropDownMedServ() {
 
     function hideAllSectionDetails(){
         allSectionDetails.forEach(el => {
-            el.classList.add('hide')
+            if(!el.classList.contains('show')){
+
+                el.classList.add('hide')
+            }
             
         })
     }
