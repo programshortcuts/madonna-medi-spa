@@ -10,6 +10,11 @@
     }    
 }
 @media (min-width:701px) {
+    .main-landing-page{
+        padding-top: 5rem;
+        /* margin: 0 2.5%; */
+        padding-right: 5%;
+    }
     .service-section {
         width: 100%;
     }    

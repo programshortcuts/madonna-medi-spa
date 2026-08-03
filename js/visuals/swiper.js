@@ -226,16 +226,16 @@ export function initServicesSwiper() {
                 : servicesSwiper.activeIndex;
 
             if (Number.isNaN(clickedIndex)) return;
-            if (clickedIndex === activeSlideIndex) {
-                // Already active — ensure focus and vertical visibility
-                try { slide.focus(); } catch (e) {}
-                try {
-                    // slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                } catch (err) {
-                    // fallback: no-op
-                }
-                return;
-            }
+            // if (clickedIndex === activeSlideIndex) {
+            //     // Already active — ensure focus and vertical visibility
+            //     try { slide.focus(); } catch (e) {}
+            //     try {
+            //         // slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+            //     } catch (err) {
+            //         // fallback: no-op
+            //     }
+            //     return;
+            // }
             shouldFocusSlide = true;
             // Ensure vertical scroll to center the slide in viewport while letting Swiper manage horizontal centering
             try {
