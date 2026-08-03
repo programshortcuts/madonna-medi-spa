@@ -1,12 +1,9 @@
 /* responsivce-home.css */
-
 @media screen and (min-width:723px) {
     .service-column {
         margin: 0 1%;
         padding-top: 0%;
-
     }
-
     .service-column>.service-col-title {
         margin-top: 1%;
         padding: .5% 0;   
@@ -16,7 +13,6 @@
     .service-column {
         margin: 0 1%;
         padding-top: 0%;
-
     }
     .service-column>.service-col-title {
         margin-top: 1%;
@@ -24,9 +20,6 @@
     }
 }
 @media screen and (min-width:535px) {
-    .home-page-container {
-        /* margin: 0 2%; */
-    }
     .home-page-header {
         float: left;
         width: 45%;
