@@ -6,17 +6,20 @@
     width: 100vw !important;
     height: 50vh;
     background-repeat: no-repeat;
-    /* background-repeat: repeat; */
+    background-size: cover;
     background-position-x: 50% ;
-    /* background-position-y: 49%; */
+    background-position-y: 49% !important;
     filter: grayscale(50%);
 }
-
+#bg1,
+#bg3{
+    background-position-x: 90%;
+}
 .bg-slide {
     /* position: absolute; */
     inset: 0;
     position: absolute;
-    background-position: right;
+    background-position: cover;
     background-size: cover;
     
     opacity: 0;

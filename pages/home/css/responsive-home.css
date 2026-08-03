@@ -25,7 +25,7 @@
 }
 @media screen and (min-width:535px) {
     .home-page-container {
-        margin: 0 2%;
+        /* margin: 0 2%; */
     }
     .home-page-header {
         float: left;
