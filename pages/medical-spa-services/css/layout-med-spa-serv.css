@@ -44,7 +44,7 @@ LINKS
 
 .more-info-buttons {
     display: inline-flex !important;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
 
 }
