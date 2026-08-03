@@ -30,6 +30,10 @@
     border: 1px solid #dbe4ec;
     border-radius: 18px;
 }
+.section-preview p,
+.section-details p {
+    border-radius: 9px;
+}
 .more-info-buttons button{
     padding: 1% 2%
 }
