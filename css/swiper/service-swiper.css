@@ -1,8 +1,12 @@
 /* service-swiper.css */
+.services-swiper .swiper-slide button{
+    background: none;
+}
 #bioIdenticalServiceHome p,
 #infraRedServiceHome p,
 #ivInfusionsServiceHome p{
-    background-color: rgb(230, 229, 226);
+    /* background-color: rgb(230, 229, 226); */
+    background:var(--bg-clr)!important;
     /* padding: 1% 1.5%; */
     padding-top: 1%;
     padding-right: 4%;
