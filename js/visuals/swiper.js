@@ -32,8 +32,8 @@ export function initServicesSwiper() {
     const slides = el.querySelectorAll('.services-swiper .swiper-slide')
     slides.forEach(el => {
         el.addEventListener('focus', e => {
-            const swiperWrapper = el.closest('.swiper-wrapper')
-            swiperWrapper.scrollIntoView({behavior:'instant', block:'center'})
+            // const swiperWrapper = el.closest('.swiper-wrapper')
+            el.scrollIntoView({behavior:'instant', block:'center'})
         })
     })
     if (servicesSwiper) servicesSwiper.destroy(true, true);
