@@ -110,10 +110,7 @@
         /* height: fit-content; */
     }
 
-    .services-swiper .swiper-slide{
-        height: 20px !important;
-        max-height: 20px !important;
-    }
+    
     .services-swiper .swiper-slide-active {
         transform: scale(1.05) !important;
         
