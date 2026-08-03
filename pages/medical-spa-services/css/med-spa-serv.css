@@ -10,8 +10,6 @@
 ==============================================================*/
 :root {
     --service-max-width: 1320px;
-    /* --section-bg: #ffffff; */
-    --section-border: #dfe7ee;
     --section-shadow: 0 18px 40px rgba(25, 42, 60, .06);
     --heading: #17324d;
     --text: #495868;

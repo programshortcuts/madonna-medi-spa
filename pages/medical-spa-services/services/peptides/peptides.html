@@ -2,24 +2,28 @@
 <div class="page-container med-spa-serv-container peptides-page ">
     <div class="sections-containers">
 
-        <section data-nav-target="peptidesBtn" id="peptides" class="service-section">
-            <button class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
-                <span class="title-text">Peptides</span>
+        <!-- Peptides -->
+        <section tabindex="0" data-nav-target="peptides"  id="ivInfusions" class="service-section">
+            <button tabindex="0" data-nav-target="peptides-btn" class="section-title drop-down" aria-expanded="false" aria-controls="menu-id">
+                <span class="title-text"> Peptides</span>
             </button>
             <div class="content">
-                <div class="section-preview">
-                    <div class="img-wrapper">
+                <div tabindex="0" class="section-preview">
+                    
+                    <div class="img-wrapper float-left">
                         <img src="pages/medical-spa-services/media/peptide-header-wide.png" alt="">
                     </div>
                     <p>
-                        Targeted peptide therapy supports energy, metabolism, recovery, skin health, and overall wellness
-                        from the inside out.
+                        Peptide therapy uses naturally occurring amino acid chains that act as signaling molecules within the body to support normal cellular function. Depending on the specific peptide selected and your individual health goals, peptide therapy may help support healthy metabolism, muscle recovery, body composition, energy, healthy aging, and overall wellness. Every treatment plan begins with a comprehensive medical evaluation and is customized to your unique needs. Our experienced healthcare team provides ongoing monitoring to ensure your therapy is safe, appropriate, and aligned with your wellness goals.                    
                     </p>
                     <div class="more-info-buttons">
-                        <button data-nav-target="moreInfo-peptides" class="more-info-btn drop-down section-title">more-info</button>
+                        <button data-nav-target="moreInfo-peptides-btn"
+                            class="more-info-btn ">more-info</button>
+                        <!-- <button>bookings</button> -->
                     </div>
+                    </p>
                 </div>
-                <div class="section-details downs hide">
+                <div tabindex="0" class="section-details downs ">
                     <p>
                         Modern anti-aging skincare ingredients do more than target visible aging. Many also provide added
                         benefits such as protection, nourishment, hydration, and gentle exfoliation.
@@ -30,7 +34,7 @@
                         and immune response.
                     </p>
                     <a tabindex="0" href="pages/medical-spa-services/medical-spa-services.html" data-link
-                        data-nav-target="moreInfo-peptides" class="more-info-link">more info</a>
+                        data-nav-target="moreInfo-peptides-link" class="more-info-link">more info</a>      
                 </div>
             </div>
         </section>
