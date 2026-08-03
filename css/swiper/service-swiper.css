@@ -64,7 +64,7 @@
 .services-swiper .swiper-slide.swiper-slide-active {
     opacity: 1;
     width: 50%;
-    transition: all .3s;
+    /* transition: all .3s; */
 }
 @media (min-width: 1200px) {
     .services-swiper .swiper-slide {
@@ -112,7 +112,7 @@
 
     
     .services-swiper .swiper-slide-active {
-        transform: scale(1.05) !important;
+        /* transform: scale(1.05) !important; */
         
         opacity: 1;
         z-index: 5;
