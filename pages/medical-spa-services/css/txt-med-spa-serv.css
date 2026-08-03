@@ -33,3 +33,8 @@
 .women-men-nav a {
     text-decoration: none;
 }
+strong#LongevityMedicineBold,
+strong#FunctionalMedicineBold{
+    font-weight: 999 !important;
+    font-style: bold;
+}
