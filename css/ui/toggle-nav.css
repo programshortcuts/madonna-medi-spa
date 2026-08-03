@@ -77,8 +77,8 @@
     }
 }
 
-@media screen(min-width:432px){
+@media screen and (min-width:432px){
     .page-wrapper.expand>.mobile-header-nav {
-        height: 50vh;
+        height: 40vh;
     }
 }

@@ -2,7 +2,7 @@
 import { mainLandingPage } from "../core/inject-content.js"
 import { pageWrapper } from "../core/inject-content.js"
 let navInitialized = false
-const ACTIVITY_EVENTS = [
+ const ACTIVITY_EVENTS_NAV = [
     'click',
     'pointerdown',   // mouse + touch + pen
     'keydown',
@@ -48,7 +48,7 @@ export function initToggleNav() {
             pageWrapper.classList.remove('expand')
         }
     });
-    ACTIVITY_EVENTS.forEach(type => {
+    ACTIVITY_EVENTS_NAV.forEach(type => {
         document.addEventListener(type, closeNavIfOutside, {
             capture: true,
             passive: true
@@ -77,7 +77,6 @@ export function initToggleNav() {
         //     expandToggle()
         //     return
         // }
-        console.log('herep');
         
     });
 }
