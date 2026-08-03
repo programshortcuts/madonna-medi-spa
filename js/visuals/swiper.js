@@ -205,7 +205,6 @@ export function initServicesSwiper() {
         if (key === 'enter') {
             if(e.target === clickedServiceSlide) {
                 const serviceTitle = e.target.querySelector('.service-title');
-                console.log(serviceTitle)
                 serviceTitle.focus()
                 serviceTitle.click()
                 return
@@ -213,9 +212,7 @@ export function initServicesSwiper() {
             const slide = e.target.closest('.swiper-slide');
 
             if (!slide || !servicesSwiper.slides.includes(slide)) return;
-            console.log(slide)
             if(e.target == slide){
-                console.log(slide.querySelector('.service-title'))
                 slide.querySelector('.service-title').focus()
                 return
 
@@ -254,9 +251,7 @@ export function initServicesSwiper() {
             clickedServiceSlide = e.target;
         }
     });
-    document.addEventListener('change', e => {
-        // console.log('chaning')
-    })
+    
     return servicesSwiper; // ✅ CRITICAL ADDITION
 }
 
@@ -303,7 +298,6 @@ export function initServiceNavController(swiperInstance) {
 
                 // IMPORTANT:
                 // Use loop-safe method when available
-                console.log(btn.dataset.slide)
                 if (swiperInstance.slideToLoop) {
                     swiperInstance.slideToLoop(index);
                 } else {
