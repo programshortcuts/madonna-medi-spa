@@ -2,6 +2,16 @@
 import { mainLandingPage } from "../core/inject-content.js"
 import { pageWrapper } from "../core/inject-content.js"
 let navInitialized = false
+const ACTIVITY_EVENTS = [
+    'click',
+    'pointerdown',   // mouse + touch + pen
+    'keydown',
+    'focusin',
+    'scroll',
+    'wheel',
+    'touchstart'
+];
+
 export function initToggleNav() {
     if (navInitialized) return
     navInitialized = true
@@ -38,7 +48,12 @@ export function initToggleNav() {
             pageWrapper.classList.remove('expand')
         }
     });
-    
+    ACTIVITY_EVENTS.forEach(type => {
+        document.addEventListener(type, closeNavIfOutside, {
+            capture: true,
+            passive: true
+        });
+    });
 
     document.addEventListener('click', closeNavIfOutside);
     document.addEventListener('keydown', e => {
@@ -52,7 +67,7 @@ export function initToggleNav() {
         //     return
         // }
     });
-    document.addEventListener('focus', e => {
+    document.addEventListener('focusin', e => {
         // console.log(e.target);
         // if(e.target == sideNavBtn){ 
         //     expandToggle()
@@ -62,6 +77,8 @@ export function initToggleNav() {
         //     expandToggle()
         //     return
         // }
+        console.log('herep');
+        
     });
 }
 function closeNavIfOutside(e) {
