@@ -1,12 +1,8 @@
 /* borders-med-spa-services.css */
 .service-section {
-    /* border: 1px solid var(--section-border); */
-    /* box-shadow: var(--section-shadow); */
     border-radius: var(--radius);
 }
-.section-details {
-    /* border-top: 1px solid #edf1f5; */
-}
+
 .service-section > button.section-title {
     /* border: none; */
     border-right: none !important;
