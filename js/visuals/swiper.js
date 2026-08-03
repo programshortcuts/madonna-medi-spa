@@ -31,9 +31,9 @@ export function initServicesSwiper() {
     if (!el || typeof Swiper === 'undefined') return;
     const slides = el.querySelectorAll('.services-swiper .swiper-slide')
     slides.forEach(el => {
-        el.addEventListener('focus', e => {
-            // const swiperWrapper = el.closest('.swiper-wrapper')
-            el.scrollIntoView({behavior:'instant', block:'center'})
+        el.addEventListener('focusin', e => {
+            const swiperWrapper = el.closest('.swiper-wrapper')
+            swiperWrapper.scrollIntoView({behavior:'instant', block:'center'})
         })
     })
     if (servicesSwiper) servicesSwiper.destroy(true, true);
@@ -230,7 +230,7 @@ export function initServicesSwiper() {
                 // Already active — ensure focus and vertical visibility
                 try { slide.focus(); } catch (e) {}
                 try {
-                    slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                    // slide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
                 } catch (err) {
                     // fallback: no-op
                 }
