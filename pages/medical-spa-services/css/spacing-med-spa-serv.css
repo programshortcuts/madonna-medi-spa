@@ -1,8 +1,6 @@
-
 /* spacing-med-spa-services.css */
 .med-spa-serv-container {
     padding: 0 .5rem;
-    /* padding-top: 5rem; */
     margin-bottom: 20rem;
 }
 /*==============================================================
@@ -10,18 +8,15 @@
 ==============================================================*/
 .sections-containers {
     max-width: var(--service-max-width);
-    /* margin: auto; */
 }
 .service-section {
-    /* margin: 0 0 3.75rem; */
-    /* padding: 0 2.5rem; */
     margin-bottom: 2%;
 }
 .service-section .content {
     padding-bottom: 5%;
 }
 .service-section .section-title {
-    padding-bottom: 1%;
+    /* padding-bottom: 1%; */
     padding-left: 2%;
 }
 .service.title-text {
