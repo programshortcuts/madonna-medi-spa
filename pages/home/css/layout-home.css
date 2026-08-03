@@ -32,8 +32,6 @@
 .content .img-wrapper {float: left;}
 #drMadonnaPhoto       {display: block;}
 .address-contact-home {display: flex;}
-
-
 .staff-wrapper {
     overflow: hidden;
     scroll-behavior: none;
@@ -58,5 +56,4 @@
 }
 .service-column > .service-col-title{
     display: block;
-
 }

@@ -2,14 +2,7 @@
 .home-page-container button.section-title {
     background-color: rgaa(0, 0, 0, 0);
 }
-.home-page-header {
-    /* background-image: url('../../../imgs/istock/istockphoto01.jpg'); */
-    background-repeat: no-repeat;
-    background-position-y: 20%;
-    background-position-x: 0%;
-    background-size: 80% !;
-    /* filter: grayscale(0); */
-}
+
 footer {
     background-image: url('../../../imgs/chatImgCollage.png');
     height: 10vh;

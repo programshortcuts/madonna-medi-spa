@@ -9,18 +9,14 @@
     text-shadow: hoff voff blur #000;
     text-shadow: 1px 1pxblur #000;
 }
-#botoxFillerServiceHome{
-    /* color: white; */
-
-}
-.service-title:visited, 
-.service-title {
+.home-page-container  .service-title:visited, 
+.home-page-container  .service-title {
     color: black !important;
 }
-.service-col-title{
+.home-page-container .service-col-title{
     background: none !important;
     color: inherit;
 }
-[data-nav-target="more-info-link"] {
+.home-page-container [data-nav-target="more-info-link"] {
     color: black;
 }

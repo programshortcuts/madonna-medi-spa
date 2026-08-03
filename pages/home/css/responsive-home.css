@@ -11,25 +11,18 @@
         margin-top: 1%;
         padding: .5% 0;   
     }
-    .home-page-header {
-        /* float: left; */
-        /* width: 45%; */
-    }
 }
-
 @media screen and (max-width: 722px) {
     .service-column {
-            margin: 0 1%;
-            padding-top: 0%;
-    
-        }
-    
-        .service-column>.service-col-title {
-            margin-top: 1%;
-            padding: .5% 0;
-        }
-}
+        margin: 0 1%;
+        padding-top: 0%;
 
+    }
+    .service-column>.service-col-title {
+        margin-top: 1%;
+        padding: .5% 0;
+    }
+}
 @media screen and (min-width:535px) {
     .home-page-container {
         margin: 0 2%;
@@ -41,20 +34,6 @@
     
 }
 @media screen and (max-width:533px) {
-    .section#longevityMedHomePage {
-        border: 1px solid red;
-        z-index: 10;
-    }
-
-    #longevityMedHomePage>.content {
-        /* margin-left: 10%; */
-        padding: 0 3%;
-
-    }
-    #longevityMedHomePage .title-text {
-    margin-left: 5%
-    }
-    
     .home-page-container>article.mission-state>p {
         padding-top: 5%;
         margin-top: 2%;
@@ -63,18 +42,6 @@
 @media screen and (max-width:532px) {
     .home-page-header {
         padding-top:25% !important;
-    }
-    .home-main-content > .main-item{
-        /* background-color: blue !important; */
-    }
- 
-}
-@media screen and (min-width:431px) {
-    section#longevityMedHomePage {
-        /* margin-top: -10.5%; */
-    }
-    #longevityMedHomePage .title-text {
-        margin-left: 15%;
     }
 }
 @media screen and (max-width:430px) {
