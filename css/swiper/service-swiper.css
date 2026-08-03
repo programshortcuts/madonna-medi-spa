@@ -106,12 +106,28 @@
         padding: 4%;
         margin-bottom:60%;
     }
+    .services-swiper,
+    .services-swiper .swiper-wrapper,
+    .services-swiper .swiper-slide {
+        height: auto !important;
+        max-height: 250px !important;
+    }
     .services-swiper .swiper-slide-active {        
         opacity: 1;
         z-index: 5;
     }
+    .services-swiper .swiper-slide {
+        min-width: 60%;
+    }
     .service-column{
         margin-top: 40%;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .swiper.services-swiper {
+        padding: 4%;
+        margin-bottom:100%;
     }
     .services-swiper,
     .services-swiper .swiper-wrapper,
@@ -119,8 +135,4 @@
         height: auto !important;
         max-height: 250px !important;
     }
-    .services-swiper .swiper-slide {
-        min-width: 60%;
-    }
 }
-
