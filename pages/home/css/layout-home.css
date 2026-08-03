@@ -52,11 +52,12 @@
 }
 .service-column {
     display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: column;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
 }
 .service-column > .service-col-title{
     display: block;
+    
 }
 .services-swiper .swiper-slide .service-title {
     display: flex;
