@@ -282,7 +282,7 @@ export function initServiceNavController(swiperInstance) {
                     try { active.focus({ preventScroll: true }); } catch (e) {}
                     // Intentionally do NOT call scrollIntoView here for click — keep view unchanged
                 }
-            }, 350);
+            }, 250);
 
             // 🚫 DO NOT:
             // - focus() (handled above with preventScroll)
