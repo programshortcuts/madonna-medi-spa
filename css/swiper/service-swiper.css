@@ -120,4 +120,11 @@
         opacity: 1;
         z-index: 5;
     }
+    .services-swiper,
+    .services-swiper .swiper-wrapper,
+    .services-swiper .swiper-slide {
+        height: auto !important;
+        min-height: 376px !important;
+    }
 }
+
