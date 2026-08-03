@@ -30,7 +30,6 @@
     border-radius: 999px;
 }
 .service-section .more-info-buttons button{
-    border: none !important;
-    /* background-color: blue; */
+    border: none ;
     outline: none;
 }
