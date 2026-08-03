@@ -1,4 +1,5 @@
 // drop-down-med-serv.js
+/** Without stopPropagationImmediate for all keys. it will keep printing twice, figure this out later, it works fine */
 import { pauseAllVideos } from "../video/video-controls.js";
 const ACTIVITY_EVENTS_SERV_SECTIONS = [
     'click',
@@ -21,23 +22,30 @@ export function initDropDownMedServ() {
         section.addEventListener('keydown', handleSectionKeydown);
         ACTIVITY_EVENTS_SERV_SECTIONS.forEach(type => {
             section.addEventListener(type, e => {
+                const section = e.target.closest('.service-section')
+                const sectionDetails = section.querySelector('.section-details')    
+                console.log(sectionDetails);
+                const moreInfoBtn = section.querySelector('.more-info-btn')
                 if(type == 'keydown'){
                     console.log('here');
                     
                     const key = e.key.toLowerCase()
-                    // console.log(key);
-                    // console.log(e.target);
+                    
                     
                     if(key == 'enter'){
-                        // e.preventDefault()
+                        e.preventDefault()
                         // e.stopPropagation()
                         e.stopImmediatePropagation()
-                        const section = e.target.closest('.service-section')
                         
-                        
-                        const moreInfoBtn = section.querySelector('.more-info-btn')
                     }
                     
+            }
+            if(!sectionDetails.classList.contains('hide')){
+                moreInfoBtn.classList.add('hide')
+            } else {
+                if(moreInfoBtn.classList.contains('hide')){
+                    moreInfoBtn.classList.remove('hide')
+                }
             }
             return
                 
@@ -59,7 +67,6 @@ export function initDropDownMedServ() {
 function handleSectionClick(e){
     const section = e.target.closest('.service-section')
     if(!section) return;
-    console.log('here');
     toggleSectionInteraction(section, e.target);
 }
 function handleSectionKeydown(e){
