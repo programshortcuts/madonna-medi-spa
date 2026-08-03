@@ -31,6 +31,11 @@
 
         display: inline-flex ;
     }
+    #botoxAndFillers {
+        /* background-image: url('../../../imgs/botox-filler.webp'); */
+        /* background-position-x:-45%; */
+        background-position-y:45%;
+    }
 }
 /*==============================================================
   MOBILE

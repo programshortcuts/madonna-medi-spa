@@ -1,6 +1,5 @@
 /* position-med-spa-serv.css */
-/*==============================================================
-  SERVICE SECTION
+/*================= SERVICE SECTION
 ==============================================================*/
 .service-section {
     position: relative;
@@ -9,13 +8,6 @@
   OPTIONAL ALTERNATING MEDIA
   (Works only if HTML already contains float-left/right classes)
 ==============================================================*/
-#longevityMedicine .img-wrapper {
-    float: right;
-}
-
-#bioHormoneReplacement .img-wrapper {
-    /* float: left; */
-}
 
 #botoxAndFillers .img-wrapper {
     float: right;

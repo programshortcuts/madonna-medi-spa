@@ -5,6 +5,7 @@
 }
 .section-preview p,
 .section-details p {
+    background:var(--bg-clr)!important;
     color: var(--text);
    
 }
