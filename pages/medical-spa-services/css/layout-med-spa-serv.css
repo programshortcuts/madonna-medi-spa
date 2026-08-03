@@ -37,8 +37,7 @@ LINKS
 }
 
 .more-info-buttons {
-    display: inline-flex !important;
+    display: inline ;
     justify-content: flex-start;
     align-items: flex-start;
-
 }

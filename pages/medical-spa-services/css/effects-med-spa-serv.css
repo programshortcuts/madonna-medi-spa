@@ -39,3 +39,7 @@
     box-shadow: 0 2px 2px 3px silver;
     text-transform: capitalize;
 }
+..more-info-btn button:active{
+    border: 2px solid whitesmoke;
+
+}

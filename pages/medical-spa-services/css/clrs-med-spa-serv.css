@@ -1,7 +1,7 @@
 .section-title,
 .section-title .title-text {
     background: transparent;
-    /* color: var(--text); */
+    color: var(--text);
 }
 .section-preview p,
 .section-details p {
@@ -13,14 +13,8 @@
 .section-details h2 {    
     color: var(--heading);
 }
-.service-section .img-wrapper {
-    /* background: #edf4fa; */
-}
-.more-info-btn {    
-    
-    /* background: white; */
-    color: var(--accent);
-}
+
+
 .less-info {
     
     /* background: white; */
@@ -31,4 +25,9 @@
 .women-men-nav a {
     /* background: white; */
     color: var(--heading);
+}
+
+.more-info-btn {    
+    background: transparent;
+    /* color: var(--accent); */
 }

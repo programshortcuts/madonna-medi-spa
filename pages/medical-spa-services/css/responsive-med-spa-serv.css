@@ -18,15 +18,18 @@
     .service-section {
         width: 100%;
     }    
-    .content {
+    .service-section .content p{
         /* padding: 2.25rem; */
+        font-size: 1.2rem ;
+        padding: 1% 2%
+
     }
     .img-wrapper {
         width: 170px;
     }
-    .section-preview p,
-    .section-details p {
-        font-size: 1.02rem;
+    .more-info-buttons {
+
+        display: inline-flex ;
     }
 }
 /*==============================================================

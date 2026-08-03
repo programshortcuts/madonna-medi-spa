@@ -68,3 +68,7 @@
     gap: 1rem;
     padding: 1rem 1.35rem;
 }
+
+.more-info-buttons button{
+    padding: 1% 2%
+}

@@ -4,19 +4,14 @@
 }
 
 .service-section > button.section-title {
-    /* border: none; */
     border-right: none !important;
     border-bottom: none !important;
-    /* background-color: blue !important; */
     border-top-left-radius: var(--radius);
 }
 .service-section .img-wrapper {
     border-radius: 8px;
 }
-.more-info-btn {
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-}
+
 .less-info {
     border-radius: 999px;
     border: 1px solid #ccd7e2;
@@ -30,6 +25,12 @@
 .section-details p {
     border-radius: 9px;
 }
-.more-info-buttons button{
-    padding: 1% 2%
+
+.service-section  .more-info-btn {
+    border-radius: 999px;
+}
+.service-section .more-info-buttons button{
+    border: none !important;
+    /* background-color: blue; */
+    outline: none;
 }
