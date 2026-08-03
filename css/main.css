@@ -67,13 +67,13 @@
 @import url('../pages/home/css/responsive-home.css');
 
 /* products */
-@import url('../pages/products/css/borders-products.css');
-@import url('../pages/products/css/bkgrnd-products.css');
-@import url('../pages/products/css/colors-products.css');
-@import url('../pages/products/css/layout-products.css');
-@import url('../pages/products/css/sizing-products.css');
-@import url('../pages/products/css/spacing-products.css');
-@import url('../pages/products/css/txt-products.css');
+/* @import url('../pages/products/css/borders-products.css'); */
+/* @import url('../pages/products/css/bkgrnd-products.css'); */
+/* @import url('../pages/products/css/colors-products.css'); */
+/* @import url('../pages/products/css/layout-products.css'); */
+/* @import url('../pages/products/css/sizing-products.css'); */
+/* @import url('../pages/products/css/spacing-products.css'); */
+/* @import url('../pages/products/css/txt-products.css'); */
 
 * {
     margin: 0;

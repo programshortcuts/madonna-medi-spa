@@ -33,8 +33,9 @@
 .women-men-nav a {
     text-decoration: none;
 }
-.service-section #LongevityMedicineBold,
-.service-section #FunctionalMedicineBold{
-    font-weight: 999 !important;
-    font-style: bold !important;
+#LongevityMedicineBold,
+#FunctionalMedicineBold {
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 101%;
 }

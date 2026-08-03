@@ -62,9 +62,7 @@
         padding-top: 5rem;
     }
 }
-@media (min-width:431px){
-    /* ser */
-}
+
 @media (max-width:431px){
     #botoxAndFillers {
         background-position-x:-20%;
