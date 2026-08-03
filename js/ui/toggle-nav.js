@@ -51,10 +51,17 @@ export function initToggleNav() {
         //     expandToggle()
         //     return
         // }
-        
-        
-            
-
+    });
+    document.addEventListener('focus', e => {
+        // console.log(e.target);
+        // if(e.target == sideNavBtn){ 
+        //     expandToggle()
+        //     return
+        // }
+        // if(e.target.tagName != 'A' ){
+        //     expandToggle()
+        //     return
+        // }
     });
 }
 function closeNavIfOutside(e) {

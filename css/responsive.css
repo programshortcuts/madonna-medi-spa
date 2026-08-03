@@ -1,12 +1,4 @@
-@media screen and (max-width:920px) {
-    .page-wrapper.expand .mobile-header-nav ul li:nth-child(2) ul {
-        margin-left: -20%;
-    }
-    .page-wrapper.expand .mobile-header-nav ul li:nth-child(3) ul {
-        margin-left: 20%
 
-    }
-}
 @media screen and (min-width:542px) {
 
     .page-container.home-page-container {

@@ -5,10 +5,9 @@
 :root {
     --social-max-height: 3vh;
 }
-
 .page-wrapper>.mobile-header-nav {
     width: 100%;
-    height: 10vh;
+    height: 5vh;
 }
 
 .social-media-container-nav {
@@ -35,34 +34,31 @@
     align-items: flex-start;
 }
 .mobile-header-nav>ul>li {
-    flex-basis: 33%;
+    flex-basis: 30%;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     /* opacity: 0; */
-    transform: translateX(-20px);
+    /* transform: translateX(-20px); */
 }
 .mobile-header-nav>ul>li>a {
+    min-width: fit-content;
     display: inline-flex;
-    padding-top: 3%;
     padding-bottom: 4%;
     text-align: center;
     align-items: center;
     justify-content: center;
 }
-.mobile-header-nav>ul>li>ul:first-child {
-    flex-direction: column;
-    margin-left: -25%;
-    margin-right: 25%;
-}
 
-.mobile-header-nav>ul>li>ul>li {
+/* .mobile-header-nav>ul>li>ul>li {
     width: 120%;
     opacity: 0;
     transform: translateY(-10px);
-}
+} */
 
-li#medicalSpaServicesNavLi>ul {
-    margin-left: -5%;
+li#medSpaServUL>ul {
+    margin-left: 25%;
+    min-width: 110%;
     /* margin-right: 30%; */
 }
 
@@ -77,38 +73,13 @@ li#contactNavLink {
     /* 🔥 allows shrinking */
 }
 
-li#contactNavLink>.social-media-container-nav {
-    /* width: 100%; */
-    margin-left: 15%;
-    display: flex;
-    flex-direction: column;
-}
 
-.social-media-link-container {
-    flex: 1;
-    display: flex;
-}
-
-.social-media-link-container a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-height: var(--social-max-height);
-    height: fit-content;
-}
-
-.social-media-link-container svg {
-    max-height: var(--social-max-height);
-    margin-top: 4%;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-}
-.social-media-link-container { position: relative;}
 #researchAndLitLI{
     margin-left: 3%;
 }
 #researchAndLitLI > ul {
     margin-left: 10%;
+}
+@media screen(max-width:431px){
+
 }

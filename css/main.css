@@ -2,8 +2,9 @@
 /* contact.css */
 /* @import url('../pages/contact/css/new-contact.css'); */
 @import url('../pages/contact/css/forms.css');
-@import url('../pages/contact/css/sizing-contact.css');
 @import url('../pages/contact/css/responsive-contact.css');
+@import url('../pages/contact/css/sizing-contact.css');
+@import url('../pages/contact/css/social-media-container-contact.css');
 /* @import url('../pages/contact/css/bkgrnd-contact.css'); */
 /* @import url('../pages/contact/css/colors-contact.css'); */
 @import url('../pages/contact/css/layout-contact.css');
@@ -33,6 +34,7 @@
 @import url('ui/toggle-nav.css');
 @import url('visuals/change-background.css');
 @import url('components/sideNavBtn.css');
+@import url('components/social-media-container-nav.css');
 
 /* ui */
 @import url('./responsive.css');
