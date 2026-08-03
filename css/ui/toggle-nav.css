@@ -3,11 +3,11 @@
     display: inherit            
 }
 .page-wrapper.expand>.mobile-header-nav {
+    height: 30vh;
     border-top: 0;
     padding-top: 10%;
     border-bottom: 1px solid whitesmoke;
     box-shadow: 0 2px 0 2px grey;
-    height: 30vh;
     position: fixed;
     z-index: 1;
     z-index: 11;
@@ -74,5 +74,11 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media screen(min-width:432px){
+    .page-wrapper.expand>.mobile-header-nav {
+        height: 50vh;
     }
 }
