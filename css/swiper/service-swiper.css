@@ -1,4 +1,15 @@
 /* service-swiper.css */
+#bioIdenticalServiceHome p,
+#infraRedServiceHome p,
+#ivInfusionsServiceHome p{
+    background-color: rgb(230, 229, 226);
+    /* padding: 1% 1.5%; */
+    padding-top: 1%;
+    padding-right: 4%;
+    padding-bottom: 0;
+    border-radius: 4px;
+}
+
 .swiper.services-swiper {
     margin-top: 1%;
     width: 100%;
@@ -86,34 +97,15 @@
     .services-swiper .swiper-slide .content {
         margin: 15% 0 ;
     }
-    .services-swiper > .swiper-wrapper {
-        /* height: fit-content; */
-        /* max-height: 250px; */
-    }
-    .services-swiper > .swiper-wrapper > .swiper-slide {
-        /* width: 220px !important; */
-        /* height: 50px !important; */
-        /* height: 100px !important; */
-        /* max-height: 100px !important; */
-    }    
 }
 @media screen and (max-width:532px) {
     .services-swiper .swiper-slide > .content {
-        /* max-height: 200px !important; */
         margin: 5% 0 !important;
-        /* border: 1px solid blue !important; */
     }
-    
     .swiper.services-swiper {
         padding: 4%;
-        /* max-height: 50px !important; */
-        /* height: fit-content; */
     }
-
-    
-    .services-swiper .swiper-slide-active {
-        /* transform: scale(1.05) !important; */
-        
+    .services-swiper .swiper-slide-active {        
         opacity: 1;
         z-index: 5;
     }
