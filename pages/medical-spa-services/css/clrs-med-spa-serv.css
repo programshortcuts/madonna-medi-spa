@@ -20,6 +20,10 @@
 .women-men-nav a {
     color: var(--heading);
 }
-.more-info-btn {    
+.more-info-buttons {    
     background: transparent;
 }
+.more-info-btn button:visited,
+.more-info-btn button{   
+    color: black;
+} 
