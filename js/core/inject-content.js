@@ -79,15 +79,19 @@ export function initInjectContentListeners() {
     });
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[data-link]');
-            
+        const key = e.key.toLowerCase()
         if (!link) return;
-        
         const href = link.getAttribute('href');
         if (!href || href === '#' || href === 'undefined') {
             console.warn('Blocked bad href:', href);
             return;
         }
-        e.preventDefault();
+        /** We have to figure out how to get space + enter to open page in NEW Tab */
+        // if(!e.metaKey){
+        //     console.log('WE HAVE TO FIX THIS')
+        //     e.preventDefault();
+        //     return
+        // }
 
         if (history.state?.href !== href) {
 
