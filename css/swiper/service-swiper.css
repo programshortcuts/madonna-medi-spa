@@ -1,4 +1,10 @@
 /* service-swiper.css */
+.services-swiper .more-info-links a:visited,
+.services-swiper .more-info-links a{
+    color: black ;
+    text-decoration: none;
+}
+
 .services-swiper .swiper-slide button{
     background: none;
 }
