@@ -60,6 +60,7 @@ document.addEventListener("submit", (e) => {
 ----------------------------- */
 export function initInjectContentListeners() {
     // ✅ FIX: ensure DOM is ready before first injection
+    
     requestAnimationFrame(() => {
         if (!history.state) {
 
@@ -78,7 +79,9 @@ export function initInjectContentListeners() {
     });
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[data-link]');
+            
         if (!link) return;
+        
         const href = link.getAttribute('href');
         if (!href || href === '#' || href === 'undefined') {
             console.warn('Blocked bad href:', href);
@@ -210,7 +213,9 @@ export async function injectPage(href) {
             'aria-controls'
         ]
     });
-
+    console.log(
+        mainLandingPage.querySelector(".more-info-link")
+    );
     requestAnimationFrame(() => {
         const firstSection = mainLandingPage.querySelector(".sections-containers");
         

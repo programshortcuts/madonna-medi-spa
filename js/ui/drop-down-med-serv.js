@@ -16,7 +16,8 @@ export function initDropDownMedServ() {
     const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
     const contents = medSpaContainer.querySelectorAll('.content')
     const allSectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
-    const moreInfoBtns = medSpaContainer.querySelectorAll('more-info-btn')
+    const moreInfoBtns = medSpaContainer.querySelectorAll('.more-info-btn')
+    
     moreInfoBtns.forEach(el => {
         el.addEventListener('keydown', e => {
             const key = e.key.toLowerCase()
