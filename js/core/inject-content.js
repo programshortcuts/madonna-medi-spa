@@ -130,6 +130,8 @@ export function initInjectContentListeners() {
 /* ----------------------------- PAGE INJECTION CORE
 ----------------------------- */
 export async function injectPage(href) {
+    console.log("href:", href);
+console.log("cached:", pageCache.has(href));
     if (!href) return;
     if (!isSafePath(href)) {
         console.warn('Blocked unsafe path:', href);

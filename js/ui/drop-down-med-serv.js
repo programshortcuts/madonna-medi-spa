@@ -86,29 +86,26 @@ function handleSectionClick(e){
     toggleSectionInteraction(section, e.target);
 }
 function handleSectionKeydown(e){
-    const serviceSection = e.target.closest('.service-section');
-    if(!serviceSection) return;
-    
-    
+    if (e.key !== "Enter") return;
 
+    // Let native controls work normally
+    if (e.target.matches("a, button, input, textarea")) {
+        return;
+    }
 
-    const key = e.key.toLowerCase();
-    if(key !== 'enter') return;
-
-    
+    const serviceSection = e.currentTarget;
 
     e.preventDefault();
-    e.stopPropagation();
 
-    if(e.target === serviceSection){
-        const sectionDetails = serviceSection.querySelector('.section-details');
-        if(sectionDetails){
-            toggleHide(sectionDetails);
-            return;
-        }
+    if (e.target === serviceSection) {
+        toggleHide(serviceSection.querySelector(".section-details"));
+        return;
     }
 
     toggleSectionInteraction(serviceSection, e.target);
+    return
+
+    
 }
 function toggleSectionInteraction(section, target){
     const content = section.querySelector('.content');
