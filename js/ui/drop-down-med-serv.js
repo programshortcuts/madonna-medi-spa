@@ -105,7 +105,7 @@ function handleSectionKeydown(e){
     toggleSectionInteraction(serviceSection, e.target);
     return
 
-    
+     
 }
 function toggleSectionInteraction(section, target){
     const content = section.querySelector('.content');
