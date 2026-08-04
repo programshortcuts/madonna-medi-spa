@@ -19,20 +19,25 @@
         padding: .5% 0;
     }
 }
-@media screen and (min-width:535px) {
+@media screen and (min-width:533px) {
     .home-page-header {
         float: left;
         width: 45%;
     }
-    
-}
-@media screen and (max-width:533px) {
-    .home-page-container>article.mission-state>p {
-        padding-top: 5%;
-        margin-top: 2%;
+    .home-page-container article.mission-state>p {
+        /* padding-top: 0%; */
+        /* margin-top: -5%; */
+        /* background-color: blue !important; */
+        /* border: 1px solid blue; */
     }
+        
+    
+
 }
 @media screen and (max-width:532px) {
+    .swiper.reviews-swiper {
+            height: 13vh;
+        }
     .home-page-header {
         padding-top:25% !important;
     }

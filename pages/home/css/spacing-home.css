@@ -1,4 +1,8 @@
 /* spacing-home.css */
+.reviews-container>p {
+    /* padding-top: 5% ; */
+    /* margin-bottom: -5%; */
+}
 .page-container.home-page-container {
     /* margin-top: 5%; */
 }
@@ -11,8 +15,7 @@
     margin-left: 5%;
 }
 .home-page-container>.main-content {
-    padding: 0 5% !important;
-    border: 2px solid purple;
+    /* padding: 0 5% !important; */
 }
 .page-container.home-page-container .address-num-container .address-box {
     padding: 2%
@@ -21,8 +24,8 @@
     padding-bottom: 20%;
 }
 .page-container.home-page-container .main-item {
-    padding-bottom: 2%;
-    padding-right: 4%;
+    /* padding-bottom: 2%; */
+    /* padding-right: 4%; */
 }
 .page-container.home-page-container .main-item>.content>p {
     line-height: 1.55;
@@ -31,7 +34,7 @@
     padding-left: 2%;
 }
 .page-container.home-page-container .main-item>h4 {
-    padding-left: 2%;
+    /* padding-left: 2%; */
 }
 .section-title#ourServices {
     width: 100%;
@@ -65,10 +68,7 @@
 #aboutUsHomePage {
     /* margin-top: 10%; */
 }
-.reviews-container>p {
-    padding-top: 5% ;
-    /* margin-bottom: -5%; */
-}
+
 #longevityMedHomePage {
     /* margin-top: -5%; */
     z-index: 10;

@@ -2,12 +2,12 @@
 /* reviews-swiper.css */
 
 .swiper.reviews-swiper {
+    height: 12vh;
     position: relative;
     float: right;
     z-index: 10;
 
     max-width: 40vw;
-    height: 12vh;
     margin: 0 auto;
     background: whitesmoke;
     border-radius: 20px;
