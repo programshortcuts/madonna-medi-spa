@@ -47,8 +47,6 @@ export function initDropDownMedServ() {
                     
                     
                     if(key == 'enter'){
-                        e.preventDefault()
-                        // e.stopPropagation()
                         e.stopImmediatePropagation()
                         
                     }
