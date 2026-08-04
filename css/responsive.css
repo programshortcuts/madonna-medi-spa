@@ -1,4 +1,9 @@
+@media screen and (min-width:701px){
+    .page-header{
+        height: 5vh !important;
+    }   
 
+}
 @media screen and (min-width:542px) {
     .page-container.home-page-container {
         padding-top: 0% !important;
