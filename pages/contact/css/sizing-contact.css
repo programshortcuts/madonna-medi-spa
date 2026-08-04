@@ -1,5 +1,7 @@
 /* sizing-contact.css */
-
+.page-container.contact-page-container {
+    /* width: 90vw !important; */
+}
 
 .page-container.contact-page-container .social-media-container {
     width: 100%;
