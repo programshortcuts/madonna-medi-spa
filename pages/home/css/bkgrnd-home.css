@@ -7,13 +7,13 @@ footer {
     background-position-x: 0%;
     filter: grayscale(50%);
 }
-/* .address-contact-home{
+.address-contact-home{
     background-image: url('../../../imgs/s-view.jpeg');
     height: 20vh;
     width: 90;
     background-size: 50%;
-    background-position-y: 120%;
+    background-position-y: 100%;
     background-position-x: 50%;
     background-repeat: no-repeat;
-} */
+}
 
