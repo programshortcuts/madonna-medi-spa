@@ -1,4 +1,4 @@
-/* layout.css */
+/* effects.css */
 #navBarBtn:active,#navBarBtn:focus{
     border: 3px solid gold !important;
 }
@@ -34,7 +34,8 @@
 .service-col-title.is-focused {
     background-color: rgba(0, 123, 255, 0.2) !important;
     /* temp highlight */
-    transition: background-color 0.2s ease;
+    background-color: blue !important;
+    /* transition: background-color 0.2s ease !important; */
 }
 .service-section:active,.service-section:focus{
     /* padding: 2% 0; */

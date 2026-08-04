@@ -342,6 +342,7 @@ function syncServiceButton(swiper) {
     const btn = document.querySelector(
         `.service-col-title[data-nav-target="${target.replace('-serv-home', '-col-home-link')}"]`
     );
-
     btn?.classList.add('is-focused');
+    console.log(btn)
+
 }
