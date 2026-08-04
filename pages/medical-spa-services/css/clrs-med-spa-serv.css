@@ -23,7 +23,7 @@
 .more-info-buttons {    
     background: transparent;
 }
-.more-info-btn button:visited,
-.more-info-btn button{   
+.more-info-buttons button:visited,
+.more-info-buttons button{   
     color: black;
 } 
