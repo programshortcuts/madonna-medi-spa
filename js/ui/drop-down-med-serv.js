@@ -16,6 +16,22 @@ export function initDropDownMedServ() {
     const serviceSections = Array.from(medSpaContainer.querySelectorAll('.service-section'));
     const contents = medSpaContainer.querySelectorAll('.content')
     const allSectionDetails = Array.from(medSpaContainer.querySelectorAll('.section-details'));
+    const moreInfoBtns = medSpaContainer.querySelectorAll('more-info-btn')
+    moreInfoBtns.forEach(el => {
+        el.addEventListener('keydown', e => {
+            const key = e.key.toLowerCase()
+            console.log('here');
+            
+            if(key == 'enter')   {
+                const section  = e.target.closest('.service-section')
+                console.log('here');
+                
+                section.focus()
+                return
+            }
+
+        })
+    })
     serviceSections.forEach((section) => {       
         section.tabIndex = 0;
         section.addEventListener('click', handleSectionClick);
@@ -24,10 +40,8 @@ export function initDropDownMedServ() {
             section.addEventListener(type, e => {
                 const section = e.target.closest('.service-section')
                 const sectionDetails = section.querySelector('.section-details')    
-                console.log(sectionDetails);
                 const moreInfoBtn = section.querySelector('.more-info-btn')
                 if(type == 'keydown'){
-                    console.log('here');
                     
                     const key = e.key.toLowerCase()
                     
@@ -45,6 +59,9 @@ export function initDropDownMedServ() {
             } else {
                 if(moreInfoBtn.classList.contains('hide')){
                     moreInfoBtn.classList.remove('hide')
+                    
+                    
+                    
                 }
             }
             return
