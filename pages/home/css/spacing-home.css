@@ -1,10 +1,11 @@
 /* spacing-home.css */
+
+.page-container.home-page-container {
+    padding-bottom: 25%;
+}
 .reviews-container>p {
     /* padding-top: 5% ; */
     /* margin-bottom: -5%; */
-}
-.page-container.home-page-container {
-    /* margin-top: 5%; */
 }
 .home-page-header>p {
     padding-bottom: 5%;
