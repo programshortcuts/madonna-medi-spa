@@ -24,19 +24,23 @@
         float: left;
         width: 45%;
     }
-    .home-page-container article.mission-state>p {
-        /* padding-top: 0%; */
-        /* margin-top: -5%; */
-        /* background-color: blue !important; */
-        /* border: 1px solid blue; */
-    }
-        
     
-
+    
+    
 }
 @media screen and (max-width:532px) {
+    .home-page-container .main-item {
+        padding-top: 1%;
+    }
+    .home-page-container .main-item >p {
+        display: inline;
+        /* border: 1px solid blue !important; */
+        font-size: 110%;
+        line-height: 1.2 !important;
+    }
     .swiper.reviews-swiper {
-            height: 13vh;
+            height: 15vh;
+            
         }
     .home-page-header {
         padding-top:25% !important;
