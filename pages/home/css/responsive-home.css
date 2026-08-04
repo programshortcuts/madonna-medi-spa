@@ -29,9 +29,7 @@
     
 }
 @media screen and (max-width:532px) {
-    .home-page-container .main-item {
-        padding-top: 1%;
-    }
+    .home-page-container .main-item 
     .home-page-container .main-item >p {
         display: inline;
         /* border: 1px solid blue !important; */
