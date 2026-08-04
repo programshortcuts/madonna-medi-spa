@@ -26,8 +26,8 @@ export function initDropDownMedServ() {
             if(key == 'enter')   {
                 const section  = e.target.closest('.service-section')
                 console.log('here');
-                
-                section.focus()
+                // toggleSectionInteraction(section,e.target)  
+                // section.focus()
                 return
             }
 
@@ -105,7 +105,7 @@ function handleSectionKeydown(e){
     toggleSectionInteraction(serviceSection, e.target);
     return
 
-     
+    
 }
 function toggleSectionInteraction(section, target){
     const content = section.querySelector('.content');
