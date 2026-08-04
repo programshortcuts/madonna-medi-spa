@@ -2,9 +2,8 @@
 .page-container.contact-page-container{
     /* padding-top: 40%; */
     /* margin-top: 2%; */
+    padding-top: 15%;
     padding-bottom: 50% !important;
-    /* margin-bottom: 50%; */
-    padding-top: 5%;
 }
 .page-container.contact-page-container> .address-num-container{
     margin: 0;
