@@ -49,8 +49,11 @@ LINKS
     display: inline;
 }
 .women-men-content {
-    display: flex
+    display: flex;
 }
-.women-men-content col{
+.women-men-content .col{
+    flex-shrink: 1;
+    max-width: 50%;
+    border: 1px solid blue;
     flex-basis: 50%;
 }
