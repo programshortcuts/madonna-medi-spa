@@ -44,6 +44,10 @@
   MOBILE
 ==============================================================*/
 @media (max-width:700px) {
+    .women-men-nav {
+            
+            margin-top: 0%;   
+        }
     .title-text {
         font-size: 1.4rem;
     }
