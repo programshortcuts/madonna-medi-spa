@@ -32,8 +32,13 @@ LINKS
     align-items: center;
 }
 .women-men-nav {
+    display: flex;
+    border: 1px solid blue;
+    justify-content: space-evenly;
 }
 .women-men-nav a {
+    display: inline-flex;
+    /* flex-direction: column; */
 }
 
 .more-info-buttons {
