@@ -32,10 +32,7 @@
     max-height: unset !important;
     object-fit: contain;
 }
-img#officeInPhoto {
-    max-width: 300px;
-    max-height: 400px;
-}
+
 .staff-wrapper {
     width: 100%;
 }

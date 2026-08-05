@@ -8,12 +8,13 @@ footer {
     filter: grayscale(50%);
 }
 .address-contact-home{
-    background-image: url('../../../imgs/s-view.jpeg');
+    background-image: url('../../../imgs/s-view.png');
+    border-radius: 8px;
     height: 20vh;
     width: 90;
     background-size: 50%;
     background-position-y: 100%;
-    background-position-x: 50%;
+    background-position-x: 60%;
     background-repeat: no-repeat;
 }
 

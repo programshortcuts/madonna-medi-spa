@@ -24,7 +24,9 @@
         float: left;
         width: 45%;
     }
-    
+    .address-contact-home{
+        margin-top: 5%;
+    }
     
     
 }
@@ -32,18 +34,25 @@
     .home-page-container .main-item 
     .home-page-container .main-item >p {
         display: inline;
-        /* border: 1px solid blue !important; */
         font-size: 110%;
         line-height: 1.2 !important;
     }
     .swiper.reviews-swiper {
-            height: 15vh;
-            
+            height: 15vh;        
         }
     .home-page-header {
         padding-top:25% !important;
     }
+    #officeInPhotoA{
+        display: inline-flex
+    }
+    #officeInPhoto {
+        max-width: 300px !important;
+        max-height: 400px;   
+        margin-left: 5%;
+    }
 }
+
 @media screen and (max-width:431px) {
     .reviews-swiper .swiper-slide{
         font-size: .9rem;
@@ -54,5 +63,6 @@
     #longevityMedHomePage>.title-text {
         margin-top: 2% !important;
     }
+    
     
 }
