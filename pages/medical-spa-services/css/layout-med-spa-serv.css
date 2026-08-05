@@ -51,8 +51,16 @@ LINKS
 .women-men-content {
     display: flex;
 }
+
 .women-men-content .col{
+    display: flex;
+    /* border: 1px solid blue; */
+    flex-direction: column;
+    justify-content: space-between;
     flex-shrink: 1;
     max-width: 50%;
     flex-basis: 50%;
+}
+.women-men-content .col ul {
+    /* justify-self: center; */
 }

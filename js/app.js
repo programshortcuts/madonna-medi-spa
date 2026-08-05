@@ -30,11 +30,12 @@ function initMain(){
                 }
             });
         });    
+        
     initAllVideos(document)
 }
 function setupGlobalListeners(){
     initDropDown()
-    initDropDownMedServ()
+    // initDropDownMedServ()
     // initFilterSortItems()
     // initChangeStyles()
 }

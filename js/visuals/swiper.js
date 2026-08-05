@@ -2,7 +2,7 @@
 let reviewsSwiper = null;
 let clickedServiceSlide = null;
 export let servicesSwiper = null;
-
+import { initDropDown } from "../ui/drop-down.js";
 export function initReviewsSwiper() {
     const el = document.querySelector('.reviews-swiper');
     if (!el || typeof Swiper === 'undefined') return;
@@ -27,6 +27,7 @@ export function initReviewsSwiper() {
 }
 
 export function initServicesSwiper() {
+    initDropDown()
     const el = document.querySelector('.services-swiper');
     if (!el || typeof Swiper === 'undefined') return;
     const slides = el.querySelectorAll('.services-swiper .swiper-slide')

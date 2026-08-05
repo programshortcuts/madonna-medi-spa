@@ -73,8 +73,8 @@
 .women-men-content{
     margin-top: -10%;
 }
-.women-men-content col {
-    /* padding-right: 2%; */
+.women-men-content .col {
+    padding-right: 2%;
 }
 .more-info-link:visited,
 .more-info-link {

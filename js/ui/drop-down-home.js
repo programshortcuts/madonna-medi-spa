@@ -1,5 +1,6 @@
 // drop-down-home.js
 import { pauseAllVideos } from "../video/video-controls.js";
+// import { servicesSwiper } from "../visuals/swiper.js";
 
 export function initDropDownHome() {
     // Only initialize on the home page
