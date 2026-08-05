@@ -130,8 +130,6 @@ export function initInjectContentListeners() {
 /* ----------------------------- PAGE INJECTION CORE
 ----------------------------- */
 export async function injectPage(href) {
-    console.log("href:", href);
-console.log("cached:", pageCache.has(href));
     if (!href) return;
     if (!isSafePath(href)) {
         console.warn('Blocked unsafe path:', href);
@@ -215,9 +213,7 @@ console.log("cached:", pageCache.has(href));
             'aria-controls'
         ]
     });
-    console.log(
-        mainLandingPage.querySelector(".more-info-link")
-    );
+    
     requestAnimationFrame(() => {
         const firstSection = mainLandingPage.querySelector(".sections-containers");
         
