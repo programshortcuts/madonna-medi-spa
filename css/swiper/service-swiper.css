@@ -135,15 +135,25 @@
         margin-top: 20%;
     }
 }
+@media screen and (max-width:537px) {
+    .swiper.services-swiper{
+        margin-bottom: 0%;
+    }
+}
 @media screen and (max-width:460px) {
     .swiper.services-swiper{
-        margin-bottom: 30%;
+        /* margin-bottom: 30%; */
     }
     
     .service-col-title span{
         font-size: 98% !important;
     }
 
+}
+@media screen and (max-width:432px) {
+    .swiper.services-swiper{
+        margin-bottom: 54% !important;
+    }
 }
 @media screen and (max-width:400px) {
     .swiper.services-swiper {
