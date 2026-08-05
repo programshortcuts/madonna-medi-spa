@@ -148,7 +148,13 @@
     .service-col-title span{
         font-size: 98% !important;
     }
-
+    
+}
+@media screen and (max-width:459px) {
+    .swiper.services-swiper{
+        margin-bottom: 30%;
+    }
+    
 }
 @media screen and (max-width:432px) {
     .swiper.services-swiper{
