@@ -41,10 +41,10 @@
     max-width:  150px;
     max-height: 150px;
 }
-#longevityMedHomePage .title-text{
+.home-page-container #longevityMedHomePage .title-text{
     width: fit-content;
 }
-#longevityMedicine .section-preview .img-wrapper img{
+.home-page-container #longevityMedicine .section-preview .img-wrapper img{
     
     max-width: 200px !important;
 }
