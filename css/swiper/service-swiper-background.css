@@ -3,12 +3,14 @@
 .service{ 
     min-height: 50vh;
 }
-#funcLongServiceHome{
-    background: url('../../pages/medical-spa-services/media/longevity-func-slide.png');
-    background-repeat: repeat;
-    background-size: cover;
-    background-position-x: 90% !important;
-    background-position-y: 140% !important;
+#longFuncServiceHome{
+    background: url('../../imgs/service-swiper-slide-bkgrn/longevity-slide-bkgnd.png');
+    background-repeat: no-repeat;
+    background-size: 140%;
+    /* background-size: cover; */
+    background-position-x:100% !important;
+    background-position-y: -10% !important;
+    filter: grayscale(50%);
 }
 #bioIdenticalServiceHome{
     background: url('../../pages/medical-spa-services/media/bio-horm-replace.png');
