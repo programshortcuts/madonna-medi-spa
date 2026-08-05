@@ -10,7 +10,7 @@
     /* background-size: cover; */
     background-position-x:100% !important;
     background-position-y: -10% !important;
-    filter: grayscale(50%);
+    filter: grayscale(60%);
 }
 #bioIdenticalServiceHome{
     background: url('../../pages/medical-spa-services/media/bio-horm-replace.png');

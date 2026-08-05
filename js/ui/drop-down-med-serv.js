@@ -118,7 +118,7 @@ function toggleSectionInteraction(section, target){
         return;
     }
 
-    if(target.closest('.section-title')){
+    if(target.closest('.section-title.drop-down')){
         toggleHide(content);
     }
 }

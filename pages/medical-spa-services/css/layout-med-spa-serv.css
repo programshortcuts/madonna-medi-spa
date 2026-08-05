@@ -48,3 +48,9 @@ LINKS
 .service-section .content p {
     display: inline;
 }
+.women-men-content {
+    display: flex
+}
+.women-men-content col{
+    flex-basis: 50%;
+}

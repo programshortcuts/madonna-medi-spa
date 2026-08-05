@@ -5,6 +5,7 @@
         padding-left: 1%;
         padding-right: 1;
     }
+        
     .service-section {
         padding-right: 2%;
     }    
@@ -28,7 +29,7 @@
 
     }
     .img-wrapper {
-        width: 170px;
+        max-width: 300px ;
     }
     .more-info-buttons {
 
@@ -44,18 +45,11 @@
   MOBILE
 ==============================================================*/
 @media (max-width:700px) {
-    .women-men-nav {
-            
-            margin-top: 0%;   
-        }
-    .title-text {
-        font-size: 1.4rem;
-    }
-
+    .women-men-nav {margin-top: 0%;}
+    .title-text     {font-size: 1.4rem;}
     .img-wrapper {
         max-width: 200px !important;
     }
-
     .section-preview p,
     .section-details p {
         max-width: none;
