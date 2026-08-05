@@ -142,7 +142,7 @@
 }
 @media screen and (max-width:460px) {
     .swiper.services-swiper{
-        /* margin-bottom: 30%; */
+        margin-bottom: 30%;
     }
     
     .service-col-title span{
