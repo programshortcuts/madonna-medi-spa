@@ -10,6 +10,10 @@
     }    
 }
 @media (min-width:701px) {
+    .service-section .content .sections-details.hide{
+        border: 1px solid blue;
+        display: inline-flex;
+    }
     .main-landing-page{
         padding-top: 5rem;
         /* margin: 0 2.5%; */

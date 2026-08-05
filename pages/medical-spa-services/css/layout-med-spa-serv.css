@@ -41,3 +41,6 @@ LINKS
     justify-content: flex-start;
     align-items: flex-start;
 }
+.service-section .content p {
+    display: inline;
+}

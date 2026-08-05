@@ -20,7 +20,7 @@
 
 .section-preview p:not(:first-of-type)::before,
 .section-details p:not(:first-of-type)::before {
-    /* content: ""; */
+    /* content: "";  */
     /* display: block; */
 }
 
