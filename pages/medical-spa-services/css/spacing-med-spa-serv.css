@@ -76,3 +76,9 @@
 .women-men-content col {
     /* padding-right: 2%; */
 }
+.more-info-link:visited,
+.more-info-link {
+    padding: 1% 0;
+    padding-right: 4%;
+    padding-left: 2%;
+}
