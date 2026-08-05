@@ -156,6 +156,12 @@
     }
     
 }
+@media screen and (max-width:440px) {
+    .swiper.services-swiper{
+        margin-bottom: 54% ;
+    }
+
+}
 @media screen and (max-width:432px) {
     .swiper.services-swiper{
         margin-bottom: 54% !important;
