@@ -60,6 +60,11 @@
     }
 }
 
+@media screen and (max-width:701px){
+    .service-section .content p {
+        padding-right: 5%;
+    }
+}
 @media (max-width:431px){
     #botoxAndFillers {
         background-position-x:-20%;
