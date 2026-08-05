@@ -11,7 +11,6 @@
 }
 @media (min-width:701px) {
     .service-section .content .sections-details.hide{
-        border: 1px solid blue;
         display: inline-flex;
     }
     .main-landing-page{
@@ -52,8 +51,6 @@
     .img-wrapper {
         max-width: 200px !important;
     }
-
-    
 
     .section-preview p,
     .section-details p {
