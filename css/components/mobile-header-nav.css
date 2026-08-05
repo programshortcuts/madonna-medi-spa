@@ -51,12 +51,12 @@
     width: 120%;
     opacity: 0;
     transform: translateY(-10px);
+    margin-bottom: 5%;
 }
 
 li#medSpaServUL>ul {
-    margin-left: 25%;
+    margin-left: 15%;
     min-width: 110%;
-    /* margin-right: 30%; */
 }
 
 li#productsNavLi>ul {

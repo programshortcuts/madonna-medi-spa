@@ -25,17 +25,17 @@
     flex-wrap: wrap;
 }
 .page-wrapper.expand .mobile-header-nav ul>li>ul {
-    padding-top: 8%;
+    /* padding-top: 8%; */
 }
 
 .page-wrapper.expand .mobile-header-nav ul>li {
-    
     animation: slideInX 100ms forwards;
 }
 
 
 /* Animate AFTER parent */
 .page-wrapper.expand .mobile-header-nav ul li ul li {
+    /* border: 1px solid black; */
     animation: dropIn 150ms forwards;
 }
 
@@ -95,6 +95,8 @@
     .page-wrapper.expand>.mobile-header-nav {
             padding-top: 2%;
     }
+    .page-wrapper.expand>.mobile-header-nav .soci
+
 }
 @media screen and (min-width:432px){
     .page-wrapper.expand>.mobile-header-nav {
