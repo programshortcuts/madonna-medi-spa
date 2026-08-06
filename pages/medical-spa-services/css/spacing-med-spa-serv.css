@@ -71,9 +71,9 @@
     padding: 1% 2%
 }
 .women-men-content{
-    margin-top: -10%;
+    margin-top: -18%;
 }
-.women-men-content .col {
+.women-men-content .col:first-of-type {
     padding-right: 2%;
 }
 .more-info-link:visited,
@@ -81,4 +81,8 @@
     padding: 1% 0;
     padding-right: 4%;
     padding-left: 2%;
+}
+.section-preview ul{
+    padding: 0 25%;
+
 }

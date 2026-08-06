@@ -1,20 +1,19 @@
 // inject-content.js
 import { initAllVideos } from "../video/video-controls.js";
 // 🔥 Ensure correct default page
-export const DEFAULT_PAGE = "pages/home/home.html";
+// export const DEFAULT_PAGE = "pages/home/home.html";
 // export const DEFAULT_PAGE  = "pages/medical-spa-services/medical-spa-services.html";
+export const DEFAULT_PAGE  = "pages/medical-spa-services/services/bio-hormone-replace/women-bio-hormones/women-bio-hormones.html";
 // export const DEFAULT_PAGE = "pages/contact/contact.html";
 // export const DEFAULT_PAGE = "pages/medical-spa-services/services/glp-1/glp-1.html";
 // export const DEFAULT_PAGE = "pages/products/products.html";
 // export const DEFAULT_PAGE = "pages/bookings/bookings.html";
-
 // inject-content.js
 import { initZoomItems } from "../ui/zoom-items.js";
 import { onPageReady } from "./page-lifecycle.js";
 import { isSafePath } from "./security-utils.js";
 import { initItemsScroll } from "../ui/items-scroll.js";
 import { initProductsController } from "../ui/products-controller.js";
-
 import { initBgSlider } from "../visuals/change-background.js";
 import { initDropDown } from "../ui/drop-down.js";
 import {initDropDownMedServ} from "../ui/drop-down-med-serv.js";
@@ -25,11 +24,8 @@ export const pageWrapper = document.querySelector('.page-wrapper');
 if (!mainLandingPage) {
     throw new Error("Missing .main-landing-page in index.html");
 }
-
-
 const pageCache = new Map();
 let lastClickedLink = null;
-
 function centerElementInScrollContainer(element) {
     if (!element || !pageWrapper) return;
 
@@ -45,7 +41,6 @@ function centerElementInScrollContainer(element) {
         behavior: 'smooth'
     });
 }
-
 /* -----------------------------
    GLOBAL FORM SAFETY
 ----------------------------- */
@@ -60,7 +55,6 @@ document.addEventListener("submit", (e) => {
 ----------------------------- */
 export function initInjectContentListeners() {
     // ✅ FIX: ensure DOM is ready before first injection
-    
     requestAnimationFrame(() => {
         if (!history.state) {
 
