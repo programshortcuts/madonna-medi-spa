@@ -54,7 +54,7 @@ export function initDropDownMedServ() {
                     
             }
             if(!sectionDetails.classList.contains('hide')){
-                moreInfoBtn.classList.add('hide')
+                moreInfoBtn?.classList.add('hide')
             } else {
                 if(moreInfoBtn.classList.contains('hide')){
                     moreInfoBtn.classList.remove('hide')
