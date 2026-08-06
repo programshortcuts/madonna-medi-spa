@@ -38,8 +38,8 @@ export function focusNav({e,target}){
         } else {
             target.el.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
-                // inline: 'end'
+                block: 'center',
+                inline: 'nearest'
             });
         }
     }
