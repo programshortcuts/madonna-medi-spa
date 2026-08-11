@@ -94,24 +94,32 @@ export function initServicesSwiper() {
         startX: 0,
         startTime: 0,
         startRealIndex: 0,
-        returnTimer: null,
-        cancelTimer: null,
+        momentumTimer: null,
+        momentumSteps: 0,
+        momentumStepIndex: 0,
+        momentumDirection: 1,
+        momentumVelocity: 0,
+        momentumRatio: 0,
+        stepDurations: null,
     };
 
     function clearServiceSpin() {
-        if (serviceSpin.returnTimer) {
-            clearTimeout(serviceSpin.returnTimer);
-            serviceSpin.returnTimer = null;
-        }
-        if (serviceSpin.cancelTimer) {
-            clearTimeout(serviceSpin.cancelTimer);
-            serviceSpin.cancelTimer = null;
+        if (serviceSpin.momentumTimer) {
+            clearTimeout(serviceSpin.momentumTimer);
+            serviceSpin.momentumTimer = null;
         }
         serviceSpin.active = false;
+        serviceSpin.momentumSteps = 0;
+        serviceSpin.momentumStepIndex = 0;
+        serviceSpin.momentumVelocity = 0;
+        serviceSpin.momentumRatio = 0;
+        serviceSpin.stepDurations = null;
     }
 
     function stopServiceMotion() {
         if (!servicesSwiper) return;
+        clearServiceSpin();
+
         if (servicesSwiper.animating) {
             try {
                 const current = typeof servicesSwiper.realIndex === 'number'
@@ -126,11 +134,10 @@ export function initServicesSwiper() {
                 // ignore
             }
         }
-        clearServiceSpin();
     }
 
     function cancelServiceSpin() {
-        clearServiceSpin();
+        stopServiceMotion();
         if (servicesSwiper && servicesSwiper.autoplay) {
             try { servicesSwiper.autoplay.stop(); } catch (e) {}
         }
@@ -155,6 +162,47 @@ export function initServicesSwiper() {
         return true;
     }
 
+    function getMomentumDurations(steps, velocity, ratio) {
+        const base = 180;
+        const offset = Math.min(1.4, velocity * 0.85 + ratio * 0.4);
+        const durations = [];
+
+        for (let i = 0; i < steps; i++) {
+            const extra = i === 0 ? 0 : i * 140;
+            const velocityBoost = Math.round(offset * 90);
+            const stepDuration = Math.round(base + extra + velocityBoost + i * 50);
+            durations.push(stepDuration);
+        }
+
+        return durations;
+    }
+
+    function runServiceMomentumStep() {
+        if (!servicesSwiper || serviceSpin.momentumStepIndex >= serviceSpin.momentumSteps) {
+            clearServiceSpin();
+            return;
+        }
+
+        const durations = serviceSpin.stepDurations || getMomentumDurations(serviceSpin.momentumSteps, serviceSpin.momentumVelocity, serviceSpin.momentumRatio);
+        const duration = durations[Math.min(durations.length - 1, serviceSpin.momentumStepIndex)];
+        const stepIsLast = serviceSpin.momentumStepIndex === serviceSpin.momentumSteps - 1;
+        const padding = stepIsLast ? 120 : 40;
+
+        try {
+            if (serviceSpin.momentumDirection === 1) {
+                servicesSwiper.slideNext(duration);
+            } else {
+                servicesSwiper.slidePrev(duration);
+            }
+        } catch (e) {
+            clearServiceSpin();
+            return;
+        }
+
+        serviceSpin.momentumStepIndex += 1;
+        serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), duration + padding);
+    }
+
     function handleServiceGestureEnd(clientX, ev) {
         if (!serviceSpin.active || !servicesSwiper) return;
         serviceSpin.active = false;
@@ -173,39 +221,17 @@ export function initServicesSwiper() {
 
         const direction = deltaX < 0 ? 1 : -1;
         const velocity = absDelta / duration;
-        const momentumSlides = Math.max(4, Math.min(40, Math.round(ratio * 18 + velocity * 24)));
-        const targetIndex = serviceSpin.startRealIndex + direction * momentumSlides;
-        const spinDuration = Math.min(2600, 360 + momentumSlides * 90);
+        const slideCount = Math.max(2, Math.min(4, Math.round(2 + ratio * 1.2 + velocity * 1.5)));
 
-        try {
-            if (servicesSwiper.slideToLoop) {
-                servicesSwiper.slideToLoop(targetIndex, spinDuration);
-            } else {
-                servicesSwiper.slideTo(targetIndex, spinDuration);
-            }
-        } catch (e) {
-            // ignore
-        }
-
-        const returnDuration = Math.min(1400, 640 + momentumSlides * 25);
         clearServiceSpin();
         serviceSpin.active = true;
-        serviceSpin.returnTimer = setTimeout(() => {
-            if (!servicesSwiper) return;
-
-            try {
-                if (servicesSwiper.slideToLoop) {
-                    servicesSwiper.slideToLoop(serviceSpin.startRealIndex, returnDuration);
-                } else {
-                    servicesSwiper.slideTo(serviceSpin.startRealIndex, returnDuration);
-                }
-            } catch (e) {
-                // ignore
-            }
-
-            serviceSpin.active = false;
-            serviceSpin.returnTimer = null;
-        }, spinDuration + 120);
+        serviceSpin.momentumDirection = direction;
+        serviceSpin.momentumVelocity = velocity;
+        serviceSpin.momentumRatio = ratio;
+        serviceSpin.momentumSteps = slideCount;
+        serviceSpin.momentumStepIndex = 0;
+        serviceSpin.stepDurations = getMomentumDurations(slideCount, velocity, ratio);
+        serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), 40);
     }
 
     function pointerDownHandler(ev) {
