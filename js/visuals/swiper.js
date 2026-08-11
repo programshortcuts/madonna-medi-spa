@@ -70,8 +70,16 @@ export function initServicesSwiper() {
         on: {
             slideChangeTransitionEnd() {
 
-                // Always update the highlighted button
+                        // Always update the highlighted button
                 syncServiceButton(this);
+
+                // If we just finished the release transition, start the continuation roll.
+                if (serviceSpin.continuationPending) {
+                    serviceSpin.continuationPending = false;
+                    if (serviceSpin.momentumSteps > 0) {
+                        runServiceMomentumStep();
+                    }
+                }
 
                 // Don't focus the slide on page load
                 if (initialLoad) {
@@ -94,6 +102,7 @@ export function initServicesSwiper() {
         startX: 0,
         startTime: 0,
         releaseIndex: 0,
+        continuationPending: false,
         momentumTimer: null,
         momentumSteps: 0,
         momentumStepIndex: 0,
@@ -111,6 +120,7 @@ export function initServicesSwiper() {
         }
         serviceSpin.active = false;
         serviceSpin.releaseIndex = 0;
+        serviceSpin.continuationPending = false;
         serviceSpin.momentumSteps = 0;
         serviceSpin.momentumStepIndex = 0;
         serviceSpin.momentumVelocity = 0;
@@ -229,7 +239,7 @@ export function initServicesSwiper() {
             return;
         }
 
-        const direction = deltaX < 0 ? 1 : -1;
+        const direction = deltaX > 0 ? 1 : -1;
         const velocity = absDelta / duration;
         const releaseIndex = typeof servicesSwiper.realIndex === 'number'
             ? servicesSwiper.realIndex
@@ -238,6 +248,7 @@ export function initServicesSwiper() {
         clearServiceSpin();
         serviceSpin.active = true;
         serviceSpin.releaseIndex = releaseIndex;
+        serviceSpin.continuationPending = !!servicesSwiper.animating;
         serviceSpin.momentumDirection = direction;
         serviceSpin.momentumVelocity = velocity;
         serviceSpin.momentumRatio = ratio;
@@ -245,7 +256,11 @@ export function initServicesSwiper() {
         serviceSpin.momentumStepIndex = 0;
         serviceSpin.stepDurations = getMomentumDurations(2, velocity, ratio);
         serviceSpin.ignoreNextClick = true;
-        serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), 35);
+
+        if (!servicesSwiper.animating) {
+            serviceSpin.continuationPending = false;
+            serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), 35);
+        }
     }
 
     function pointerDownHandler(ev) {
