@@ -32,7 +32,7 @@ export function initServicesSwiper() {
     initDropDown()
     const el = document.querySelector('.services-swiper');
     if (!el || typeof Swiper === 'undefined') return;
-    const slides = el.querySelectorAll('.services-swiper .swiper-slide')
+    const slides = el.querySelectorAll('.services-swiper .swiper-slide:not(.swiper-slide-duplicate)')
     slides.forEach(el => {
         el.addEventListener('focusin', e => {
             const swiperWrapper = el.closest('.swiper-wrapper')
@@ -45,62 +45,73 @@ export function initServicesSwiper() {
     servicesSwiper = new Swiper(el, {
         loop: true,
         speed: 300,
-
+    
         centeredSlides: true,
-        // slidesPerView: window.innerWidth < 940 ? 5 : 4,
         slidesPerView: 'auto',
-
         spaceBetween: 0,
-
+    
         grabCursor: true,
         allowTouchMove: true,
-
+    
         threshold: 10,
         touchAngle: 25,
-
+    
         keyboard: {
             enabled: true,
             onlyInViewport: true
         },
-
+    
         autoplay: {
             delay: 3333,
             disableOnInteraction: true
         },
+    
         on: {
             slideChangeTransitionEnd() {
-
-                        // Always update the highlighted button
+    
                 syncServiceButton(this);
-
-                // If we just finished the release transition, start the continuation roll.
+    
                 if (serviceSpin.continuationPending) {
                     serviceSpin.continuationPending = false;
+    
                     if (serviceSpin.momentumSteps > 0) {
                         runServiceMomentumStep();
                     }
                 }
-
-                // Don't focus the slide on page load
+    
                 if (initialLoad) {
                     initialLoad = false;
                     return;
                 }
-
-                // Only focus after the user actually interacted
+    
                 if (!shouldFocusSlide) return;
-
+    
                 shouldFocusSlide = false;
-
+    
                 this.slides[this.activeIndex]?.focus();
             }
         }
     });
+    
+    
+    // ADD THIS HERE
+    const serviceSlideCount =
+        Math.max(
+            ...Array.from(servicesSwiper.slides)
+                .map(slide => Number(slide.dataset.swiperSlideIndex))
+                .filter(Number.isFinite)
+        ) + 1;
+    
+    
 
     let serviceSpin = {
         active: false,
         startX: 0,
         startTime: 0,
+    
+        // The slide that was active when the drag began.
+        startRealIndex: 0,
+    
         releaseIndex: 0,
         continuationPending: false,
         momentumTimer: null,
@@ -160,6 +171,62 @@ export function initServicesSwiper() {
         return ev && ev.target && ev.target.closest && ev.target.closest('button, a, input, textarea, select, [data-no-click]');
     }
 
+
+
+function getMomentumStepsToStart(currentIndex, startIndex, direction) {
+
+    if (!serviceSlideCount || serviceSlideCount <= 1) {
+        return 0;
+    }
+
+    let steps;
+
+    if (direction > 0) {
+
+        // Moving forward:
+        //
+        // Start:   2
+        // Current: 3
+        //
+        // 3 → 4 → 5 → 0 → 1 → 2
+        //
+        // Final slide is exactly the slide where we started.
+
+        steps =
+            (startIndex - currentIndex + serviceSlideCount)
+            % serviceSlideCount;
+
+    } else {
+
+        // Moving backward:
+        //
+        // Start:   2
+        // Current: 1
+        //
+        // 1 → 0 → 5 → 4 → 3 → 2
+        //
+        // Final slide is exactly the slide where we started.
+
+        steps =
+            (currentIndex - startIndex + serviceSlideCount)
+            % serviceSlideCount;
+    }
+
+    /*
+     * If we're already back on the starting slide,
+     * make one complete loop instead of stopping immediately.
+     *
+     * This gives the wheel-like "keeps rolling" effect.
+     */
+    if (steps === 0) {
+        steps = serviceSlideCount;
+    }
+
+    return steps;
+}
+
+
+
     function handleServiceGestureStart(clientX, ev) {
         if (isInteractiveTarget(ev)) return false;
         if (!servicesSwiper) return false;
@@ -179,40 +246,41 @@ export function initServicesSwiper() {
 function getMomentumDurations(steps, velocity, ratio) {
 
     /*
-     * DO NOT speed up the original Swiper transition.
+     * The normal Swiper drag remains completely untouched:
      *
-     * The normal drag remains:
      *     speed: 300
      *
-     * These durations are ONLY for the additional
-     * momentum slides after the user's release.
+     * These durations ONLY control the momentum AFTER
+     * the user's release.
      *
-     * Start around the normal 300ms speed, then
-     * progressively slow down.
+     * The first continuation is close to normal speed,
+     * then every slide progressively takes longer.
      */
 
     const durations = [];
 
     for (let i = 0; i < steps; i++) {
 
-        let duration;
+        /*
+         * Gradual deceleration.
+         *
+         * 0 = 300ms
+         * 1 = 400ms
+         * 2 = 525ms
+         * 3 = 675ms
+         * 4 = 850ms
+         * 5 = 1050ms
+         * etc.
+         *
+         * This gives the "wheel losing energy" effect.
+         */
 
-        if (i === 0) {
-            // First momentum slide = original Swiper speed
-            duration = 300;
-
-        } else if (i === 1) {
-            // Start slowing down
-            duration = 450;
-
-        } else if (i === 2) {
-            // Noticeably slower
-            duration = 650;
-
-        } else {
-            // If more than 3 are ever used
-            duration = 650 + ((i - 2) * 250);
-        }
+        const duration =
+            300 +
+            Math.round(
+                (i * i * 22) +
+                (i * 70)
+            );
 
         durations.push(duration);
     }
@@ -222,97 +290,56 @@ function getMomentumDurations(steps, velocity, ratio) {
 
 
 
+
     
 function runServiceMomentumStep() {
-
-    if (
-        !servicesSwiper ||
-        serviceSpin.momentumStepIndex >=
-            serviceSpin.momentumSteps
-    ) {
+    if (!servicesSwiper || serviceSpin.momentumStepIndex >= serviceSpin.momentumSteps) {
         clearServiceSpin();
         return;
     }
 
-    const durations =
-        serviceSpin.stepDurations ||
+    const durations = serviceSpin.stepDurations ||
         getMomentumDurations(
             serviceSpin.momentumSteps,
             serviceSpin.momentumVelocity,
             serviceSpin.momentumRatio
         );
 
-    const duration =
-        durations[
-            Math.min(
-                durations.length - 1,
-                serviceSpin.momentumStepIndex
-            )
-        ];
+    const duration = durations[
+        Math.min(durations.length - 1, serviceSpin.momentumStepIndex)
+    ];
 
-    /*
-     * ALWAYS get the slide that we are CURRENTLY on.
-     *
-     * This is what makes the momentum continue from
-     * wherever the normal drag actually stopped.
-     */
-    const currentIndex =
-        typeof servicesSwiper.realIndex === 'number'
-            ? servicesSwiper.realIndex
-            : servicesSwiper.activeIndex;
+    const padding =
+        serviceSpin.momentumStepIndex === serviceSpin.momentumSteps - 1
+            ? 120
+            : 40;
 
-    /*
-     * Move exactly ONE slide.
-     *
-     * The next call will read the new currentIndex
-     * and move one more slide.
-     */
+    // IMPORTANT:
+    // Continue from wherever Swiper actually is NOW.
+    const currentIndex = typeof servicesSwiper.realIndex === 'number'
+        ? servicesSwiper.realIndex
+        : servicesSwiper.activeIndex;
+
     const targetIndex =
-        currentIndex +
-        serviceSpin.momentumDirection;
+        currentIndex + serviceSpin.momentumDirection;
 
     try {
-
         if (servicesSwiper.slideToLoop) {
-
-            servicesSwiper.slideToLoop(
-                targetIndex,
-                duration
-            );
-
+            servicesSwiper.slideToLoop(targetIndex, duration);
         } else {
-
-            servicesSwiper.slideTo(
-                targetIndex,
-                duration
-            );
+            servicesSwiper.slideTo(targetIndex, duration);
         }
-
     } catch (e) {
-
         clearServiceSpin();
         return;
     }
 
-    serviceSpin.momentumStepIndex++;
+    serviceSpin.momentumStepIndex += 1;
 
-    /*
-     * Small pause between momentum slides.
-     *
-     * Slightly longer toward the end reinforces
-     * the gradual loss of momentum.
-     */
-    const padding =
-        serviceSpin.momentumStepIndex ===
-        serviceSpin.momentumSteps
-            ? 100
-            : 30;
-
-    serviceSpin.momentumTimer =
-        setTimeout(
-            () => runServiceMomentumStep(),
-            duration + padding
-        );
+    serviceSpin.momentumTimer = setTimeout(
+        () => runServiceMomentumStep(),
+        duration + padding
+    );
 }
 
 
@@ -363,25 +390,56 @@ function handleServiceGestureEnd(clientX, ev) {
     const direction =
         deltaX > 0 ? 1 : -1;
 
-    const velocity =
-        absDelta / duration;
+const velocity =
+    absDelta / duration;
 
-    /*
-     * IMPORTANT:
-     *
-     * We are NOT changing the normal Swiper speed.
-     *
-     * Swiper will finish its normal 300ms drag transition.
-     *
-     * Once that transition ends, slideChangeTransitionEnd()
-     * starts our additional momentum.
-     */
+clearServiceSpin();
 
-    const momentumSteps = 3;
+serviceSpin.active = true;
 
-    clearServiceSpin();
+serviceSpin.momentumDirection =
+    direction;
 
-    serviceSpin.active = true;
+serviceSpin.momentumVelocity =
+    velocity;
+
+serviceSpin.momentumRatio =
+    ratio;
+
+/*
+ * IMPORTANT:
+ *
+ * Get the slide where the NORMAL Swiper drag
+ * actually ended.
+ */
+const currentIndex =
+    typeof servicesSwiper.realIndex === 'number'
+        ? servicesSwiper.realIndex
+        : servicesSwiper.activeIndex;
+
+/*
+ * Calculate how many additional slides we need
+ * to travel in the SAME direction until we arrive
+ * back at the slide where the drag originally began.
+ */
+const momentumSteps = Math.min(
+    8,
+    Math.max(3, 3 + Math.round(ratio + velocity))
+);
+
+serviceSpin.momentumSteps =
+    momentumSteps;
+
+serviceSpin.momentumStepIndex =
+    0;
+
+serviceSpin.stepDurations =
+    getMomentumDurations(
+        momentumSteps,
+        velocity,
+        ratio
+    );
+
 
     serviceSpin.momentumDirection =
         direction;
