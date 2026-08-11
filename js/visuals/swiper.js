@@ -93,7 +93,7 @@ export function initServicesSwiper() {
         active: false,
         startX: 0,
         startTime: 0,
-        startRealIndex: 0,
+        releaseIndex: 0,
         momentumTimer: null,
         momentumSteps: 0,
         momentumStepIndex: 0,
@@ -101,6 +101,7 @@ export function initServicesSwiper() {
         momentumVelocity: 0,
         momentumRatio: 0,
         stepDurations: null,
+        ignoreNextClick: false,
     };
 
     function clearServiceSpin() {
@@ -109,11 +110,13 @@ export function initServicesSwiper() {
             serviceSpin.momentumTimer = null;
         }
         serviceSpin.active = false;
+        serviceSpin.releaseIndex = 0;
         serviceSpin.momentumSteps = 0;
         serviceSpin.momentumStepIndex = 0;
         serviceSpin.momentumVelocity = 0;
         serviceSpin.momentumRatio = 0;
         serviceSpin.stepDurations = null;
+        serviceSpin.ignoreNextClick = false;
     }
 
     function stopServiceMotion() {
@@ -163,17 +166,23 @@ export function initServicesSwiper() {
     }
 
     function getMomentumDurations(steps, velocity, ratio) {
-        const base = 180;
-        const offset = Math.min(1.4, velocity * 0.85 + ratio * 0.4);
-        const durations = [];
+        const baseFirst = 220;
+        const baseSecond = 520;
+        const velocityBoost = Math.round(Math.min(1.2, velocity * 0.9 + ratio * 0.3) * 90);
 
-        for (let i = 0; i < steps; i++) {
-            const extra = i === 0 ? 0 : i * 140;
-            const velocityBoost = Math.round(offset * 90);
-            const stepDuration = Math.round(base + extra + velocityBoost + i * 50);
-            durations.push(stepDuration);
+        if (steps === 2) {
+            return [
+                Math.max(200, baseFirst + velocityBoost),
+                Math.max(500, baseSecond + Math.round(velocityBoost * 0.6)),
+            ];
         }
 
+        const durations = [];
+        for (let i = 0; i < steps; i++) {
+            const factor = i === 0 ? 1 : 1 + i * 0.6;
+            const stepDuration = Math.round(baseFirst * factor + velocityBoost + i * 40);
+            durations.push(stepDuration);
+        }
         return durations;
     }
 
@@ -185,14 +194,15 @@ export function initServicesSwiper() {
 
         const durations = serviceSpin.stepDurations || getMomentumDurations(serviceSpin.momentumSteps, serviceSpin.momentumVelocity, serviceSpin.momentumRatio);
         const duration = durations[Math.min(durations.length - 1, serviceSpin.momentumStepIndex)];
-        const stepIsLast = serviceSpin.momentumStepIndex === serviceSpin.momentumSteps - 1;
-        const padding = stepIsLast ? 120 : 40;
+        const padding = serviceSpin.momentumStepIndex === serviceSpin.momentumSteps - 1 ? 120 : 40;
+
+        const targetIndex = serviceSpin.releaseIndex + serviceSpin.momentumDirection * (serviceSpin.momentumStepIndex + 1);
 
         try {
-            if (serviceSpin.momentumDirection === 1) {
-                servicesSwiper.slideNext(duration);
+            if (servicesSwiper.slideToLoop) {
+                servicesSwiper.slideToLoop(targetIndex, duration);
             } else {
-                servicesSwiper.slidePrev(duration);
+                servicesSwiper.slideTo(targetIndex, duration);
             }
         } catch (e) {
             clearServiceSpin();
@@ -221,17 +231,21 @@ export function initServicesSwiper() {
 
         const direction = deltaX < 0 ? 1 : -1;
         const velocity = absDelta / duration;
-        const slideCount = Math.max(2, Math.min(4, Math.round(2 + ratio * 1.2 + velocity * 1.5)));
+        const releaseIndex = typeof servicesSwiper.realIndex === 'number'
+            ? servicesSwiper.realIndex
+            : servicesSwiper.activeIndex;
 
         clearServiceSpin();
         serviceSpin.active = true;
+        serviceSpin.releaseIndex = releaseIndex;
         serviceSpin.momentumDirection = direction;
         serviceSpin.momentumVelocity = velocity;
         serviceSpin.momentumRatio = ratio;
-        serviceSpin.momentumSteps = slideCount;
+        serviceSpin.momentumSteps = 2;
         serviceSpin.momentumStepIndex = 0;
-        serviceSpin.stepDurations = getMomentumDurations(slideCount, velocity, ratio);
-        serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), 40);
+        serviceSpin.stepDurations = getMomentumDurations(2, velocity, ratio);
+        serviceSpin.ignoreNextClick = true;
+        serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), 35);
     }
 
     function pointerDownHandler(ev) {
@@ -264,7 +278,11 @@ export function initServicesSwiper() {
 
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
-        cancelServiceSpin();
+        if (serviceSpin.ignoreNextClick) {
+            serviceSpin.ignoreNextClick = false;
+        } else {
+            cancelServiceSpin();
+        }
 
         const target = e.target instanceof Element ? e.target : e.target.parentElement;
         const slide = target?.closest('.swiper-slide');
