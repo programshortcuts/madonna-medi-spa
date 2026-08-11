@@ -245,6 +245,9 @@ export function initServicesSwiper() {
             ? servicesSwiper.realIndex
             : servicesSwiper.activeIndex;
 
+        const computedMomentumSteps = Math.round(2 + ratio * 5 + velocity * 3);
+        const momentumSteps = Math.min(10, Math.max(2, computedMomentumSteps));
+
         clearServiceSpin();
         serviceSpin.active = true;
         serviceSpin.releaseIndex = releaseIndex;
@@ -252,9 +255,9 @@ export function initServicesSwiper() {
         serviceSpin.momentumDirection = direction;
         serviceSpin.momentumVelocity = velocity;
         serviceSpin.momentumRatio = ratio;
-        serviceSpin.momentumSteps = 2;
+        serviceSpin.momentumSteps = momentumSteps;
         serviceSpin.momentumStepIndex = 0;
-        serviceSpin.stepDurations = getMomentumDurations(2, velocity, ratio);
+        serviceSpin.stepDurations = getMomentumDurations(momentumSteps, velocity, ratio);
         serviceSpin.ignoreNextClick = true;
 
         if (!servicesSwiper.animating) {
