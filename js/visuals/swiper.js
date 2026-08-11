@@ -26,145 +26,6 @@ export function initReviewsSwiper() {
         }
     });
 
-    // --- Wheel-like spin handling (mobile & mouse) for Services Swiper ---
-    (function attachServicesWheelHandlers() {
-        const swiperEl = el;
-        if (!swiperEl) return;
-
-        let isDown = false;
-        let startX = 0;
-        let startTime = 0;
-        let spinning = false;
-        let spinTimers = [];
-
-        function clearSpinTimers() {
-            spinTimers.forEach(id => clearTimeout(id));
-            spinTimers = [];
-            spinning = false;
-        }
-
-        function scheduleSpin(direction, slides, ratio) {
-            clearSpinTimers();
-            spinning = true;
-            const initialDelay = Math.max(60, 220 - Math.round(ratio * 200));
-            const decay = 80;
-            let cumulative = 0;
-
-            for (let i = 0; i < slides; i++) {
-                ((i) => {
-                    const delay = initialDelay + i * decay;
-                    const timer = setTimeout(() => {
-                        try {
-                            if (direction === 1) servicesSwiper.slideNext(300);
-                            else servicesSwiper.slidePrev(300);
-                        } catch (e) {}
-                        // last step cleanup
-                        if (i === slides - 1) {
-                            spinning = false;
-                        }
-                    }, cumulative);
-                    spinTimers.push(timer);
-                })(i);
-                cumulative += initialDelay + i * decay;
-            }
-        }
-
-        function onDown(clientX, ev) {
-            // ignore interactive starts
-            const interactive = ev && ev.target && ev.target.closest && ev.target.closest('button, a, input, textarea, select, [data-no-click]');
-            if (interactive) return false;
-            isDown = true;
-            startX = clientX;
-            startTime = (ev && ev.timeStamp) || Date.now();
-            try { servicesSwiper.allowTouchMove = false; } catch (e) {}
-            return true;
-        }
-
-        function onMove(clientX) {
-            if (!isDown) return;
-            const delta = clientX - startX;
-            const abs = Math.abs(delta);
-            const width = swiperEl.clientWidth || swiperEl.getBoundingClientRect().width || 1;
-            const ratio = abs / width;
-
-            // Live-spin start when passing 20% of width
-            if (!spinning && ratio >= 0.20) {
-                const durationMs = Math.max(1, Date.now() - startTime);
-                const velocity = abs / durationMs;
-                const slides = Math.max(3, Math.min(20, Math.round(ratio * 12 + velocity * 40)));
-                const direction = delta < 0 ? 1 : -1; // left drag -> next
-                scheduleSpin(direction, slides, ratio);
-            }
-        }
-
-        function onUp(clientX, ev) {
-            if (!isDown) return;
-            isDown = false;
-            try { servicesSwiper.allowTouchMove = true; } catch (e) {}
-
-            const delta = clientX - startX;
-            const abs = Math.abs(delta);
-            const width = swiperEl.clientWidth || swiperEl.getBoundingClientRect().width || 1;
-            const ratio = abs / width;
-            const durationMs = Math.max(1, (ev && ev.timeStamp ? ev.timeStamp : Date.now()) - startTime);
-
-            // If we already started spinning, let the scheduled spin continue (optionally extend it)
-            if (spinning) {
-                // extend a bit based on release velocity
-                const velocity = abs / durationMs;
-                const extra = Math.max(0, Math.round(velocity * 10));
-                if (extra > 0) {
-                    // schedule small extra burst
-                    const direction = delta < 0 ? 1 : -1;
-                    scheduleSpin(direction, extra, Math.min(1, ratio));
-                }
-                return;
-            }
-
-            // Not spinning yet: treat small swipe (<20%) as single slide
-            if (ratio < 0.20) {
-                if (delta < 0) servicesSwiper.slideNext(300);
-                else servicesSwiper.slidePrev(300);
-                return;
-            }
-
-            // Large release without live-spin: perform momentum slideTo
-            const velocity = abs / durationMs;
-            const baseSlides = Math.min(40, Math.round(ratio * 12));
-            const velocitySlides = Math.round(velocity * 40);
-            const slidesToMove = Math.max(1, Math.min(80, baseSlides + velocitySlides));
-            const direction = delta < 0 ? 1 : -1;
-            const currentIndex = typeof servicesSwiper.realIndex === 'number' ? servicesSwiper.realIndex : servicesSwiper.activeIndex;
-            const targetIndex = (currentIndex || 0) + direction * slidesToMove;
-            const animDuration = Math.min(4000, 350 + slidesToMove * 120);
-            if (typeof servicesSwiper.slideToLoop === 'function') {
-                servicesSwiper.slideToLoop(targetIndex, animDuration);
-            } else {
-                servicesSwiper.slideTo(targetIndex, animDuration);
-            }
-        }
-
-        // Pointer handlers
-        swiperEl.addEventListener('pointerdown', (ev) => onDown(ev.clientX, ev));
-        swiperEl.addEventListener('pointermove', (ev) => onMove(ev.clientX));
-        swiperEl.addEventListener('pointerup', (ev) => onUp(ev.clientX, ev));
-        swiperEl.addEventListener('pointercancel', (ev) => onUp(ev.clientX, ev));
-
-        // Touch fallback for older browsers
-        swiperEl.addEventListener('touchstart', (ev) => {
-            const t = ev.touches && ev.touches[0];
-            if (t) onDown(t.clientX, ev);
-        }, { passive: true });
-        swiperEl.addEventListener('touchmove', (ev) => {
-            const t = ev.touches && ev.touches[0];
-            if (t) onMove(t.clientX);
-        }, { passive: true });
-        swiperEl.addEventListener('touchend', (ev) => {
-            const t = ev.changedTouches && ev.changedTouches[0];
-            onUp(t ? t.clientX : 0, ev);
-        });
-    })();
-    
 }
 
 export function initServicesSwiper() {
@@ -197,7 +58,6 @@ export function initServicesSwiper() {
         threshold: 10,
         touchAngle: 25,
 
-
         keyboard: {
             enabled: true,
             onlyInViewport: true
@@ -208,29 +68,178 @@ export function initServicesSwiper() {
             disableOnInteraction: true
         },
         on: {
-        slideChangeTransitionEnd() {
+            slideChangeTransitionEnd() {
 
-            // Always update the highlighted button
-            syncServiceButton(this);
+                // Always update the highlighted button
+                syncServiceButton(this);
 
-            // Don't focus the slide on page load
-            if (initialLoad) {
-                initialLoad = false;
-                return;
+                // Don't focus the slide on page load
+                if (initialLoad) {
+                    initialLoad = false;
+                    return;
+                }
+
+                // Only focus after the user actually interacted
+                if (!shouldFocusSlide) return;
+
+                shouldFocusSlide = false;
+
+                this.slides[this.activeIndex]?.focus();
             }
+        }
+    });
 
-            // Only focus after the user actually interacted
-            if (!shouldFocusSlide) return;
+    let serviceSpin = {
+        active: false,
+        startX: 0,
+        startTime: 0,
+        startRealIndex: 0,
+        returnTimer: null,
+        cancelTimer: null,
+    };
 
-            shouldFocusSlide = false;
+    function clearServiceSpin() {
+        if (serviceSpin.returnTimer) {
+            clearTimeout(serviceSpin.returnTimer);
+            serviceSpin.returnTimer = null;
+        }
+        if (serviceSpin.cancelTimer) {
+            clearTimeout(serviceSpin.cancelTimer);
+            serviceSpin.cancelTimer = null;
+        }
+        serviceSpin.active = false;
+    }
 
-            this.slides[this.activeIndex]?.focus();
+    function stopServiceMotion() {
+        if (!servicesSwiper) return;
+        if (servicesSwiper.animating) {
+            try {
+                const current = typeof servicesSwiper.realIndex === 'number'
+                    ? servicesSwiper.realIndex
+                    : servicesSwiper.activeIndex;
+                if (servicesSwiper.slideToLoop) {
+                    servicesSwiper.slideToLoop(current, 0);
+                } else {
+                    servicesSwiper.slideTo(current, 0);
+                }
+            } catch (e) {
+                // ignore
+            }
+        }
+        clearServiceSpin();
+    }
+
+    function cancelServiceSpin() {
+        clearServiceSpin();
+        if (servicesSwiper && servicesSwiper.autoplay) {
+            try { servicesSwiper.autoplay.stop(); } catch (e) {}
         }
     }
-    });
+
+    function isInteractiveTarget(ev) {
+        return ev && ev.target && ev.target.closest && ev.target.closest('button, a, input, textarea, select, [data-no-click]');
+    }
+
+    function handleServiceGestureStart(clientX, ev) {
+        if (isInteractiveTarget(ev)) return false;
+        if (!servicesSwiper) return false;
+
+        serviceSpin.active = true;
+        serviceSpin.startX = clientX;
+        serviceSpin.startTime = (ev && ev.timeStamp) || Date.now();
+        serviceSpin.startRealIndex = typeof servicesSwiper.realIndex === 'number'
+            ? servicesSwiper.realIndex
+            : servicesSwiper.activeIndex;
+
+        stopServiceMotion();
+        return true;
+    }
+
+    function handleServiceGestureEnd(clientX, ev) {
+        if (!serviceSpin.active || !servicesSwiper) return;
+        serviceSpin.active = false;
+
+        const endTime = (ev && ev.timeStamp) || Date.now();
+        const deltaX = clientX - serviceSpin.startX;
+        const absDelta = Math.abs(deltaX);
+        const width = el.clientWidth || el.getBoundingClientRect().width || 1;
+        const ratio = absDelta / width;
+        const duration = Math.max(1, endTime - serviceSpin.startTime);
+
+        const isLargeSwipe = ratio >= 0.20 && duration > 80;
+        if (!isLargeSwipe) {
+            return;
+        }
+
+        const direction = deltaX < 0 ? 1 : -1;
+        const velocity = absDelta / duration;
+        const momentumSlides = Math.max(4, Math.min(40, Math.round(ratio * 18 + velocity * 24)));
+        const targetIndex = serviceSpin.startRealIndex + direction * momentumSlides;
+        const spinDuration = Math.min(2600, 360 + momentumSlides * 90);
+
+        try {
+            if (servicesSwiper.slideToLoop) {
+                servicesSwiper.slideToLoop(targetIndex, spinDuration);
+            } else {
+                servicesSwiper.slideTo(targetIndex, spinDuration);
+            }
+        } catch (e) {
+            // ignore
+        }
+
+        const returnDuration = Math.min(1400, 640 + momentumSlides * 25);
+        clearServiceSpin();
+        serviceSpin.active = true;
+        serviceSpin.returnTimer = setTimeout(() => {
+            if (!servicesSwiper) return;
+
+            try {
+                if (servicesSwiper.slideToLoop) {
+                    servicesSwiper.slideToLoop(serviceSpin.startRealIndex, returnDuration);
+                } else {
+                    servicesSwiper.slideTo(serviceSpin.startRealIndex, returnDuration);
+                }
+            } catch (e) {
+                // ignore
+            }
+
+            serviceSpin.active = false;
+            serviceSpin.returnTimer = null;
+        }, spinDuration + 120);
+    }
+
+    function pointerDownHandler(ev) {
+        stopServiceMotion();
+        handleServiceGestureStart(ev.clientX, ev);
+    }
+
+    function pointerUpHandler(ev) {
+        handleServiceGestureEnd(ev.clientX, ev);
+    }
+
+    function touchStartHandler(ev) {
+        stopServiceMotion();
+        const touch = ev.touches && ev.touches[0];
+        if (touch) handleServiceGestureStart(touch.clientX, ev);
+    }
+
+    function touchEndHandler(ev) {
+        const touch = ev.changedTouches && ev.changedTouches[0];
+        handleServiceGestureEnd(touch ? touch.clientX : 0, ev);
+    }
+
+    el.addEventListener('pointerdown', pointerDownHandler);
+    el.addEventListener('pointerup', pointerUpHandler);
+    el.addEventListener('pointercancel', pointerUpHandler);
+    el.addEventListener('pointerleave', pointerUpHandler);
+    el.addEventListener('touchstart', touchStartHandler, { passive: true });
+    el.addEventListener('touchend', touchEndHandler);
+    el.addEventListener('touchcancel', touchEndHandler);
 
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
+        cancelServiceSpin();
+
         const target = e.target instanceof Element ? e.target : e.target.parentElement;
         const slide = target?.closest('.swiper-slide');
         if (!slide) return;
