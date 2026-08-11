@@ -2,6 +2,7 @@
 let reviewsSwiper = null;
 let clickedServiceSlide = null;
 export let servicesSwiper = null;
+import { initDropDown } from "../ui/drop-down.js";
     
 export function initReviewsSwiper() {
     const el = document.querySelector('.reviews-swiper');
@@ -24,6 +25,88 @@ export function initReviewsSwiper() {
             disableOnInteraction: false
         }
     });
+
+    // --- Custom wheel-like spin touch/mouse handling for Services Swiper ---
+    (function attachWheelSpinHandlers() {
+        const swiperEl = el;
+        if (!swiperEl) return;
+
+        let isPointerDown = false;
+        let startX = 0;
+        let lastX = 0;
+        let startTime = 0;
+
+        function onPointerDown(ev) {
+            // Ignore gestures that originate on interactive elements
+            const interactiveTarget = ev.target && ev.target.closest && ev.target.closest('button, a, input, textarea, select, [data-no-click]');
+            if (interactiveTarget) return;
+
+            // Only allow primary mouse button for mouse pointers
+            if (ev.pointerType === 'mouse' && ev.button !== 0) return;
+
+            isPointerDown = true;
+            startX = ev.clientX;
+            lastX = startX;
+            startTime = ev.timeStamp || Date.now();
+            try { swiperEl.setPointerCapture && swiperEl.setPointerCapture(ev.pointerId); } catch (e) {}
+            // Temporarily disable Swiper's native touch move so we can decide behavior
+            try { servicesSwiper.allowTouchMove = false; } catch (e) {}
+        }
+
+        function onPointerMove(ev) {
+            if (!isPointerDown) return;
+            lastX = ev.clientX;
+        }
+
+        function onPointerUp(ev) {
+            if (!isPointerDown) return;
+            isPointerDown = false;
+            try { swiperEl.releasePointerCapture && swiperEl.releasePointerCapture(ev.pointerId); } catch (e) {}
+
+            const endX = ev.clientX;
+            const deltaX = endX - startX;
+            const absDist = Math.abs(deltaX);
+            const width = swiperEl.clientWidth || swiperEl.getBoundingClientRect().width || 1;
+            const ratio = absDist / width;
+            const durationMs = Math.max(1, (ev.timeStamp || Date.now()) - startTime);
+
+            // Re-enable Swiper's touch handling now
+            try { servicesSwiper.allowTouchMove = true; } catch (e) {}
+
+            // Small swipe: less than 25% => exactly one slide
+            if (ratio < 0.25) {
+                if (deltaX < 0) {
+                    servicesSwiper.slideNext(300);
+                } else {
+                    servicesSwiper.slidePrev(300);
+                }
+                return;
+            }
+
+            // Large swipe: compute momentum-driven slides to move
+            const velocity = absDist / durationMs; // px per ms
+            const baseSlides = Math.min(50, Math.round(ratio * 12));
+            const velocitySlides = Math.round(velocity * 50);
+            const slidesToMove = Math.max(1, Math.min(80, baseSlides + velocitySlides));
+
+            const direction = deltaX < 0 ? 1 : -1; // left drag -> advance left
+            const currentIndex = typeof servicesSwiper.realIndex === 'number' ? servicesSwiper.realIndex : servicesSwiper.activeIndex;
+            const targetIndex = (currentIndex || 0) + direction * slidesToMove;
+
+            const animDuration = Math.min(4000, 350 + slidesToMove * 120);
+
+            if (typeof servicesSwiper.slideToLoop === 'function') {
+                servicesSwiper.slideToLoop(targetIndex, animDuration);
+            } else {
+                servicesSwiper.slideTo(targetIndex, animDuration);
+            }
+        }
+
+        swiperEl.addEventListener('pointerdown', onPointerDown);
+        swiperEl.addEventListener('pointermove', onPointerMove);
+        swiperEl.addEventListener('pointerup', onPointerUp);
+        swiperEl.addEventListener('pointercancel', onPointerUp);
+    })();
 }
 
 export function initServicesSwiper() {
