@@ -25,6 +25,145 @@ export function initReviewsSwiper() {
             disableOnInteraction: false
         }
     });
+
+    // --- Wheel-like spin handling (mobile & mouse) for Services Swiper ---
+    (function attachServicesWheelHandlers() {
+        const swiperEl = el;
+        if (!swiperEl) return;
+
+        let isDown = false;
+        let startX = 0;
+        let startTime = 0;
+        let spinning = false;
+        let spinTimers = [];
+
+        function clearSpinTimers() {
+            spinTimers.forEach(id => clearTimeout(id));
+            spinTimers = [];
+            spinning = false;
+        }
+
+        function scheduleSpin(direction, slides, ratio) {
+            clearSpinTimers();
+            spinning = true;
+            const initialDelay = Math.max(60, 220 - Math.round(ratio * 200));
+            const decay = 80;
+            let cumulative = 0;
+
+            for (let i = 0; i < slides; i++) {
+                ((i) => {
+                    const delay = initialDelay + i * decay;
+                    const timer = setTimeout(() => {
+                        try {
+                            if (direction === 1) servicesSwiper.slideNext(300);
+                            else servicesSwiper.slidePrev(300);
+                        } catch (e) {}
+                        // last step cleanup
+                        if (i === slides - 1) {
+                            spinning = false;
+                        }
+                    }, cumulative);
+                    spinTimers.push(timer);
+                })(i);
+                cumulative += initialDelay + i * decay;
+            }
+        }
+
+        function onDown(clientX, ev) {
+            // ignore interactive starts
+            const interactive = ev && ev.target && ev.target.closest && ev.target.closest('button, a, input, textarea, select, [data-no-click]');
+            if (interactive) return false;
+            isDown = true;
+            startX = clientX;
+            startTime = (ev && ev.timeStamp) || Date.now();
+            try { servicesSwiper.allowTouchMove = false; } catch (e) {}
+            return true;
+        }
+
+        function onMove(clientX) {
+            if (!isDown) return;
+            const delta = clientX - startX;
+            const abs = Math.abs(delta);
+            const width = swiperEl.clientWidth || swiperEl.getBoundingClientRect().width || 1;
+            const ratio = abs / width;
+
+            // Live-spin start when passing 20% of width
+            if (!spinning && ratio >= 0.20) {
+                const durationMs = Math.max(1, Date.now() - startTime);
+                const velocity = abs / durationMs;
+                const slides = Math.max(3, Math.min(20, Math.round(ratio * 12 + velocity * 40)));
+                const direction = delta < 0 ? 1 : -1; // left drag -> next
+                scheduleSpin(direction, slides, ratio);
+            }
+        }
+
+        function onUp(clientX, ev) {
+            if (!isDown) return;
+            isDown = false;
+            try { servicesSwiper.allowTouchMove = true; } catch (e) {}
+
+            const delta = clientX - startX;
+            const abs = Math.abs(delta);
+            const width = swiperEl.clientWidth || swiperEl.getBoundingClientRect().width || 1;
+            const ratio = abs / width;
+            const durationMs = Math.max(1, (ev && ev.timeStamp ? ev.timeStamp : Date.now()) - startTime);
+
+            // If we already started spinning, let the scheduled spin continue (optionally extend it)
+            if (spinning) {
+                // extend a bit based on release velocity
+                const velocity = abs / durationMs;
+                const extra = Math.max(0, Math.round(velocity * 10));
+                if (extra > 0) {
+                    // schedule small extra burst
+                    const direction = delta < 0 ? 1 : -1;
+                    scheduleSpin(direction, extra, Math.min(1, ratio));
+                }
+                return;
+            }
+
+            // Not spinning yet: treat small swipe (<20%) as single slide
+            if (ratio < 0.20) {
+                if (delta < 0) servicesSwiper.slideNext(300);
+                else servicesSwiper.slidePrev(300);
+                return;
+            }
+
+            // Large release without live-spin: perform momentum slideTo
+            const velocity = abs / durationMs;
+            const baseSlides = Math.min(40, Math.round(ratio * 12));
+            const velocitySlides = Math.round(velocity * 40);
+            const slidesToMove = Math.max(1, Math.min(80, baseSlides + velocitySlides));
+            const direction = delta < 0 ? 1 : -1;
+            const currentIndex = typeof servicesSwiper.realIndex === 'number' ? servicesSwiper.realIndex : servicesSwiper.activeIndex;
+            const targetIndex = (currentIndex || 0) + direction * slidesToMove;
+            const animDuration = Math.min(4000, 350 + slidesToMove * 120);
+            if (typeof servicesSwiper.slideToLoop === 'function') {
+                servicesSwiper.slideToLoop(targetIndex, animDuration);
+            } else {
+                servicesSwiper.slideTo(targetIndex, animDuration);
+            }
+        }
+
+        // Pointer handlers
+        swiperEl.addEventListener('pointerdown', (ev) => onDown(ev.clientX, ev));
+        swiperEl.addEventListener('pointermove', (ev) => onMove(ev.clientX));
+        swiperEl.addEventListener('pointerup', (ev) => onUp(ev.clientX, ev));
+        swiperEl.addEventListener('pointercancel', (ev) => onUp(ev.clientX, ev));
+
+        // Touch fallback for older browsers
+        swiperEl.addEventListener('touchstart', (ev) => {
+            const t = ev.touches && ev.touches[0];
+            if (t) onDown(t.clientX, ev);
+        }, { passive: true });
+        swiperEl.addEventListener('touchmove', (ev) => {
+            const t = ev.touches && ev.touches[0];
+            if (t) onMove(t.clientX);
+        }, { passive: true });
+        swiperEl.addEventListener('touchend', (ev) => {
+            const t = ev.changedTouches && ev.changedTouches[0];
+            onUp(t ? t.clientX : 0, ev);
+        });
+    })();
     
 }
 
