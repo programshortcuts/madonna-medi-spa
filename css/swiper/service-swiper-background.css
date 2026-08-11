@@ -21,26 +21,26 @@
     background-position-y: -20% !important;
 }
 #botoxFillerServiceHome{
-    
+    /* background: url('../../pages/imgs/03-.png'); */
     background-repeat:  no-repeat !important;
-    background-size: 100%;
+    background-size: 80%;
     background-position-x: 60%;
     background-position-y: 60%;
     filter: grayscale(30%);
+}
+#glp-1ServiceHome{
+    background: url('../../pages/imgs/glp-service-slide.png');
+    background-repeat:    no-repeat !important;
+    /* background-size: 200px 200px; */
+    background-position-x: -50% !important;
+    background-position-y: 10% !important;
+    background-size: 98% !important;
 }
 #peptidesServiceHome{
     background: url('../../imgs/ai-imgs/peptide-header-wide.png') 
     center/cover no-repeat !important;
     background-position-y: 20% !important;
     
-}
-#glp-1ServiceHome{
-    background: url('../../imgs/ai-imgs/glp-1-serv-header.png') 
-    no-repeat !important;
-    /* background-size: 200px 200px; */
-    background-position-x: -50% !important;
-    background-position-y: 50% !important;
-    background-size: 98% !important;
 }
 #infraRedServiceHome{
     background: url('../../imgs/ai-imgs/infrared-therapy.png') center/cover no-repeat !important;

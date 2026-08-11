@@ -34,7 +34,7 @@ export function initServicesSwiper() {
     slides.forEach(el => {
         el.addEventListener('focusin', e => {
             const swiperWrapper = el.closest('.swiper-wrapper')
-            swiperWrapper.scrollIntoView({behavior:'instant', block:'nearest', inline: 'nearest'})
+            swiperWrapper.scrollIntoView({behavior:'instant', block:'nearest', inline: 'start'})
         })
     })
     if (servicesSwiper) servicesSwiper.destroy(true, true);
