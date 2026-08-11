@@ -106,7 +106,7 @@ export function initServicesSwiper() {
         momentumTimer: null,
         momentumSteps: 0,
         momentumStepIndex: 0,
-        momentumDirection: 1,
+        momentumDirection: 4,
         momentumVelocity: 0,
         momentumRatio: 0,
         stepDurations: null,
@@ -175,96 +175,283 @@ export function initServicesSwiper() {
         return true;
     }
 
-    function getMomentumDurations(steps, velocity, ratio) {
-        const baseFirst = 220;
-        const baseSecond = 520;
-        const velocityBoost = Math.round(Math.min(1.2, velocity * 0.9 + ratio * 0.3) * 90);
 
-        if (steps === 2) {
-            return [
-                Math.max(200, baseFirst + velocityBoost),
-                Math.max(500, baseSecond + Math.round(velocityBoost * 0.6)),
-            ];
+function getMomentumDurations(steps, velocity, ratio) {
+
+    /*
+     * DO NOT speed up the original Swiper transition.
+     *
+     * The normal drag remains:
+     *     speed: 300
+     *
+     * These durations are ONLY for the additional
+     * momentum slides after the user's release.
+     *
+     * Start around the normal 300ms speed, then
+     * progressively slow down.
+     */
+
+    const durations = [];
+
+    for (let i = 0; i < steps; i++) {
+
+        let duration;
+
+        if (i === 0) {
+            // First momentum slide = original Swiper speed
+            duration = 300;
+
+        } else if (i === 1) {
+            // Start slowing down
+            duration = 450;
+
+        } else if (i === 2) {
+            // Noticeably slower
+            duration = 650;
+
+        } else {
+            // If more than 3 are ever used
+            duration = 650 + ((i - 2) * 250);
         }
 
-        const durations = [];
-        for (let i = 0; i < steps; i++) {
-            const factor = i === 0 ? 1 : 1 + i * 0.6;
-            const stepDuration = Math.round(baseFirst * factor + velocityBoost + i * 40);
-            durations.push(stepDuration);
-        }
-        return durations;
+        durations.push(duration);
     }
 
-    function runServiceMomentumStep() {
-        if (!servicesSwiper || serviceSpin.momentumStepIndex >= serviceSpin.momentumSteps) {
-            clearServiceSpin();
-            return;
-        }
+    return durations;
+}
 
-        const durations = serviceSpin.stepDurations || getMomentumDurations(serviceSpin.momentumSteps, serviceSpin.momentumVelocity, serviceSpin.momentumRatio);
-        const duration = durations[Math.min(durations.length - 1, serviceSpin.momentumStepIndex)];
-        const padding = serviceSpin.momentumStepIndex === serviceSpin.momentumSteps - 1 ? 120 : 40;
 
-        const targetIndex = serviceSpin.releaseIndex + serviceSpin.momentumDirection * (serviceSpin.momentumStepIndex + 1);
 
-        try {
-            if (servicesSwiper.slideToLoop) {
-                servicesSwiper.slideToLoop(targetIndex, duration);
-            } else {
-                servicesSwiper.slideTo(targetIndex, duration);
-            }
-        } catch (e) {
-            clearServiceSpin();
-            return;
-        }
+    
+function runServiceMomentumStep() {
 
-        serviceSpin.momentumStepIndex += 1;
-        serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), duration + padding);
+    if (
+        !servicesSwiper ||
+        serviceSpin.momentumStepIndex >=
+            serviceSpin.momentumSteps
+    ) {
+        clearServiceSpin();
+        return;
     }
 
-    function handleServiceGestureEnd(clientX, ev) {
-        if (!serviceSpin.active || !servicesSwiper) return;
-        serviceSpin.active = false;
+    const durations =
+        serviceSpin.stepDurations ||
+        getMomentumDurations(
+            serviceSpin.momentumSteps,
+            serviceSpin.momentumVelocity,
+            serviceSpin.momentumRatio
+        );
 
-        const endTime = (ev && ev.timeStamp) || Date.now();
-        const deltaX = clientX - serviceSpin.startX;
-        const absDelta = Math.abs(deltaX);
-        const width = el.clientWidth || el.getBoundingClientRect().width || 1;
-        const ratio = absDelta / width;
-        const duration = Math.max(1, endTime - serviceSpin.startTime);
+    const duration =
+        durations[
+            Math.min(
+                durations.length - 1,
+                serviceSpin.momentumStepIndex
+            )
+        ];
 
-        const isLargeSwipe = ratio >= 0.20 && duration > 80;
-        if (!isLargeSwipe) {
-            return;
-        }
-
-        const direction = deltaX > 0 ? 1 : -1;
-        const velocity = absDelta / duration;
-        const releaseIndex = typeof servicesSwiper.realIndex === 'number'
+    /*
+     * ALWAYS get the slide that we are CURRENTLY on.
+     *
+     * This is what makes the momentum continue from
+     * wherever the normal drag actually stopped.
+     */
+    const currentIndex =
+        typeof servicesSwiper.realIndex === 'number'
             ? servicesSwiper.realIndex
             : servicesSwiper.activeIndex;
 
-        const computedMomentumSteps = Math.round(2 + ratio * 5 + velocity * 3);
-        const momentumSteps = Math.min(10, Math.max(2, computedMomentumSteps));
+    /*
+     * Move exactly ONE slide.
+     *
+     * The next call will read the new currentIndex
+     * and move one more slide.
+     */
+    const targetIndex =
+        currentIndex +
+        serviceSpin.momentumDirection;
+
+    try {
+
+        if (servicesSwiper.slideToLoop) {
+
+            servicesSwiper.slideToLoop(
+                targetIndex,
+                duration
+            );
+
+        } else {
+
+            servicesSwiper.slideTo(
+                targetIndex,
+                duration
+            );
+        }
+
+    } catch (e) {
 
         clearServiceSpin();
-        serviceSpin.active = true;
-        serviceSpin.releaseIndex = releaseIndex;
-        serviceSpin.continuationPending = !!servicesSwiper.animating;
-        serviceSpin.momentumDirection = direction;
-        serviceSpin.momentumVelocity = velocity;
-        serviceSpin.momentumRatio = ratio;
-        serviceSpin.momentumSteps = momentumSteps;
-        serviceSpin.momentumStepIndex = 0;
-        serviceSpin.stepDurations = getMomentumDurations(momentumSteps, velocity, ratio);
-        serviceSpin.ignoreNextClick = true;
-
-        if (!servicesSwiper.animating) {
-            serviceSpin.continuationPending = false;
-            serviceSpin.momentumTimer = setTimeout(() => runServiceMomentumStep(), 35);
-        }
+        return;
     }
+
+    serviceSpin.momentumStepIndex++;
+
+    /*
+     * Small pause between momentum slides.
+     *
+     * Slightly longer toward the end reinforces
+     * the gradual loss of momentum.
+     */
+    const padding =
+        serviceSpin.momentumStepIndex ===
+        serviceSpin.momentumSteps
+            ? 100
+            : 30;
+
+    serviceSpin.momentumTimer =
+        setTimeout(
+            () => runServiceMomentumStep(),
+            duration + padding
+        );
+}
+
+
+    
+function handleServiceGestureEnd(clientX, ev) {
+
+    if (!serviceSpin.active || !servicesSwiper) return;
+
+    serviceSpin.active = false;
+
+    const endTime =
+        (ev && ev.timeStamp) || Date.now();
+
+    const deltaX =
+        clientX - serviceSpin.startX;
+
+    const absDelta =
+        Math.abs(deltaX);
+
+    const width =
+        el.clientWidth ||
+        el.getBoundingClientRect().width ||
+        1;
+
+    const ratio =
+        absDelta / width;
+
+    const duration =
+        Math.max(
+            1,
+            endTime - serviceSpin.startTime
+        );
+
+    /*
+     * Ignore small clicks/taps.
+     */
+    const isLargeSwipe =
+        ratio >= 0.20 &&
+        duration > 80;
+
+    if (!isLargeSwipe) {
+        return;
+    }
+
+    /*
+     * Direction of the user's swipe.
+     */
+    const direction =
+        deltaX > 0 ? 1 : -1;
+
+    const velocity =
+        absDelta / duration;
+
+    /*
+     * IMPORTANT:
+     *
+     * We are NOT changing the normal Swiper speed.
+     *
+     * Swiper will finish its normal 300ms drag transition.
+     *
+     * Once that transition ends, slideChangeTransitionEnd()
+     * starts our additional momentum.
+     */
+
+    const momentumSteps = 3;
+
+    clearServiceSpin();
+
+    serviceSpin.active = true;
+
+    serviceSpin.momentumDirection =
+        direction;
+
+    serviceSpin.momentumVelocity =
+        velocity;
+
+    serviceSpin.momentumRatio =
+        ratio;
+
+    /*
+     * Exactly three additional slides.
+     *
+     * Example:
+     *
+     * Normal drag finishes on slide 4
+     *
+     * 4 → 5 → 6 → 7
+     *
+     * The final destination is therefore
+     * three slides beyond the natural stopping point.
+     */
+    serviceSpin.momentumSteps =
+        momentumSteps;
+
+    serviceSpin.momentumStepIndex =
+        0;
+
+    serviceSpin.stepDurations =
+        getMomentumDurations(
+            momentumSteps,
+            velocity,
+            ratio
+        );
+
+    /*
+     * The normal Swiper drag is still animating.
+     *
+     * Wait until slideChangeTransitionEnd().
+     *
+     * At that exact moment runServiceMomentumStep()
+     * reads servicesSwiper.realIndex and continues
+     * from the slide Swiper actually landed on.
+     */
+    serviceSpin.continuationPending =
+        !!servicesSwiper.animating;
+
+    /*
+     * Prevent the synthetic click generated by the drag
+     * from being treated as a normal slide click.
+     */
+    serviceSpin.ignoreNextClick = true;
+
+    /*
+     * If Swiper isn't animating anymore, start the momentum
+     * directly from the current slide.
+     */
+    if (!servicesSwiper.animating) {
+
+        serviceSpin.continuationPending =
+            false;
+
+        serviceSpin.momentumTimer =
+            setTimeout(
+                () => runServiceMomentumStep(),
+                30
+            );
+    }
+}
+
 
     function pointerDownHandler(ev) {
         stopServiceMotion();
