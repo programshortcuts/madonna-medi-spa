@@ -1,0 +1,35 @@
+/* service-swiper.css */
+
+@media screen and (min-width:723px) {
+
+    .service-column {
+        margin: 0 1%;
+        padding-top: 0%;
+    }
+
+    .service-column>.service-col-title {
+        margin-top: 1%;
+        padding: .5% 0;
+    }
+}
+
+@media screen and (max-width: 722px) {
+    .service-column {
+        /* margin: 0 1%; */
+        padding-top: 0%;
+    }
+
+    .service-column>.service-col-title {
+        margin-top: 1%;
+        padding: .5% 0;
+        font-size: .5rem;
+        font-size: .5rem !important;
+    }
+
+}
+
+@media screen and (max-width:431px) {
+    .service-column>.service-col-title>.title-text {
+        font-size: 95% !important;
+    }
+}

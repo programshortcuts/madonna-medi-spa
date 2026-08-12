@@ -57,3 +57,6 @@
 .service-column > .service-col-title{
     display: block;
 }
+.service-column>.service-col-title {
+    flex-grow: 1; 
+}
