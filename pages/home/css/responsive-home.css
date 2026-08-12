@@ -1,5 +1,8 @@
 /* responsivce-home.css */
 @media screen and (min-width:723px) {
+    .service-col-title{
+        font-size: 50%;
+    }
     .service-column {
         margin: 0 1%;
         padding-top: 0%;
@@ -17,6 +20,9 @@
     .service-column>.service-col-title {
         margin-top: 1%;
         padding: .5% 0;
+    }
+    .service-col-title{
+        font-size: 50%;
     }
 }
 @media screen and (min-width:533px) {
