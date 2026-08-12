@@ -1,7 +1,6 @@
 // js/visuals/swiper.js
 let reviewsSwiper = null;
 let clickedServiceSlide = null
-import { initDropDown } from "../ui/drop-down.js";   
 export function initReviewsSwiper() {
     const el = document.querySelector('.reviews-swiper');
     if (!el || typeof Swiper === 'undefined') return;
