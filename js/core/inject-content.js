@@ -200,10 +200,9 @@ export async function injectPage(href) {
             pageWrapper.scrollTop = 0;
         });
     }
+    // Keyboard-nav is in onPageReady in page-lifecycle.js
     onPageReady();
-    // -----------------------------
-    // INIT UI MODULES
-    // -----------------------------
+    // ----------------------------- // INIT UI MODULES// -----------------------------
     initProductsController();
     initItemsScroll();
     initZoomItems();
