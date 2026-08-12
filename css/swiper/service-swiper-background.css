@@ -29,7 +29,7 @@
     filter: grayscale(30%);
 }
 #glp-1ServiceHome{
-    background: url('../../pages/imgs/glp-service-slide.png');
+    /* background: url('../../pages/imgs/glp-service-slide.png'); */
     background-repeat:    no-repeat !important;
     /* background-size: 200px 200px; */
     background-position-x: -50% !important;
