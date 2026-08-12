@@ -1,4 +1,37 @@
 /* service-swiper.css */
+.services-columns {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+
+.services-columns>.service-col-title {
+    display: block;
+}
+
+.services-columns>.service-col-title {
+    flex-grow: 1;
+}
+
+.service-column {
+    margin: 0 1%;
+}
+
+.service-column>.service-col-title {
+    padding-top: 5%;
+    padding: 1%
+}
+
+.service-column>.service-col-title {
+    max-width: fit-content;
+    margin-top: 2%;
+    margin-right: 5%;
+}
+/* .service-column>.service-col-title {
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+} */
 
 @media screen and (min-width:723px) {
 
