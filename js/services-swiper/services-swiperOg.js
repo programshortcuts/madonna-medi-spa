@@ -42,32 +42,26 @@ export function initServicesSwiper() {
     
         on: {
             slideChangeTransitionEnd() {
-
+    
                 syncServiceButton(this);
-            
+    
                 if (serviceSpin.continuationPending) {
-            
                     serviceSpin.continuationPending = false;
-            
-                    if (
-                        serviceSpin.momentumStepIndex <
-                        serviceSpin.momentumSteps
-                    ) {
+    
+                    if (serviceSpin.momentumSteps > 0) {
                         runServiceMomentumStep();
-                    } else {
-                        clearServiceSpin();
                     }
                 }
-            
+    
                 if (initialLoad) {
                     initialLoad = false;
                     return;
                 }
-            
+    
                 if (!shouldFocusSlide) return;
-            
+    
                 shouldFocusSlide = false;
-            
+    
                 this.slides[this.activeIndex]?.focus();
             }
         }
@@ -273,12 +267,7 @@ function getMomentumDurations(steps, velocity, ratio) {
 
     
 function runServiceMomentumStep() {
-    if (!servicesSwiper) {
-        clearServiceSpin();
-        return;
-    }
-
-    if (serviceSpin.momentumStepIndex >= serviceSpin.momentumSteps) {
+    if (!servicesSwiper || serviceSpin.momentumStepIndex >= serviceSpin.momentumSteps) {
         clearServiceSpin();
         return;
     }
@@ -291,49 +280,40 @@ function runServiceMomentumStep() {
         );
 
     const duration = durations[
-        Math.min(
-            durations.length - 1,
-            serviceSpin.momentumStepIndex
-        )
+        Math.min(durations.length - 1, serviceSpin.momentumStepIndex)
     ];
 
-    /*
-     * Read where Swiper is RIGHT NOW.
-     *
-     * This is critical because the normal drag determines
-     * the actual starting point of the momentum.
-     */
-    const currentIndex =
-        typeof servicesSwiper.realIndex === 'number'
-            ? servicesSwiper.realIndex
-            : servicesSwiper.activeIndex;
+    const padding =
+        serviceSpin.momentumStepIndex === serviceSpin.momentumSteps - 1
+            ? 120
+            : 40;
+
+    // IMPORTANT:
+    // Continue from wherever Swiper actually is NOW.
+    const currentIndex = typeof servicesSwiper.realIndex === 'number'
+        ? servicesSwiper.realIndex
+        : servicesSwiper.activeIndex;
 
     const targetIndex =
         currentIndex + serviceSpin.momentumDirection;
 
-    /*
-     * Mark that this transition belongs to our
-     * momentum sequence.
-     */
-    serviceSpin.continuationPending = true;
-
-    serviceSpin.momentumStepIndex += 1;
-
     try {
         if (servicesSwiper.slideToLoop) {
-            servicesSwiper.slideToLoop(
-                targetIndex,
-                duration
-            );
+            servicesSwiper.slideToLoop(targetIndex, duration);
         } else {
-            servicesSwiper.slideTo(
-                targetIndex,
-                duration
-            );
+            servicesSwiper.slideTo(targetIndex, duration);
         }
     } catch (e) {
         clearServiceSpin();
+        return;
     }
+
+    serviceSpin.momentumStepIndex += 1;
+
+    serviceSpin.momentumTimer = setTimeout(
+        () => runServiceMomentumStep(),
+        duration + padding
+    );
 }
 
 
@@ -382,7 +362,7 @@ function handleServiceGestureEnd(clientX, ev) {
      * Direction of the user's swipe.
      */
     const direction =
-        deltaX > 0 ? -1 : 1;
+        deltaX > 0 ? 1 : -1;
 
 const velocity =
     absDelta / duration;
@@ -402,29 +382,30 @@ serviceSpin.momentumRatio =
 
 /*
  * IMPORTANT:
+ *
+ * Get the slide where the NORMAL Swiper drag
+ * actually ended.
+ */
 const currentIndex =
     typeof servicesSwiper.realIndex === 'number'
         ? servicesSwiper.realIndex
         : servicesSwiper.activeIndex;
 
 /*
- * Calculate the exact number of additional slides
- * required to return to the slide that was active
- * when the drag began.
+ * Calculate how many additional slides we need
+ * to travel in the SAME direction until we arrive
+ * back at the slide where the drag originally began.
  */
-const momentumSteps = getMomentumStepsToStart(
-    currentIndex,
-    serviceSpin.startRealIndex,
-    direction
+const momentumSteps = Math.min(
+    8,
+    Math.max(3, 3 + Math.round(ratio + velocity))
 );
 
+serviceSpin.momentumSteps =
+    momentumSteps;
 
-serviceSpin.momentumDirection = direction;
-serviceSpin.momentumVelocity = velocity;
-serviceSpin.momentumRatio = ratio;
-
-serviceSpin.momentumSteps = momentumSteps;
-serviceSpin.momentumStepIndex = 0;
+serviceSpin.momentumStepIndex =
+    0;
 
 serviceSpin.stepDurations =
     getMomentumDurations(
@@ -432,6 +413,41 @@ serviceSpin.stepDurations =
         velocity,
         ratio
     );
+
+
+    serviceSpin.momentumDirection =
+        direction;
+
+    serviceSpin.momentumVelocity =
+        velocity;
+
+    serviceSpin.momentumRatio =
+        ratio;
+
+    /*
+     * Exactly three additional slides.
+     *
+     * Example:
+     *
+     * Normal drag finishes on slide 4
+     *
+     * 4 → 5 → 6 → 7
+     *
+     * The final destination is therefore
+     * three slides beyond the natural stopping point.
+     */
+    serviceSpin.momentumSteps =
+        momentumSteps;
+
+    serviceSpin.momentumStepIndex =
+        0;
+
+    serviceSpin.stepDurations =
+        getMomentumDurations(
+            momentumSteps,
+            velocity,
+            ratio
+        );
 
     /*
      * The normal Swiper drag is still animating.
@@ -469,33 +485,33 @@ serviceSpin.stepDurations =
 }
 
 
-function pointerDownHandler(ev) {
-    stopServiceMotion();
-
-    handleServiceGestureStart(ev.clientX, ev);
-
-    if (ev.currentTarget.setPointerCapture) {
-        try {
-            ev.currentTarget.setPointerCapture(ev.pointerId);
-        } catch (e) {}
+    function pointerDownHandler(ev) {
+        stopServiceMotion();
+        handleServiceGestureStart(ev.clientX, ev);
     }
-}
 
-function pointerUpHandler(ev) {
-    handleServiceGestureEnd(ev.clientX, ev);
-
-    if (ev.currentTarget.releasePointerCapture) {
-        try {
-            ev.currentTarget.releasePointerCapture(ev.pointerId);
-        } catch (e) {}
+    function pointerUpHandler(ev) {
+        handleServiceGestureEnd(ev.clientX, ev);
     }
-}
 
-    ///****** */
+    function touchStartHandler(ev) {
+        stopServiceMotion();
+        const touch = ev.touches && ev.touches[0];
+        if (touch) handleServiceGestureStart(touch.clientX, ev);
+    }
+
+    function touchEndHandler(ev) {
+        const touch = ev.changedTouches && ev.changedTouches[0];
+        handleServiceGestureEnd(touch ? touch.clientX : 0, ev);
+    }
 
     el.addEventListener('pointerdown', pointerDownHandler);
     el.addEventListener('pointerup', pointerUpHandler);
     el.addEventListener('pointercancel', pointerUpHandler);
+    el.addEventListener('pointerleave', pointerUpHandler);
+    el.addEventListener('touchstart', touchStartHandler, { passive: true });
+    el.addEventListener('touchend', touchEndHandler);
+    el.addEventListener('touchcancel', touchEndHandler);
 
     // Allow clicking on slides to navigate directly to the clicked slide and then focus it.
     el.addEventListener('click', (e) => {
