@@ -1,6 +1,7 @@
 @media screen and (min-width:1001px){
     
 }
+
 @media screen and (min-width:701px){
     .page-header{
         height: 5vh !important;
@@ -9,19 +10,17 @@
     .mobile-header-nav .social-media-container-nav{
         display: flex;
     }
-        .mobile-header-nav .social-media-container-nav {
-            flex-direction: row !important;
-        }
-    
-        .mobile-header-nav {
-            padding-bottom: 8%;
-        }
+    .mobile-header-nav .social-media-container-nav {
+        flex-direction: row !important;
+    }
 
+    .mobile-header-nav {
+        padding-bottom: 8%;
+    }
 }
 @media screen and (min-width:542px) {
     .page-container.home-page-container {
         padding-top: 0% !important;
-
     }
     .home-page-container > .home-page-header.bg-slider > .bg-slide{
         background-position-y: 10% !important;
@@ -37,7 +36,6 @@
 }
 
 @media screen and (max-width:541px) {
-       
     #addressLinkHeader > a{
         width: 100% !important;
         line-height: 1.2;

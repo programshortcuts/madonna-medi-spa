@@ -38,8 +38,8 @@
         line-height: 1.2 !important;
     }
     .swiper.reviews-swiper {
-            height: 15vh;        
-        }
+        height: 15vh;        
+    }
     .home-page-header {
         padding-top:25% !important;
     }
@@ -52,7 +52,6 @@
         margin-left: 5%;
     }
 }
-
 @media screen and (max-width:431px) {
     .reviews-swiper .swiper-slide{
         font-size: .9rem;
@@ -63,6 +62,4 @@
     #longevityMedHomePage>.title-text {
         margin-top: 2% !important;
     }
-    
-    
 }
