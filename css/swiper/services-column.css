@@ -56,13 +56,14 @@
         margin-top: 1%;
         padding: .5% 0;
         font-size: .5rem;
-        font-size: .5rem !important;
+        font-size: .75rem !important;
     }
 
 }
 
 @media screen and (max-width:431px) {
     .service-column>.service-col-title>.title-text {
-        font-size: 95% !important;
+        /* font-size: 11% !important; */
+        font-size: .75rem !important;
     }
 }

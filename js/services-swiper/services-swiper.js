@@ -18,7 +18,8 @@ export function initServicesSwiper() {
     let initialLoad = true;
     servicesSwiper = new Swiper(el, {
         loop: true,
-        speed: 300,
+    
+        speed: 500,
     
         centeredSlides: true,
         slidesPerView: 'auto',
@@ -27,49 +28,21 @@ export function initServicesSwiper() {
         grabCursor: true,
         allowTouchMove: true,
     
-        threshold: 10,
-        touchAngle: 25,
+        threshold: 5,
+    
+        freeMode: {
+            enabled: true,
+            momentum: true,
+            momentumRatio: 0.8,
+            momentumVelocityRatio: 0.8,
+            momentumBounce: true,
+            momentumBounceRatio: 0.5,
+            sticky: true
+        },
     
         keyboard: {
             enabled: true,
             onlyInViewport: true
-        },
-    
-        autoplay: {
-            delay: 3333,
-            disableOnInteraction: true
-        },
-    
-        on: {
-            slideChangeTransitionEnd() {
-
-                syncServiceButton(this);
-            
-                if (serviceSpin.continuationPending) {
-            
-                    serviceSpin.continuationPending = false;
-            
-                    if (
-                        serviceSpin.momentumStepIndex <
-                        serviceSpin.momentumSteps
-                    ) {
-                        runServiceMomentumStep();
-                    } else {
-                        clearServiceSpin();
-                    }
-                }
-            
-                if (initialLoad) {
-                    initialLoad = false;
-                    return;
-                }
-            
-                if (!shouldFocusSlide) return;
-            
-                shouldFocusSlide = false;
-            
-                this.slides[this.activeIndex]?.focus();
-            }
         }
     });
     
