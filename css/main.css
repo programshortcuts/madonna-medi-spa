@@ -13,7 +13,7 @@
 
 /* visuals */
 @import url('./swiper/swiper.css');
-@import url('./swiper/swiper-responsive.css');
+/* @import url('./swiper/swiper-responsive.css'); */
 @import url('./swiper/services-column.css');
 @import url('./swiper/reviews-swiper.css');
 @import url('./swiper/service-swiper.css');
