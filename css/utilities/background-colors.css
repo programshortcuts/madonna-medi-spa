@@ -1,7 +1,6 @@
 /* background-colors.css */
 :root {
-    /* --bg-clr: #ddd; */
-    --bg-clr: yellow;
+    --bg-clr: #ddd;
     --bg-header: #ddd;
 }
 .main-landing-page {
