@@ -3,8 +3,17 @@
     display: flex;
     flex-direction: column;
 }
-.service-rows button{
-    min-height: 10vh;
+.service-rows .service-row{
+    width: 90%;
+    margin-left: 2.5%;
+    min-height: 30vh;
+    display: flex;
+}
+.service-rows button .title-text{
+    display: inline-block;
+    height: max-content;
+    /* border: 1px solid black */
+
 }
 /* service-swiper-background.css */
 
@@ -14,6 +23,3 @@
 
 
 
-/* .service>.content {
-    background: transparent !important;
-} */
