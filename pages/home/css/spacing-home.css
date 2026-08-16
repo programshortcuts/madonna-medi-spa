@@ -7,6 +7,9 @@ k/* spacing-home.css */
     /* padding-top: 5% ; */
     /* margin-bottom: -5%; */
 }
+.home-page-header{
+    margin-top: 8%;
+}
 .home-page-header>p {
     padding-bottom: 5%;
     padding-left: 2%;

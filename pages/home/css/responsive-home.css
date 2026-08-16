@@ -1,10 +1,7 @@
 /* responsivce-home.css */
 
 @media screen and (min-width:533px) {
-    .home-page-header {
-        float: left;
-        width: 45%;
-    }
+    
     .address-contact-home{
         margin-top: 5%;
     }

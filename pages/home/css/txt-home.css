@@ -21,18 +21,9 @@
     text-decoration: none;
 }
 
-.page-container.home-page-container .main-item>p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /* font-family: 'Courier New', Courier, monospace; */
-    /* font-size: 1rem; */
-    /* font-weight: 400; */
-    line-height: 1.8;
-}
 
-.page-container.home-page-container .main-item p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /* font-size: .9rem; */
-}
+
+
 
 #ourServiceHomePage .title-text,
 #longevityMedHomePage  {
@@ -63,4 +54,9 @@
 }
 
 
-
+.home-main-content section p {
+}
+p.intro-text {
+     /* font-size: .2rem; */
+     font-family: 'Courier New', Courier, monospace !important
+}
