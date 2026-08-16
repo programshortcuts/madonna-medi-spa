@@ -4,7 +4,7 @@
 }
 .home-page-header {
     width: 100vw !important;
-    height: 30vh;
+    height: 40vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: 150% ;
@@ -50,4 +50,7 @@
 .move-right {
     background-position-x: -20% !important;
     
+}
+.slogan {
+    z-index: 2;
 }

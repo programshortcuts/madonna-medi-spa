@@ -19,7 +19,7 @@
         height: 15vh;        
     }
     .home-page-header {
-        padding-top:25% !important;
+        /* padding-top:25% !important; */
     }
     #officeInPhotoA{
         display: inline-flex

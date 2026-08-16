@@ -1,5 +1,5 @@
 /* txt-home.css*/
-.home-page-header>p {
+.slogan  {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -55,8 +55,9 @@
 
 
 .home-main-content section p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 p.intro-text {
      /* font-size: .2rem; */
-     font-family: 'Courier New', Courier, monospace !important
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
