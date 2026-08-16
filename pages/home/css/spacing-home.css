@@ -78,3 +78,7 @@ section#longevityMedHomePage {
     margin-left: 18%;
 }
 
+p.intro-text {
+    padding-top: 1%;
+    line-height: 1.2;
+}
