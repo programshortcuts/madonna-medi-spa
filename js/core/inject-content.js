@@ -168,6 +168,7 @@ export async function injectPage(href) {
             'max',
             'step',
 
+            'data-href',
             'data-auto-focus',
             'data-nav-target',
             'data-link',
